@@ -1,7 +1,9 @@
-import React from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Header = () => {
+  const [toggle, isToggle] = useState<string>("hidden")
+
   return (
     <header>
       <div className="container wrapper py-12">
@@ -30,7 +32,10 @@ const Header = () => {
             </Link>
 
             <div className="relative">
-              <button id="profile-btn" className="shadow py-3 px-4">
+              <button
+                className="shadow py-3 px-4"
+                onClick={() => isToggle("block")}
+              >
                 <img src="./img/profile.svg" alt="Profile" />
               </button>
             </div>
@@ -38,11 +43,10 @@ const Header = () => {
 
           {/* <!-- menu profile --> */}
           <div
-            id="profile-menu"
-            className="hidden blur-none bg-[#E9E9E9] rounded-2xl p-3 max-w-[300px] absolute top-14 -right-5 shadow-mobile-menu z-30 sm:right-0"
+            className={`${toggle} blur-none bg-[#E9E9E9] rounded-2xl p-3 max-w-[300px] absolute top-14 -right-5 shadow-mobile-menu z-30 sm:right-0`}
           >
             <div className="flex justify-end py-2 pr-4">
-              <button id="profile-close-btn">
+              <button id="profile-close-btn" onClick={() => isToggle("hidden")}>
                 <img src="./img/close.svg" alt="" />
               </button>
             </div>
