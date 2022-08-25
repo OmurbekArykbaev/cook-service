@@ -53,23 +53,23 @@ const Header = () => {
 
             <ul className="w-full flex flex-col">
               <li className="p-3 border-t-2 border-white">
-                <a href="/#" className="flex items-center">
+                <Link to="/orders" className="flex items-center">
                   <img className="mr-3" src="./img/item1.svg" alt="" />
                   <h4>Мои заказы</h4>
-                </a>
+                </Link>
               </li>
 
               <li className="p-3 border-t-2 border-white">
-                <a href="/#" className="flex items-center">
+                <Link to="/order" className="flex items-center">
                   <img className="mr-3" src="./img/item2.svg" alt="" />
                   <h4>Депозит</h4>
-                </a>
+                </Link>
               </li>
               <li className="p-3 border-t-2 border-white">
-                <a href="/#" className="flex items-center">
+                <Link to="/shipping" className="flex items-center">
                   <img className="mr-3" src="./img/item3.svg" alt="" />
                   <h4>Привязанные карты</h4>
-                </a>
+                </Link>
               </li>
 
               <li className="p-3 border-t-2 border-white">

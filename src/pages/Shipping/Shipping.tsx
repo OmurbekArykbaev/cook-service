@@ -1,0 +1,113 @@
+import React from "react"
+import { Link } from "react-router-dom"
+import DFItem from "../../components/DeliveryFoodItem/DFItem"
+
+const Shipping = () => {
+  return (
+    <main className="container wrapper">
+      <section>
+        <div className="flex flex-col py-8">
+          {/* <!-- title --> */}
+          <div className="flex items-center w-full pb-8  lg:mb-0">
+            <Link to="/" className="mr-6">
+              <img src="./img/arrow.png" alt="" />
+            </Link>
+            <h1 className="text-[#212629] font-bold text-2xl sm:text-4xl">
+              №298456548
+            </h1>
+          </div>
+
+          {/* <!-- progress bar --> */}
+          <div className="relative w-full mx-auto mb-7  flex justify-between">
+            {/* <!-- line --> */}
+            <div className="absolute top-1/4 w-[97%] left-1/2 -translate-x-1/2 h-1 bg-white -z-10"></div>
+
+            {/* <!-- item 1 --> */}
+            <div className="flex flex-col items-start lg:items-center lg:justify-center">
+              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+                <img src="./img/progress/item1.svg" alt="" />
+              </div>
+              <p className="text-sm ">Оформлен</p>
+            </div>
+
+            {/* <!-- item 2 --> */}
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-black rounded-full">
+                <img src="./img/progress/item2.svg" alt="" />
+              </div>
+              <p className="text-sm ">Готовиться</p>
+            </div>
+
+            {/* <!-- item 3 --> */}
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+                <img src="./img/progress/item3.svg" alt="" />
+              </div>
+              <p className="text-sm ">В доставке</p>
+            </div>
+
+            {/* <!-- item 4 --> */}
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+                <img src="./img/progress/item4.svg" alt="" />
+              </div>
+              <p className="text-sm ">Готово</p>
+            </div>
+          </div>
+
+          {/* <!-- items wrapper --> */}
+          <div className="flex flex-col">
+            <div className="bg-[#FFFFFF66] p-3 rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px] mb-3">
+              {/* <!-- foods wrapper  --> */}
+              <DFItem />
+              <DFItem />
+              <DFItem />
+
+              {/* <!-- shipping and quantity --> */}
+              <div className="w-full flex flex-col py-2 px-6">
+                <div className="w-full flex justify-between py-4 border-[#21262914] border-b border-t">
+                  <h3 className="font-bold text-lg">Доставка</h3>
+                  <h3 className="font-bold text-lg">0₽</h3>
+                </div>
+                <div className="w-full flex justify-between pt-4">
+                  <h3 className="font-bold text-lg">Итого</h3>
+                  <h3 className="font-bold text-lg">7 610₽</h3>
+                </div>
+              </div>
+            </div>
+
+            {/* <!-- when, where, pay --> */}
+            <ul>
+              <li className="bg-[#FFFFFF66] py-4 px-8 mb-3 flex flex-col rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px]">
+                <p className="text-sm text-[#b1b2b3]">Когда</p>
+                <h3 className="text-lg">Как можно скорее</h3>
+              </li>
+
+              <li className="bg-[#FFFFFF66] py-4 px-8 mb-3 flex flex-col rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px]">
+                <p className="text-sm text-[#b1b2b3]">Куда</p>
+                <h3 className="text-lg">
+                  Пресненская набережная, 10с1, кв./офис 250, подъезд 1, этаж
+                  25, домофон 250
+                </h3>
+              </li>
+
+              <li className="bg-[#FFFFFF66] py-4 px-8 mb-3 flex flex-col rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px]">
+                <p className="text-sm text-[#b1b2b3]">Оплата</p>
+                <h3 className="text-lg">Картой курьеру</h3>
+              </li>
+            </ul>
+          </div>
+
+          {/* <!-- button to order --> */}
+          <div className="flex justify-center w-full md:px-12 py-3 mb-5  md:justify-end">
+            <button className="w-full btn text-xl font-bold md:px-7 py-4 md:w-auto md:text-lg lg:px-6 lg:py-2">
+              Отменить заказ
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+export default Shipping

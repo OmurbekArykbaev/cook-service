@@ -1,0 +1,18 @@
+
+
+
+     {/* was arrived */}
+          <div className="flex flex-col items-center md:items-start w-full px-5 md:px-12 mx-auto mb-7">
+            <h1 className="text-4xl md:text-[120px] md:leading-[100px] font-bold mb-6">
+              доставлен
+            </h1>
+            <h3 className="text-3xl font-bold">8 апреля 2054</h3>
+          </div>
+
+          {/* was  canceled*/}
+          <div className="flex flex-col items-center md:items-start w-full px-5 md:px-12 mx-auto mb-7">
+            <h1 className="text-4xl md:text-[120px] md:leading-[100px] font-bold mb-6">
+              отменен
+            </h1>
+            <h3 className="text-3xl font-bold">8 апреля 2054</h3>
+          </div>
