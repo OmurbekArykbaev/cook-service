@@ -8,13 +8,15 @@ const FoodCard = () => {
       <div className="card-food-img">
         <div className="absolute top-5 left-5">
           <button>
-            <img src="./img/Vector.svg" alt="" />
+            <img src="./img/Vector.svg" alt="Save" />
           </button>
         </div>
+
         <img src="./img/dish.png" alt="Dish" />
+
         <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
           <button>
-            <img src="./img/chilli.png" alt="" />
+            <img src="./img/chilli.png" alt="Hot" />
           </button>
         </div>
       </div>
@@ -24,21 +26,25 @@ const FoodCard = () => {
         <h4 className="font-bold text-xl group-hover:text-white">
           Картофель с луком и белыми грибами
         </h4>
-        <div className="flex items-center w-full py-3">
-          <span className="text-sm text-[#21262980] mr-4 group-hover:text-white">
-            320г
-          </span>
-          <span className="text-sm text-[#21262980] mr-4 group-hover:text-white">
+
+        <ul className="flex items-center w-full py-3">
+          <li className="text-sm text-[#21262980]  mr-4 group-hover:text-white">
+            320 г
+          </li>
+
+          <li className="text-sm text-[#21262980] list-disc list-inside mr-4 group-hover:text-white">
             1040 ккал
-          </span>
-          <span className="text-sm text-[#212629100] mr-4 group-hover:text-white">
-            430Р
-          </span>
-        </div>
+          </li>
+          <li className="text-sm text-[#212629100] list-disc list-inside  mr-4 group-hover:text-white">
+            430 Р
+          </li>
+        </ul>
+
         <p className="text-lg text-[#21262999] leading-5 py-3 group-hover:text-white">
           Это вкусное и сытное блюдо является любимым блюдом во многих семьях,
           полюбите его и вы.
         </p>
+
         <div className="w-full flex items-center py-3">
           <Count />
 

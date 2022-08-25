@@ -61,7 +61,7 @@ body {
 
   .card-food {
     position: relative;
-    @apply flex flex-col max-w-[360px] mr-0 sm:mr-6 mb-6 cursor-pointer;
+    @apply flex flex-col max-w-[360px] mr-0 sm:mr-6 mb-6;
   }
 
   .card-food-hover:before {
