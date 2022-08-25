@@ -1,4 +1,5 @@
 import React from "react"
+import Count from "../ui/Count/Count"
 
 const FoodCard = () => {
   return (
@@ -39,13 +40,9 @@ const FoodCard = () => {
           полюбите его и вы.
         </p>
         <div className="w-full flex items-center py-3">
-          <div className="flex items-center border border-white rounded-full text-xl mr-5">
-            <button className="px-3 py-1 group-hover:text-white">-</button>
-            <span className="px-2 py-1 text-sm group-hover:text-white">1</span>
-            <button className="px-3 py-1 group-hover:text-white">+</button>
-          </div>
+          <Count />
 
-          <button className="btn py-2 w-[70%] text-[#FE9102] font-bold  group-hover:bg-[#212629] group-hover:shadow-black">
+          <button className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black">
             Добавить
           </button>
         </div>

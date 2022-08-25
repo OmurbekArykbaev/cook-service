@@ -1,8 +1,9 @@
 import React from "react"
+import Count from "../ui/Count/Count"
 
 const CartItem = () => {
   return (
-    <li className="p-3 sm:p-6 bg-white rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[5px] mb-3">
+    <li className="p-3 sm:p-6 bg-[#FFFFFF66] rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[5px] mb-3">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         {/* <!-- title, img --> */}
         <div className="flex w-full border-b  md:border-b-0  pb-6 md:pb-0">
@@ -18,8 +19,8 @@ const CartItem = () => {
         </div>
 
         {/* <!-- quan and price --> */}
-        <div className="flex justify-around  items-center pt-6 md:pt-0 md:justify-start">
-          <div className="mr-8 font-bold border px-3">- 999 +</div>
+        <div className="w-auto flex justify-between  items-center pt-6 md:w-[30%] md:pt-0 md:justify-start">
+          <Count />
           <h3 className="text-lg font-bold">450 860₽</h3>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
@@ -7,9 +8,9 @@ const Header = () => {
         {/* <!-- Navbar --> */}
         <nav className="flex justify-between relative">
           {/* <!-- Logo --> */}
-          <a href="./order.html">
+          <Link to="/">
             <img src="./img/logo.svg" alt="Logo" />
-          </a>
+          </Link>
 
           {/* <!-- Panel --> */}
           <div className="flex items-center space-x-3 sm:space-x-12">
@@ -21,12 +22,12 @@ const Header = () => {
               <span className="hidden sm:block">WhatsApp</span>
             </a>
 
-            <a
-              href="./cart.html"
+            <Link
+              to="/cart"
               className="hidden text-lg text-black py-2 px-7 font-bold shadow md:block"
             >
               Заказать 1 блюда за 430Р
-            </a>
+            </Link>
 
             <div className="relative">
               <button id="profile-btn" className="shadow py-3 px-4">
