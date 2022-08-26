@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import AddAddress from "./pages/Address/AddAddress"
 import Address from "./pages/Address/Address"
 import Cart from "./pages/Cart"
 import Home from "./pages/Home"
@@ -21,6 +22,7 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/cards" element={<LinkedCards />} />
             <Route path="/address" element={<Address />} />
+            <Route path="/addresses" element={<AddAddress />} />
           </Route>
         </Routes>
       </BrowserRouter>

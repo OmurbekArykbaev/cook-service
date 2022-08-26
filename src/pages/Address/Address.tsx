@@ -43,9 +43,12 @@ const Address = () => {
           {/* button */}
 
           <div className="px-6   sm:px-12">
-            <button className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]">
+            <Link
+              to="/addresses"
+              className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]"
+            >
               Добавить адреса
-            </button>
+            </Link>
           </div>
         </div>
       </section>
