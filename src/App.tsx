@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Payment from "./pages/AddDataForm/Payment/Payment"
 import SelfData from "./pages/AddDataForm/SelfData/SelfData"
-import AddAddress from "./pages/Address/AddAddress"
+import AddAddress from "./pages/AddDataForm/Address/AddAddress"
 import Address from "./pages/Address/Address"
 import Cart from "./pages/Cart"
 import Home from "./pages/Home"
