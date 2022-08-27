@@ -46,7 +46,7 @@ const AddAddress = () => {
               </div>
 
               {/* inputs wrapper 4 items  */}
-              <div className=" grid grid-cols-2 gap-6 md:space-y-2 md:flex md:items-center  md:space-x-8 md:flex-row">
+              <div className="grid grid-cols-2 gap-6 md:space-y-2 md:flex md:items-center  md:space-x-8 md:flex-row">
                 {/* input 1 */}
                 <div className="flex flex-col space-y-2">
                   <label className="text-sm text-textGray" htmlFor="address">

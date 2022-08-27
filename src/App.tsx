@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import SelfData from "./pages/AddDataForm/SelfData/SelfData"
 import AddAddress from "./pages/Address/AddAddress"
 import Address from "./pages/Address/Address"
 import Cart from "./pages/Cart"
@@ -23,6 +24,7 @@ function App() {
             <Route path="/cards" element={<LinkedCards />} />
             <Route path="/address" element={<Address />} />
             <Route path="/addresses" element={<AddAddress />} />
+            <Route path="/profile" element={<SelfData />} />
           </Route>
         </Routes>
       </BrowserRouter>
