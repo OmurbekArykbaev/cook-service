@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Payment from "./pages/AddDataForm/Payment/Payment"
 import SelfData from "./pages/AddDataForm/SelfData/SelfData"
 import AddAddress from "./pages/Address/AddAddress"
 import Address from "./pages/Address/Address"
@@ -25,6 +26,7 @@ function App() {
             <Route path="/address" element={<Address />} />
             <Route path="/addresses" element={<AddAddress />} />
             <Route path="/profile" element={<SelfData />} />
+            <Route path="/payment" element={<Payment />} />
           </Route>
         </Routes>
       </BrowserRouter>
