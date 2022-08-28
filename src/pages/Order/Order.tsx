@@ -1,9 +1,10 @@
 import React from "react"
 import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const Order = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -80,7 +81,7 @@ const Order = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

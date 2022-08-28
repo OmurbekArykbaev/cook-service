@@ -1,11 +1,11 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 import Title from "../../../components/Title/Title"
+import Wrapper from "../../../components/Wrapper/Wrapper"
 
 const AddAddress = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -112,7 +112,7 @@ const AddAddress = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

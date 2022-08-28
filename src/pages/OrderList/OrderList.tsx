@@ -1,10 +1,11 @@
 import React from "react"
 import OrderItem from "../../components/OrderItem/OrderItem"
 import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const OrderList = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-4 sm:py-8">
           {/* <!-- title --> */}
@@ -39,7 +40,7 @@ const OrderList = () => {
           </ul>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

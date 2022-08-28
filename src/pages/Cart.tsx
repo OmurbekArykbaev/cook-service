@@ -1,10 +1,11 @@
 import React from "react"
 import CartItem from "../components/CartItem/CartItem"
 import Title from "../components/Title/Title"
+import Wrapper from "../components/Wrapper/Wrapper"
 
 const Cart = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -22,7 +23,7 @@ const Cart = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

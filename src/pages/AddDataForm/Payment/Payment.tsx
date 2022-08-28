@@ -1,10 +1,11 @@
 import React from "react"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 import Title from "../../../components/Title/Title"
+import Wrapper from "../../../components/Wrapper/Wrapper"
 
 const Payment = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -79,7 +80,7 @@ const Payment = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

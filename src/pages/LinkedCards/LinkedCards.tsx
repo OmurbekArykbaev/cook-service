@@ -1,8 +1,9 @@
 import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const LinkedCards = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -37,7 +38,7 @@ const LinkedCards = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

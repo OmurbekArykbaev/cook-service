@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const Address = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -45,7 +46,7 @@ const Address = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 

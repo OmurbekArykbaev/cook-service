@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import DFItem from "../../components/DeliveryFoodItem/DFItem"
 import Progress from "../../components/ProgressBar/Progress"
 import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const Shipping = () => {
   return (
-    <main className="container wrapper">
+    <Wrapper>
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
@@ -64,7 +65,7 @@ const Shipping = () => {
           </div>
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 
