@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import DFItem from "../../components/DeliveryFoodItem/DFItem"
+import Progress from "../../components/ProgressBar/Progress"
 
 const Shipping = () => {
   return (
@@ -18,43 +19,7 @@ const Shipping = () => {
           </div>
 
           {/* <!-- progress bar --> */}
-          <div className="relative w-full mx-auto mb-7  flex justify-between">
-            {/* <!-- line --> */}
-            <div className="absolute top-1/4 w-[97%] left-1/2 -translate-x-1/2 h-1 bg-white -z-10"></div>
-
-            {/* <!-- item 1 --> */}
-            <div className="flex flex-col items-start lg:items-center lg:justify-center">
-              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
-                <img src="./img/progress/item1.svg" alt="" />
-              </div>
-              <p className="text-sm ">Оформлен</p>
-            </div>
-
-            {/* <!-- item 2 --> */}
-            <div className="flex flex-col items-center justify-center">
-              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-black rounded-full">
-                <img src="./img/progress/item2.svg" alt="" />
-              </div>
-              <p className="text-sm ">Готовиться</p>
-            </div>
-
-            {/* <!-- item 3 --> */}
-            <div className="flex flex-col items-center justify-center">
-              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
-                <img src="./img/progress/item3.svg" alt="" />
-              </div>
-              <p className="text-sm ">В доставке</p>
-            </div>
-
-            {/* <!-- item 4 --> */}
-            <div className="flex flex-col items-center justify-center">
-              <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
-                <img src="./img/progress/item4.svg" alt="" />
-              </div>
-              <p className="text-sm ">Готово</p>
-            </div>
-          </div>
-
+          <Progress />
           {/* <!-- items wrapper --> */}
           <div className="flex flex-col">
             <div className="bg-[#FFFFFF66] p-3 rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px] mb-3">
