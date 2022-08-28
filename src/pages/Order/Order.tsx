@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import Title from "../../components/Title/Title"
 
 const Order = () => {
   return (
@@ -7,15 +7,8 @@ const Order = () => {
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
-          <div className="flex items-center w-full mb-12">
-            <Link to="/" className="mr-8">
-              <img src="./img/arrow.png" alt="" />
-            </Link>
 
-            <h1 className="text-[#212629] font-bold text-3xl sm:text-4xl">
-              Оформление заказа
-            </h1>
-          </div>
+          <Title toPath="/" titleName="Оформление заказа" />
 
           {/* <!-- category --> */}
 

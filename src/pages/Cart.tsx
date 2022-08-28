@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import CartItem from "../components/CartItem/CartItem"
+import Title from "../components/Title/Title"
 
 const Cart = () => {
   return (
@@ -8,14 +8,7 @@ const Cart = () => {
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
-          <div className="flex items-center w-full mb-8 lg:mb-0">
-            <Link to="/" className="mr-6">
-              <img src="./img/arrow.png" alt="" />
-            </Link>
-            <h1 className="text-[#212629] font-bold text-2xl sm:text-4xl">
-              5 блюд на 2 530₽
-            </h1>
-          </div>
+          <Title titleName="5 блюд на сумму 1200" toPath="/" />
           {/* <!-- item wrapper --> */}
           <ul className="flex flex-col p-3 md:p-12 w-full">
             <CartItem />

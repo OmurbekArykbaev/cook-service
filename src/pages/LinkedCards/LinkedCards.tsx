@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import Title from "../../components/Title/Title"
 
 const LinkedCards = () => {
   return (
@@ -7,14 +7,7 @@ const LinkedCards = () => {
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
 
-          <div className="flex items-center w-full pb-8  lg:mb-0">
-            <Link to="/" className="mr-6">
-              <img src="./img/arrow.png" alt="" />
-            </Link>
-            <h1 className="text-[#212629] font-bold text-2xl sm:text-4xl">
-              Привязанные карты
-            </h1>
-          </div>
+          <Title toPath="/" titleName="Привязанные карты" />
 
           {/* Cards wrapper */}
           <div className="flex flex-wrap flex-col items-center md:items-start space-y-6 space-x-0 md:space-y-0 md:space-x-6 md:flex-nowrap mb-8 md:flex-row p-2 sm:p-8">

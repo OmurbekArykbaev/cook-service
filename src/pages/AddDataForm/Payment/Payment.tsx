@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { MdOutlineRemoveCircle } from "react-icons/md"
+import Title from "../../../components/Title/Title"
 
 const Payment = () => {
   return (
@@ -8,15 +8,7 @@ const Payment = () => {
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
-
-          <div className="flex items-center w-full pb-8  lg:mb-0">
-            <Link to="/address" className="mr-6">
-              <img src="./img/arrow.png" alt="Back Arrow" />
-            </Link>
-            <h1 className="text-[#212629] font-bold text-2xl sm:text-4xl">
-              Visa
-            </h1>
-          </div>
+          <Title titleName="Visa" toPath="/" />
 
           {/* Form wrapper */}
           <div className="flex flex-wrap flex-col items-center">
