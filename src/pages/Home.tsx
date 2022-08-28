@@ -2,10 +2,11 @@ import React from "react"
 import Carousel from "../components/Carousel/Carousel"
 import Category from "../components/Category/Category"
 import FoodCard from "../components/FoodCard/FoodCard"
+import Wrapper from "../components/Wrapper/Wrapper"
 
 const Home = () => {
   return (
-    <main className="container wrapper py-12">
+    <Wrapper nameClass="py-12">
       {/* <!-- Carousel and img --> */}
       <Carousel />
 
@@ -36,7 +37,7 @@ const Home = () => {
           <FoodCard />
         </div>
       </section>
-    </main>
+    </Wrapper>
   )
 }
 
