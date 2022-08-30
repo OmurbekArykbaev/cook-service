@@ -5,3 +5,5 @@ export const allFoodSlice = createSlice({
   initialState: ["coco"],
   reducers: {},
 })
+
+export default allFoodSlice.reducer

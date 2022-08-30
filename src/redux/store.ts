@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-
+import allFoodSlice from "../pages/Home/allFoodSlice"
 // const persistConfig = {
 // key: "root",
 // storage,
@@ -8,7 +8,9 @@ import { configureStore } from "@reduxjs/toolkit"
 // const persistedReducer = persistReducer(persistConfig, {})
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    allFoodData: allFoodSlice,
+  },
 })
 
 // export const persistor = persistStore(store)
