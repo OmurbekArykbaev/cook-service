@@ -1,7 +1,16 @@
-import React from "react"
+import { FC } from "react"
 import Count from "../ui/Count/Count"
+import FoodData from "../../types/FoodData"
 
-const FoodCard = () => {
+const FoodCard: FC<FoodData> = ({
+  id,
+  name,
+  image,
+  description,
+  category,
+  price,
+  cal,
+}) => {
   return (
     <div className="card-food">
       {/* <!-- Image part --> */}
@@ -12,7 +21,7 @@ const FoodCard = () => {
           </button>
         </div>
 
-        <img src="./img/dish.png" alt="Dish" />
+        <img src={image} alt="Dish" />
 
         <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
           <button>
@@ -22,27 +31,24 @@ const FoodCard = () => {
       </div>
 
       {/* <!-- Text content part --> */}
-      <div className="flex flex-col items-start p-4 border border-white/50 rounded-br-[40px] rounded-bl-[40px] group-hover:bg-black transition-all duration-150">
-        <h4 className="font-bold text-xl group-hover:text-white">
-          Картофель с луком и белыми грибами
-        </h4>
+      <div className="min-h-[280px] flex flex-col justify-around items-start p-4 border border-white/50 rounded-br-[40px] rounded-bl-[40px] group-hover:bg-black transition-all duration-150">
+        <h4 className="font-bold text-xl group-hover:text-white">{name}</h4>
 
         <ul className="flex items-center w-full py-3">
           <li className="text-sm text-[#21262980]  mr-4 group-hover:text-white">
-            320 г
+            {cal.gram} г
           </li>
 
           <li className="text-sm text-[#21262980] list-disc list-inside mr-4 group-hover:text-white">
-            1040 ккал
+            {cal.calories} ккал
           </li>
           <li className="text-sm text-[#212629100] list-disc list-inside  mr-4 group-hover:text-white">
-            430 Р
+            {price} Р
           </li>
         </ul>
 
         <p className="text-lg text-[#21262999] leading-5 py-3 group-hover:text-white">
-          Это вкусное и сытное блюдо является любимым блюдом во многих семьях,
-          полюбите его и вы.
+          {description}
         </p>
 
         <div className="w-full flex items-center py-3">

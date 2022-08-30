@@ -2,6 +2,18 @@ import IFood from "./types/FoodData"
 
 export const data: IFood[] = [
   {
+    id: "2",
+    name: "Картофель с луком и белыми грибами",
+    cal: { calories: 1040, gram: 320 },
+    price: 430,
+    description:
+      "Это вкусное и сытное блюдо является любимым блюдом во многих семьях, полюбите его и вы.",
+    category: "salad",
+    privatePerson: false,
+    corporatePerson: false,
+    image: "./img/dish.png",
+  },
+  {
     id: "1",
     name: "Кукси",
     cal: { calories: 120, gram: 300 },

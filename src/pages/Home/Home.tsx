@@ -1,8 +1,9 @@
 import React from "react"
-import Carousel from "../components/Carousel/Carousel"
-import Category from "../components/Category/Category"
-import FoodCard from "../components/FoodCard/FoodCard"
-import Wrapper from "../components/Wrapper/Wrapper"
+import Carousel from "../../components/Carousel/Carousel"
+import Category from "../../components/Category/Category"
+import FoodCard from "../../components/FoodCard/FoodCard"
+import Wrapper from "../../components/Wrapper/Wrapper"
+import { data } from "../../data"
 
 const Home = () => {
   return (
@@ -30,11 +31,9 @@ const Home = () => {
         {/* <!-- wrapper cards --> */}
 
         <div className="w-full flex flex-col mx-auto justify-center sm:py-6 items-center lg:flex-wrap lg:flex-row lg:mx-auto">
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
+          {data.map((item) => (
+            <FoodCard {...item} />
+          ))}
         </div>
       </section>
     </Wrapper>

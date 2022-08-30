@@ -1,7 +1,7 @@
 import React from "react"
-import CartItem from "../components/CartItem/CartItem"
-import Title from "../components/Title/Title"
-import Wrapper from "../components/Wrapper/Wrapper"
+import CartItem from "../../components/CartItem/CartItem"
+import Title from "../../components/Title/Title"
+import Wrapper from "../../components/Wrapper/Wrapper"
 
 const Cart = () => {
   return (
