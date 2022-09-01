@@ -1,10 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
+import { useQuery } from "react-query"
 import Carousel from "../../components/Carousel/Carousel"
 import Category from "../../components/Category/Category"
 import FoodCard from "../../components/FoodCard/FoodCard"
 import Wrapper from "../../components/Wrapper/Wrapper"
+import { fetchFoods } from "../../services/FoodsQuery.service"
+import IFood from "../../types/FoodData"
 
 const Home = () => {
+  const [foods, setFoods] = useState<IFood[]>([])
+  const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
+    onSuccess: (data) => {
+      setFoods(data)
+    },
+    onError: (error: any) => {
+      alert(error.message)
+    },
+  })
+
   return (
     <Wrapper nameClass="py-12">
       {/* <!-- Carousel and img --> */}
@@ -30,9 +43,9 @@ const Home = () => {
         {/* <!-- wrapper cards --> */}
 
         <div className="w-full flex flex-col mx-auto justify-center sm:py-6 items-center lg:flex-wrap lg:flex-row lg:mx-auto">
-          {/* {data.map((item) => (
-            <FoodCard {...item} />
-          ))} */}
+          {isLoading && <h1>Loading...</h1>}
+          {(error as Error) && <p>Error </p>}
+          {foods && foods.map((item) => <FoodCard key={item.id} {...item} />)}
         </div>
       </section>
     </Wrapper>
