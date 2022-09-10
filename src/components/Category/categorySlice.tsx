@@ -9,16 +9,16 @@ const initialState: InitState = {
   allFoods: [],
 }
 
-export const allFoodSlice = createSlice({
-  name: "AllFoodInHomePage",
+export const filteredByCategory = createSlice({
+  name: "filter",
   initialState,
   reducers: {
-    fetchAllFoods: (state, action: PayloadAction<IFood[]>) => {
+    filtered: (state, action: PayloadAction<IFood[]>) => {
       state.allFoods = action.payload
     },
   },
 })
 
-export const { fetchAllFoods } = allFoodSlice.actions
+export const { filtered } = filteredByCategory.actions
 
-export default allFoodSlice.reducer
+export default filteredByCategory.reducer
