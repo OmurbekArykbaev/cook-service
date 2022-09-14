@@ -1,14 +1,31 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { useAppDispatch } from "../../hooks/rtkHooks"
+import { filtered } from "./categorySlice"
 
 const Category = () => {
   const [open, isOpen] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(filtered("salad"))
+  }, [dispatch])
 
   return (
     <section className="pt-2">
       <div className="w-full flex flex-col py-4">
         <div className="hidden  flex-col items-center md:flex md:flex-row lg:mb-0 lg:items-center py-2 z-[5]">
-          <button className="btn-category shadow-btn-active">Любимое</button>
-          <button className="btn-category">Закуски</button>
+          <button
+            className="btn-category shadow-btn-active"
+            onClick={() => dispatch(filtered("salad"))}
+          >
+            Любимое
+          </button>
+          <button
+            className="btn-category"
+            onClick={() => dispatch(filtered("zakuski"))}
+          >
+            Закуски
+          </button>
           <button className="btn-category">Салаты</button>
           <button className="btn-category">Горячее</button>
           <button className="btn-category">Супы</button>

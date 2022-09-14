@@ -9,12 +9,22 @@ const initialState: InitState = {
   allFoods: [],
 }
 
+interface IPayload {
+  foods: IFood[]
+  filter?: string
+}
+
 export const allFoodSlice = createSlice({
   name: "AllFoodInHomePage",
   initialState,
   reducers: {
-    fetchAllFoods: (state, action: PayloadAction<IFood[]>) => {
-      state.allFoods = action.payload
+    fetchAllFoods: (state, action: PayloadAction<IPayload>) => {
+      const foods = action.payload.foods
+      const filterByCategory = action.payload.filter
+
+      state.allFoods = foods.filter(
+        (item) => item.category === filterByCategory
+      )
     },
   },
 })

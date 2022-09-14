@@ -13,8 +13,11 @@ import { fetchAllFoods } from "./allFoodSlice"
 const Home = () => {
   const dispatch = useAppDispatch()
   const state = useAppSelector((state) => state.allFoodData.allFoods)
+  const filter = useAppSelector(
+    (state) => state.filteredByCategory.filterByCategory
+  )
   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
-    onSuccess: (data) => dispatch(fetchAllFoods(data)),
+    onSuccess: (data) => dispatch(fetchAllFoods({ foods: data, filter })),
   })
 
   return (
