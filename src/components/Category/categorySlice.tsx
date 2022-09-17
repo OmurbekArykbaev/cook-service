@@ -1,23 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import IDataCategories from "../../types/categories"
 
 interface InitState {
-  filterByCategory: string
+  categoriesData: IDataCategories[]
 }
 
 const initialState: InitState = {
-  filterByCategory: "salad",
+  categoriesData: [],
 }
 
-export const filteredByCategorySlice = createSlice({
-  name: "filter",
+export const getCategorySlice = createSlice({
+  name: "getCategory",
   initialState,
   reducers: {
-    filtered: (state, action: PayloadAction<string>) => {
-      state.filterByCategory = action.payload
+    getCategories: (state, action: PayloadAction<IDataCategories[]>) => {
+      state.categoriesData = action.payload
     },
   },
 })
 
-export const { filtered } = filteredByCategorySlice.actions
+export const { getCategories } = getCategorySlice.actions
 
-export default filteredByCategorySlice.reducer
+export default getCategorySlice.reducer

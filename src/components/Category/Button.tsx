@@ -1,17 +1,20 @@
-import React, { FC } from "react"
-import { useAppSelector } from "../../hooks/rtkHooks"
+import { FC } from "react"
+import { useAppDispatch } from "../../hooks/rtkHooks"
+import { filterByCategory } from "../../pages/Home/allFoodSlice"
 
 interface IButtonProps {
   title: string
-  onClickHandler: () => void
   activeFocus: boolean
+  category: string
 }
 
-const Button: FC<IButtonProps> = ({ title, onClickHandler, activeFocus }) => {
+const Button: FC<IButtonProps> = ({ title, category, activeFocus }) => {
+  const dispatch = useAppDispatch()
+
   return (
     <button
       className={`btn-category ${activeFocus ? "shadow-btn-active" : ""}`}
-      onClick={onClickHandler}
+      onClick={() => dispatch(filterByCategory(category))}
     >
       {title}
     </button>

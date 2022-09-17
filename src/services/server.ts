@@ -10,16 +10,7 @@ export async function fetchFoods(): Promise<IFood[]> {
   return data
 }
 
-// const getAllFoods = () => {
-//   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
-//     onSuccess: (data) => {
-//       setFoods(data)
-//     },
-//   })
-// }
-
-// export const FoodsService = {
-//   async getAll(): Promise<IFood[]> {
-//     return axios.get("/allfood")
-//   },
-// }
+export async function fetchCategories(): Promise<any[]> {
+  const { data } = await axios.get("/datacategory")
+  return data
+}

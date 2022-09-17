@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react"
 import { useQuery } from "react-query"
-import { useDispatch } from "react-redux"
 import Carousel from "../../components/Carousel/Carousel"
 import Category from "../../components/Category/Category"
 import FoodCard from "../../components/FoodCard/FoodCard"
@@ -12,6 +10,11 @@ import { fetchAllFoods } from "./allFoodSlice"
 const Home = () => {
   const dispatch = useAppDispatch()
   const { allFoods, filterState } = useAppSelector((state) => state.allFoodData)
+  const [getCategory] = useAppSelector((state) =>
+    state.getAllCategories.categoriesData.filter(
+      (i) => i.category === filterState
+    )
+  )
 
   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
     onSuccess: (data) => dispatch(fetchAllFoods(data)),
@@ -35,7 +38,7 @@ const Home = () => {
 
       <section>
         <div className="flex w-full py-8">
-          <h1 className="font-bold text-4xl">Закуски</h1>
+          <h1 className="font-bold text-4xl">{getCategory.title}</h1>
         </div>
         {/* <!-- wrapper cards --> */}
 

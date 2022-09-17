@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import allFoodSlice from "../pages/Home/allFoodSlice"
 import { foodsApi } from "../services/food"
-import filteredByCategorySlice from "../components/Category/categorySlice"
+import getCategorySlice from "../components/Category/categorySlice"
 // const persistConfig = {
 // key: "root",
 // storage,
@@ -12,7 +12,7 @@ import filteredByCategorySlice from "../components/Category/categorySlice"
 export const store = configureStore({
   reducer: {
     allFoodData: allFoodSlice,
-    filteredByCategory: filteredByCategorySlice,
+    getAllCategories: getCategorySlice,
 
     [foodsApi.reducerPath]: foodsApi.reducer,
   },
