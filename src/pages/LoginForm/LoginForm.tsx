@@ -6,8 +6,10 @@ import Wrapper from "../../components/Wrapper/Wrapper"
 import { basicSchema } from "../../services/schemas"
 import { useAppDispatch } from "../../hooks/rtkHooks"
 import { getAuthorization } from "./loginSlice"
+import { useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const {
     values,
@@ -27,6 +29,7 @@ const LoginForm = () => {
       console.log(values)
       dispatch(getAuthorization(values))
       actions.resetForm()
+      navigate("/")
     },
   })
 

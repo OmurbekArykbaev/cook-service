@@ -1,12 +1,20 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { useAppSelector } from "../../hooks/rtkHooks"
 
 const Header = () => {
   const [toggle, isToggle] = useState<string>("hidden")
-  const { isAuthorization, loginData } = useAppSelector(
-    (state) => state.authorization
-  )
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const { isAuthorization } = useAppSelector((state) => state.authorization)
+
+  useEffect(() => {
+    const closeToggle = (e: any) => {
+      if (e.path[0].tagName !== "BUTTON") isToggle("hidden")
+    }
+
+    document.body.addEventListener("click", closeToggle)
+    return () => document.body.removeEventListener("click", closeToggle)
+  }, [])
 
   return (
     <header>
@@ -51,7 +59,11 @@ const Header = () => {
             className={`${toggle} blur-none bg-[#E9E9E9] rounded-2xl p-3 max-w-[300px] absolute top-14 -right-5 shadow-mobile-menu z-30 sm:right-0`}
           >
             <div className="flex justify-end py-2 pr-4">
-              <button id="profile-close-btn" onClick={() => isToggle("hidden")}>
+              <button
+                id="profile-close-btn"
+                ref={btnRef}
+                onClick={() => isToggle("hidden")}
+              >
                 <img src="./img/close.svg" alt="" />
               </button>
             </div>
