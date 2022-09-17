@@ -4,8 +4,11 @@ import { MdOutlineRemoveCircle } from "react-icons/md"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
 import { basicSchema } from "../../services/schemas"
+import { useAppDispatch } from "../../hooks/rtkHooks"
+import { getAuthorization } from "./loginSlice"
 
 const LoginForm = () => {
+  const dispatch = useAppDispatch()
   const {
     values,
     errors,
@@ -22,6 +25,7 @@ const LoginForm = () => {
     validationSchema: basicSchema,
     onSubmit: (values, actions) => {
       console.log(values)
+      dispatch(getAuthorization(values))
       actions.resetForm()
     },
   })
