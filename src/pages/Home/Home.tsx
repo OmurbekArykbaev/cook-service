@@ -38,7 +38,9 @@ const Home = () => {
 
       <section>
         <div className="flex w-full py-8">
-          <h1 className="font-bold text-4xl">{getCategory.title}</h1>
+          <h1 className="font-bold text-4xl">
+            {getCategory && getCategory.title}
+          </h1>
         </div>
         {/* <!-- wrapper cards --> */}
 
