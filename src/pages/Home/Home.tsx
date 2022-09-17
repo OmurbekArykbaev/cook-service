@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import { useDispatch } from "react-redux"
 import Carousel from "../../components/Carousel/Carousel"
@@ -7,17 +7,14 @@ import FoodCard from "../../components/FoodCard/FoodCard"
 import Wrapper from "../../components/Wrapper/Wrapper"
 import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks"
 import { fetchFoods } from "../../services/server"
-import IFood from "../../types/FoodData"
 import { fetchAllFoods } from "./allFoodSlice"
 
 const Home = () => {
   const dispatch = useAppDispatch()
-  const state = useAppSelector((state) => state.allFoodData.allFoods)
-  const filter = useAppSelector(
-    (state) => state.filteredByCategory.filterByCategory
-  )
+  const { allFoods, filterState } = useAppSelector((state) => state.allFoodData)
+
   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
-    onSuccess: (data) => dispatch(fetchAllFoods({ foods: data, filter })),
+    onSuccess: (data) => dispatch(fetchAllFoods(data)),
   })
 
   return (
@@ -45,7 +42,10 @@ const Home = () => {
         <div className="w-full flex flex-col mx-auto justify-center sm:py-6 items-center lg:flex-wrap lg:flex-row lg:mx-auto">
           {isLoading && <h1>Loading...</h1>}
           {(error as Error) && <p>Error </p>}
-          {state && state.map((item) => <FoodCard key={item.id} {...item} />)}
+          {allFoods &&
+            allFoods
+              .filter((item) => item.category === filterState)
+              .map((item) => <FoodCard key={item.id} {...item} />)}
         </div>
       </section>
     </Wrapper>
