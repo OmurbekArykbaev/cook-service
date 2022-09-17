@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useAppSelector } from "../../hooks/rtkHooks"
 
 const Header = () => {
   const [toggle, isToggle] = useState<string>("hidden")
+  const { isAuthorization, loginData } = useAppSelector(
+    (state) => state.authorization
+  )
 
   return (
     <header>
@@ -42,6 +46,7 @@ const Header = () => {
           </div>
 
           {/* <!-- menu profile --> */}
+          {/* Miss fix!!!!! */}
           <div
             className={`${toggle} blur-none bg-[#E9E9E9] rounded-2xl p-3 max-w-[300px] absolute top-14 -right-5 shadow-mobile-menu z-30 sm:right-0`}
           >
@@ -52,52 +57,59 @@ const Header = () => {
             </div>
 
             <ul className="w-full flex flex-col">
-              <li className="p-3 border-t-2 border-white">
-                <Link to="/orders" className="flex items-center">
-                  <img className="mr-3" src="./img/item1.svg" alt="" />
-                  <h4>Войти</h4>
-                </Link>
-              </li>
+              {!isAuthorization && (
+                <>
+                  {" "}
+                  <li className="p-3 border-t-2 border-white">
+                    <Link to="/login" className="flex items-center">
+                      <img className="mr-3" src="./img/item1.svg" alt="" />
+                      <h4>Войти</h4>
+                    </Link>
+                  </li>
+                </>
+              )}
 
-              <li className="p-3 border-t-2 border-white">
-                <Link to="/orders" className="flex items-center">
-                  <img className="mr-3" src="./img/item1.svg" alt="" />
-                  <h4>Мои заказы</h4>
-                </Link>
-              </li>
-
-              <li className="p-3 border-t-2 border-white">
-                <Link to="/order" className="flex items-center">
-                  <img className="mr-3" src="./img/item2.svg" alt="" />
-                  <h4>Депозит</h4>
-                </Link>
-              </li>
-              <li className="p-3 border-t-2 border-white">
-                <Link to="/shipping" className="flex items-center">
-                  <img className="mr-3" src="./img/item3.svg" alt="" />
-                  <h4>Привязанные карты</h4>
-                </Link>
-              </li>
-
-              <li className="p-3 border-t-2 border-white">
-                <a href="/#" className="flex items-center">
-                  <img className="mr-3" src="./img/item4.svg" alt="" />
-                  <h4>Мои адреса</h4>
-                </a>
-              </li>
-
-              <li className="p-3  border-t-2 border-white">
-                <a href="/#" className="flex items-center">
-                  <img className="mr-3" src="./img/item5.svg" alt="" />
-                  <h4>Мои данные</h4>
-                </a>
-              </li>
-              <li className="p-3  border-t-2 border-white">
-                <a href="/#" className="flex items-center">
-                  <img className="mr-3" src="./img/item6.svg" alt="" />
-                  <h4>Выйти</h4>
-                </a>
-              </li>
+              {isAuthorization && (
+                <>
+                  {" "}
+                  <li className="p-3 border-t-2 border-white">
+                    <Link to="/orders" className="flex items-center">
+                      <img className="mr-3" src="./img/item1.svg" alt="" />
+                      <h4>Мои заказы</h4>
+                    </Link>
+                  </li>
+                  <li className="p-3 border-t-2 border-white">
+                    <Link to="/order" className="flex items-center">
+                      <img className="mr-3" src="./img/item2.svg" alt="" />
+                      <h4>Депозит</h4>
+                    </Link>
+                  </li>
+                  <li className="p-3 border-t-2 border-white">
+                    <Link to="/shipping" className="flex items-center">
+                      <img className="mr-3" src="./img/item3.svg" alt="" />
+                      <h4>Привязанные карты</h4>
+                    </Link>
+                  </li>
+                  <li className="p-3 border-t-2 border-white">
+                    <a href="/#" className="flex items-center">
+                      <img className="mr-3" src="./img/item4.svg" alt="" />
+                      <h4>Мои адреса</h4>
+                    </a>
+                  </li>
+                  <li className="p-3  border-t-2 border-white">
+                    <a href="/#" className="flex items-center">
+                      <img className="mr-3" src="./img/item5.svg" alt="" />
+                      <h4>Мои данные</h4>
+                    </a>
+                  </li>
+                  <li className="p-3  border-t-2 border-white">
+                    <a href="/#" className="flex items-center">
+                      <img className="mr-3" src="./img/item6.svg" alt="" />
+                      <h4>Выйти</h4>
+                    </a>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </nav>

@@ -7,10 +7,12 @@ interface ILoginData {
 
 interface InitState {
   loginData: ILoginData
+  isAuthorization: boolean
 }
 
 const initialState: InitState = {
   loginData: { email: "", password: "" },
+  isAuthorization: false,
 }
 
 export const authorizationSlice = createSlice({
@@ -19,6 +21,7 @@ export const authorizationSlice = createSlice({
   reducers: {
     getAuthorization: (state, action: PayloadAction<ILoginData>) => {
       state.loginData = action.payload
+      state.isAuthorization = true
     },
   },
 })
