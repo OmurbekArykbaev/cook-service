@@ -55,6 +55,13 @@ const Header = () => {
               <li className="p-3 border-t-2 border-white">
                 <Link to="/orders" className="flex items-center">
                   <img className="mr-3" src="./img/item1.svg" alt="" />
+                  <h4>Войти</h4>
+                </Link>
+              </li>
+
+              <li className="p-3 border-t-2 border-white">
+                <Link to="/orders" className="flex items-center">
+                  <img className="mr-3" src="./img/item1.svg" alt="" />
                   <h4>Мои заказы</h4>
                 </Link>
               </li>

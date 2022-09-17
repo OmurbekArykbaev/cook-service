@@ -10,6 +10,7 @@ import LinkedCards from "./pages/LinkedCards/LinkedCards"
 import Order from "./pages/Order/Order"
 import OrderList from "./pages/OrderList/OrderList"
 import Shipping from "./pages/Shipping/Shipping"
+import LoginForm from "./pages/LoginForm/LoginForm"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/addresses" element={<AddAddress />} />
             <Route path="/profile" element={<SelfData />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/login" element={<LoginForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
