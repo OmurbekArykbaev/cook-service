@@ -2,39 +2,23 @@ import React from "react"
 import { Link } from "react-router-dom"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
+import { useAppSelector } from "../../hooks/rtkHooks"
+import Item from "./Item"
 
 const Address = () => {
+  const { addressData } = useAppSelector((state) => state.addresses)
+
   return (
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          {/* <!-- title --> */}
           <Title toPath="/" titleName="Мои адреса" />
-
-          {/* Cards wrapper */}
           <div className="flex flex-wrap flex-col items-center md:items-start space-y-6 space-x-0 md:space-y-0 md:space-x-6 md:flex-nowrap mb-8 md:flex-row p-2 sm:p-8">
-            {/* item 1 */}
-            <div className="w-full h-[170px] rounded-xl shadow-toorder-panel-block sm:w-[360px]">
-              <div className="h-full flex flex-col justify-between p-6 items-start text-2xl">
-                <h1 className="font-bold">Дом</h1>
-                <p className="text-sm">
-                  Меркурий Сити Тауэр, кв./офис 62, этаж 25, Для охраны 62
-                </p>
-              </div>
-            </div>
-
-            {/* item 1 */}
-            <div className="w-full h-[170px] rounded-xl shadow-toorder-panel-block sm:w-[360px]">
-              <div className="h-full flex flex-col justify-between p-6 items-start text-2xl">
-                <h1 className="font-bold">Работа</h1>
-                <p className="text-sm">
-                  Меркурий Сити Тауэр, кв./офис 62, этаж 25, Для охраны 62
-                </p>
-              </div>
-            </div>
+            {addressData &&
+              addressData.map((item) => (
+                <Item title={item.street} linkTo={item.id} address="asdas" />
+              ))}
           </div>
-
-          {/* button */}
 
           <div className="px-6   sm:px-12">
             <Link

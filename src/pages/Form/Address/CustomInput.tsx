@@ -6,7 +6,7 @@ interface ICustonInputProps {
   inputName: string
   inputType: string
   cssStyle?: string
-  value: string
+  value: string | undefined
   handleChange: React.ChangeEventHandler<HTMLInputElement>
   handleBlur: React.FocusEventHandler<HTMLInputElement>
   error?: string | undefined

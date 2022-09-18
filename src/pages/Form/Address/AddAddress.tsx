@@ -5,6 +5,7 @@ import Title from "../../../components/Title/Title"
 import Wrapper from "../../../components/Wrapper/Wrapper"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
+import { IAddressData } from "../../../types/address"
 
 const AddAddress = () => {
   const {
@@ -14,8 +15,9 @@ const AddAddress = () => {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useFormik({
+  } = useFormik<IAddressData>({
     initialValues: {
+      id: Date.now(),
       street: "",
       houseNumber: "",
       entrance: "",

@@ -1,14 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-
-interface IAddressData {
-  street: string
-  houseNumber: string
-  entrance?: string
-  floor?: string
-  flatOffice?: string
-  callDoor?: string
-  comment?: string
-}
+import { IAddressData } from "../../../types/address"
 
 interface InitState {
   addressData: IAddressData[]
