@@ -3,6 +3,7 @@ import allFoodSlice from "../pages/Home/allFoodSlice"
 import { foodsApi } from "../services/food"
 import getCategorySlice from "../components/Category/categorySlice"
 import authorizationSlice from "../pages/LoginForm/loginSlice"
+import addressSlice from "../pages/Form/Address/addressSlice"
 // const persistConfig = {
 // key: "root",
 // storage,
@@ -15,6 +16,7 @@ export const store = configureStore({
     allFoodData: allFoodSlice,
     getAllCategories: getCategorySlice,
     authorization: authorizationSlice,
+    addresses: addressSlice,
 
     [foodsApi.reducerPath]: foodsApi.reducer,
   },
