@@ -1,22 +1,26 @@
 import { FC } from "react"
 import Count from "../ui/Count/Count"
-import FoodData from "../../types/FoodData"
+import IFood from "../../types/FoodData"
+import { useAppDispatch } from "../../hooks/rtkHooks"
+import { addFoodInCart, addWishFood } from "../../redux/userSlice"
 
-const FoodCard: FC<FoodData> = ({
-  id,
-  name,
-  image,
-  description,
-  category,
-  price,
-  cal,
-}) => {
+const FoodCard: FC<IFood> = (props) => {
+  const dispatch = useAppDispatch()
+
+  const addCartHandler = () =>
+    dispatch(
+      addFoodInCart({ product: props, totalSum: props.price, quantity: 1 })
+    )
+  const addWishListHandler = () => dispatch(addWishFood(props))
+
+  const { id, name, image, description, category, price, cal } = props
+
   return (
     <div className="card-food">
       {/* <!-- Image part --> */}
       <div className="card-food-img">
         <div className="absolute top-5 left-5">
-          <button>
+          <button onClick={addWishListHandler}>
             <img src="./img/Vector.svg" alt="Save" />
           </button>
         </div>
@@ -54,7 +58,10 @@ const FoodCard: FC<FoodData> = ({
         <div className="w-full flex items-center py-3">
           <Count />
 
-          <button className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black">
+          <button
+            onClick={addCartHandler}
+            className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black"
+          >
             Добавить
           </button>
         </div>

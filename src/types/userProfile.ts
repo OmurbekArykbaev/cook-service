@@ -17,6 +17,18 @@ export interface IUserData {
   phone: string
 }
 
+export interface ICart {
+  products: IProductCart[]
+  quantity: number
+  totalSum: number
+}
+
+export interface IProductCart {
+  product: IFood
+  quantity: number
+  totalSum: number
+}
+
 export interface IOrders {
   id: string
   date: string
