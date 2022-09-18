@@ -1,4 +1,3 @@
-import React from "react"
 import { Link } from "react-router-dom"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
@@ -14,10 +13,7 @@ const Address = () => {
         <div className="flex flex-col py-8">
           <Title toPath="/" titleName="Мои адреса" />
           <div className="flex flex-wrap flex-col items-center md:items-start space-y-6 space-x-0 md:space-y-0 md:space-x-6 md:flex-nowrap mb-8 md:flex-row p-2 sm:p-8">
-            {addressData &&
-              addressData.map((item) => (
-                <Item title={item.street} linkTo={item.id} address="asdas" />
-              ))}
+            {addressData && addressData.map((item) => <Item {...item} />)}
           </div>
 
           <div className="px-6   sm:px-12">
