@@ -5,12 +5,19 @@ import Title from "../../../components/Title/Title"
 import Wrapper from "../../../components/Wrapper/Wrapper"
 import { basicSchema } from "../../../services/schemas"
 import { useAppDispatch } from "../../../hooks/rtkHooks"
-import { getAuthorization } from "./userSlice"
+import { getAuthorization } from "../../../redux/userSlice"
 import { useNavigate } from "react-router-dom"
+import { IUserData } from "../../../types/userProfile"
 
 const LoginForm = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const onSubmit = (values: IUserData, actions: any): void => {
+    dispatch(getAuthorization(values))
+    actions.resetForm()
+    navigate("/address")
+  }
+
   const {
     values,
     errors,
@@ -25,12 +32,7 @@ const LoginForm = () => {
       phone: "996",
     },
     validationSchema: basicSchema,
-    onSubmit: (values, actions) => {
-      console.log(values)
-      dispatch(getAuthorization(values))
-      actions.resetForm()
-      navigate("/address")
-    },
+    onSubmit,
   })
 
   return (

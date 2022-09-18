@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import IFood from "../../../types/FoodData"
-import { IAddressData, IOrders, IUserData } from "../../../types/userProfile"
+import IFood from "../types/FoodData"
+import { IAddressData, IOrders, IUserData } from "../types/userProfile"
 
 interface InitState {
   userData: IUserData
@@ -28,7 +28,9 @@ export const userSlice = createSlice({
       state.userData = action.payload
       state.isAuthorization = true
     },
-    addAddress: (state, action: PayloadAction<IAddressData>) => {},
+    addAddress: (state, action: PayloadAction<IAddressData>) => {
+      state.addresses.push(action.payload)
+    },
     addWishFood: (state, action: PayloadAction<IFood>) => {},
     addOrder: (state, action: PayloadAction<IOrders>) => {},
     addFoodInCart: (state, action: PayloadAction<IFood>) => {},

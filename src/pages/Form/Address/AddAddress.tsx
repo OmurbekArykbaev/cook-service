@@ -1,37 +1,20 @@
 import { useFormik } from "formik"
-import React, { useEffect, useState } from "react"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 import Title from "../../../components/Title/Title"
 import Wrapper from "../../../components/Wrapper/Wrapper"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
 import { IAddressData } from "../../../types/userProfile"
-import { addAddressData } from "./addressSlice"
-import { useAppDispatch, useAppSelector } from "../../../hooks/rtkHooks"
-import { useNavigate, useParams } from "react-router-dom"
-
-export type MyParams = {
-  id: string
-}
+import { useAppDispatch } from "../../../hooks/rtkHooks"
+import { useNavigate } from "react-router-dom"
+import { addAddress } from "../../../redux/userSlice"
 
 const AddAddress = () => {
   const navigate = useNavigate()
-  // const { id } = useParams<keyof MyParams>() as MyParams
-  // const [data] = useAppSelector((state) => state.addresses.addressData)
-
-  // const {
-  //   street,
-  //   houseNumber,
-  //   entrance,
-  //   floor,
-  //   flatOffice,
-  //   callDoor,
-  //   comment,
-  // } = data
   const dispatch = useAppDispatch()
 
   const onSubmit = (values: IAddressData, actions: any): void => {
-    dispatch(addAddressData(values))
+    dispatch(addAddress(values))
     actions.resetForm()
     navigate("/address")
   }
