@@ -25,7 +25,6 @@ function App() {
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/cards" element={<LinkedCards />} />
             <Route path="/address" element={<Address />} />
-            <Route path="/addresses/:id" element={<AddAddress />} />
             <Route path="/addresses" element={<AddAddress />} />
             <Route path="/profile" element={<SelfData />} />
             <Route path="/payment" element={<Payment />} />
