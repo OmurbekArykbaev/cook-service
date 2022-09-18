@@ -29,7 +29,7 @@ const LoginForm = () => {
       console.log(values)
       dispatch(getAuthorization(values))
       actions.resetForm()
-      navigate("/")
+      navigate("/address")
     },
   })
 
