@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Link } from "react-router-dom"
-import { IAddressData } from "../../types/address"
+import { IAddressData } from "../../types/userProfile"
 
 const Item: FC<IAddressData> = (props) => {
   return (

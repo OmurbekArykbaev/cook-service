@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import allFoodSlice from "../pages/Home/allFoodSlice"
 import { foodsApi } from "../services/food"
 import getCategorySlice from "../components/Category/categorySlice"
-import authorizationSlice from "../pages/LoginForm/loginSlice"
+import userSlice from "../pages/Form/Login/userSlice"
 import addressSlice from "../pages/Form/Address/addressSlice"
 // const persistConfig = {
 // key: "root",
@@ -15,7 +15,7 @@ export const store = configureStore({
   reducer: {
     allFoodData: allFoodSlice,
     getAllCategories: getCategorySlice,
-    authorization: authorizationSlice,
+    userPofile: userSlice,
     addresses: addressSlice,
 
     [foodsApi.reducerPath]: foodsApi.reducer,

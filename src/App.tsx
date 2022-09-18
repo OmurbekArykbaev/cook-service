@@ -10,7 +10,7 @@ import LinkedCards from "./pages/LinkedCards/LinkedCards"
 import Order from "./pages/Order/Order"
 import OrderList from "./pages/OrderList/OrderList"
 import Shipping from "./pages/Shipping/Shipping"
-import LoginForm from "./pages/LoginForm/LoginForm"
+import LoginForm from "./pages/Form/Login/LoginForm"
 
 function App() {
   return (

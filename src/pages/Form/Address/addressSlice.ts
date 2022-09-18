@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IAddressData } from "../../../types/address"
+import { IAddressData } from "../../../types/userProfile"
 
 interface InitState {
   addressData: IAddressData[]

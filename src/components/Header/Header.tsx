@@ -4,7 +4,7 @@ import { useAppSelector } from "../../hooks/rtkHooks"
 
 const Header = () => {
   const [toggle, isToggle] = useState<string>("hidden")
-  const { isAuthorization } = useAppSelector((state) => state.authorization)
+  const { isAuthorization } = useAppSelector((state) => state.userPofile)
 
   useEffect(() => {
     // const closeToggle = (e: any) => {

@@ -1,11 +1,11 @@
 import React from "react"
 import { useFormik } from "formik"
 import { MdOutlineRemoveCircle } from "react-icons/md"
-import Title from "../../components/Title/Title"
-import Wrapper from "../../components/Wrapper/Wrapper"
-import { basicSchema } from "../../services/schemas"
-import { useAppDispatch } from "../../hooks/rtkHooks"
-import { getAuthorization } from "./loginSlice"
+import Title from "../../../components/Title/Title"
+import Wrapper from "../../../components/Wrapper/Wrapper"
+import { basicSchema } from "../../../services/schemas"
+import { useAppDispatch } from "../../../hooks/rtkHooks"
+import { getAuthorization } from "./userSlice"
 import { useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
