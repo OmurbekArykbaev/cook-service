@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 interface ILoginData {
-  email: string
-  password: string
+  name: string
+  phone: string
 }
 
 interface InitState {
@@ -11,7 +11,7 @@ interface InitState {
 }
 
 const initialState: InitState = {
-  loginData: { email: "", password: "" },
+  loginData: { name: "", phone: "" },
   isAuthorization: false,
 }
 

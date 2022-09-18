@@ -1,14 +1,19 @@
 import * as yup from "yup"
 
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
+// const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
+const nameRules = /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']*$/
 
 export const basicSchema = yup.object().shape({
-  email: yup.string().email("please").required(),
-  password: yup
+  name: yup
     .string()
+    .matches(nameRules, "Please enter valid name")
+    .max(40)
+    .required(),
+  phone: yup
+    .number()
     .min(5)
-    .matches(passwordRules, { message: "Please create a stronger password" })
-    .required("Required"),
+    .min(10, "Must be more than 10 characters")
+    .required("This field is requried"),
 })
 
 // confirmPassword: yup

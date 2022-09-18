@@ -21,8 +21,8 @@ const LoginForm = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      name: "",
+      phone: "996",
     },
     validationSchema: basicSchema,
     onSubmit: (values, actions) => {
@@ -33,7 +33,6 @@ const LoginForm = () => {
     },
   })
 
-  console.log(errors.password)
   return (
     <Wrapper>
       <section>
@@ -49,46 +48,46 @@ const LoginForm = () => {
             >
               {/* input 1 */}
               <div className="flex flex-col space-y-2">
-                <label className="text-sm text-textGray" htmlFor="login">
-                  Логин
+                <label className="text-sm text-textGray" htmlFor="name">
+                  Имя
                 </label>
                 <input
-                  value={values.email}
+                  value={values.name}
                   className={
-                    errors.email && touched.email
+                    errors.name && touched.name
                       ? `input-items-address border border-red-500`
                       : `input-items-address border`
                   }
                   type="text"
-                  name="email"
-                  placeholder="Please enter your email"
+                  name="name"
+                  placeholder="Please enter your name"
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.email && touched.email && (
-                  <p className="text-red-800">{errors.email}</p>
+                {errors.name && touched.name && (
+                  <p className="text-red-800">{errors.name}</p>
                 )}
               </div>
 
               {/* input 2 */}
               <div className="flex flex-col space-y-2">
-                <label className="text-sm text-textGray" htmlFor="password">
-                  Пароль
+                <label className="text-sm text-textGray" htmlFor="phone">
+                  Номер телефона
                 </label>
                 <input
                   className={
-                    errors.password && errors.password
+                    errors.phone && errors.phone
                       ? `input-items-address border border-red-500`
                       : `input-items-address border`
                   }
-                  type="password"
-                  name="password"
+                  type="number"
+                  name="phone"
                   onChange={handleChange}
-                  value={values.password}
+                  value={values.phone}
                   onBlur={handleBlur}
                 />
-                {errors.password && touched.password && (
-                  <p className="text-red-800">{errors.password}</p>
+                {errors.phone && touched.phone && (
+                  <p className="text-red-800">{errors.phone}</p>
                 )}
               </div>
 
