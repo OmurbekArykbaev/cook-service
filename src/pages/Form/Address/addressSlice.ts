@@ -13,8 +13,8 @@ export const addressSlice = createSlice({
   name: "authorization",
   initialState,
   reducers: {
-    addAddressData: (state, action: PayloadAction<IAddressData[]>) => {
-      state.addressData = action.payload
+    addAddressData: (state, action: PayloadAction<IAddressData>) => {
+      state.addressData.push(action.payload)
     },
   },
 })

@@ -6,8 +6,20 @@ import Wrapper from "../../../components/Wrapper/Wrapper"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
 import { IAddressData } from "../../../types/address"
+import { addAddressData } from "./addressSlice"
+import { useAppDispatch } from "../../../hooks/rtkHooks"
+import { useNavigate } from "react-router-dom"
 
 const AddAddress = () => {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+
+  const onSubmit = (values: IAddressData, actions: any): void => {
+    dispatch(addAddressData(values))
+    actions.resetForm()
+    navigate("/address")
+  }
+
   const {
     values,
     errors,
@@ -27,12 +39,7 @@ const AddAddress = () => {
       comment: "",
     },
     validationSchema: addressSchema,
-    onSubmit: () => {
-      console.log(values)
-      //   dispatch(getAuthorization(values))
-      //   actions.resetForm()
-      //   navigate("/address")
-    },
+    onSubmit,
   })
 
   return (
