@@ -2,9 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import IFood from "../types/FoodData"
 import {
   IAddressData,
-  ICart,
   IOrders,
-  IProductCart,
+  IProductInCart,
   IUserData,
 } from "../types/userProfile"
 
@@ -13,7 +12,7 @@ interface InitState {
   addresses: IAddressData[]
   wishlist: IFood[]
   orders: IOrders[]
-  cart: ICart
+  cartProducts: IProductInCart[]
   isAuthorization: boolean
 }
 
@@ -22,7 +21,7 @@ const initialState: InitState = {
   addresses: [],
   wishlist: [],
   orders: [],
-  cart: { products: [], quantity: 0, totalSum: 0 },
+  cartProducts: [],
   isAuthorization: false,
 }
 
@@ -44,9 +43,19 @@ export const userSlice = createSlice({
 
     addOrder: (state, action: PayloadAction<IOrders>) => {},
 
-    addFoodInCart: (state, action: PayloadAction<IProductCart>) => {
-      const { product, totalSum, quantity } = action.payload
-      state.cart.products.push({ product, totalSum, quantity })
+    addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
+      state.cartProducts.push({ ...action.payload, quantityProduct: 1 })
+    },
+
+    changeCountProductInCart: (
+      state,
+      action: PayloadAction<{ id: string; quan: number }>
+    ) => {
+      state.cartProducts.forEach((item) => {
+        if (item.id === action.payload.id) {
+          item.quantityProduct = action.payload.quan
+        }
+      })
     },
   },
 })
@@ -57,6 +66,7 @@ export const {
   addFoodInCart,
   addOrder,
   addWishFood,
+  changeCountProductInCart,
 } = userSlice.actions
 
 export default userSlice.reducer

@@ -8,12 +8,10 @@ const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
 
   const addCartHandler = () =>
-    dispatch(
-      addFoodInCart({ product: props, totalSum: props.price, quantity: 1 })
-    )
+    dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
   const addWishListHandler = () => dispatch(addWishFood(props))
 
-  const { id, name, image, description, category, price, cal } = props
+  const { id, name, image, description, price, cal } = props
 
   return (
     <div className="card-food">
@@ -56,7 +54,7 @@ const FoodCard: FC<IFood> = (props) => {
         </p>
 
         <div className="w-full flex items-center py-3">
-          <Count />
+          <Count id={id} />
 
           <button
             onClick={addCartHandler}
