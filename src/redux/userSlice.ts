@@ -33,6 +33,7 @@ export const userSlice = createSlice({
       state.userData = action.payload
       state.isAuthorization = true
     },
+
     addAddress: (state, action: PayloadAction<IAddressData>) => {
       state.addresses.push(action.payload)
     },

@@ -14,10 +14,6 @@ const Count: FC<ICountProps> = ({ id }) => {
   const [count, setCount] = useState<number>(1)
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(changeCountProductInCart({ id, quan: 1 }))
-  }, [])
-
   const incrementHandler = () => {
     setCount((count) => count + 1)
     dispatch(changeCountProductInCart({ id, quan: count + 1 }))

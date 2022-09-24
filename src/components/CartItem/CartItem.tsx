@@ -25,11 +25,13 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
 
   const incrementHandler = () => {
     setCountQuantity((countQuantity) => countQuantity + 1)
+    // dispatch(changeCountProductInCart({ id, quan: countQuantity }))
   }
 
   const decrementHandler = () => {
     setCountQuantity((countQuantity) => countQuantity - 1)
     if (countQuantity < 2) setCountQuantity(1)
+    // dispatch(changeCountProductInCart({ id, quan: countQuantity }))
   }
 
   return (
@@ -57,7 +59,7 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
               <AiOutlinePlus size={16} />
             </button>
             <span className="px-2 py-1  text-sm group-hover:text-white">
-              {countQuantity}
+              {productFromStore.quantityProduct}
             </span>
             <button
               onClick={decrementHandler}

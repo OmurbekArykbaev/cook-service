@@ -19,21 +19,26 @@ const Cart = () => {
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          {/* <!-- title --> */}
-          <Title
-            titleName={`${quantity} блюд на сумму ${sum} сом`}
-            toPath="/"
-          />
-          {/* <!-- item wrapper --> */}
+          {quantity ? (
+            <Title
+              titleName={`${quantity} блюд на сумму ${sum} сом`}
+              toPath="/"
+            />
+          ) : (
+            <Title titleName={`Вернуться к покупкам`} toPath="/" />
+          )}
+
           <ul className="flex flex-col p-3 md:p-12 w-full">
             {cartProducts &&
               cartProducts.map((item) => <CartItem product={item} />)}
           </ul>
-          {/* <!-- button to order --> */}
+
           <div className="flex justify-center w-full md:px-12 py-3 mb-12  md:justify-start">
-            <button className="w-full btn text-xl text-orange font-bold px-0 py-4 md:px-7 md:w-auto md:text-lg lg:px-6 lg:py-2">
-              Оформить доставку за {sum} сом
-            </button>
+            {sum !== 0 && (
+              <button className="w-full btn text-xl text-orange font-bold px-0 py-4 md:px-7 md:w-auto md:text-lg lg:px-6 lg:py-2">
+                Оформить доставку за {sum} сом
+              </button>
+            )}
           </div>
         </div>
       </section>
