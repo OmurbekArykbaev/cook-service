@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import CartItem from "../../components/CartItem/CartItem"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
@@ -35,9 +36,12 @@ const Cart = () => {
 
           <div className="flex justify-center w-full md:px-12 py-3 mb-12  md:justify-start">
             {sum !== 0 && (
-              <button className="w-full btn text-xl text-orange font-bold px-0 py-4 md:px-7 md:w-auto md:text-lg lg:px-6 lg:py-2">
+              <Link
+                to="/order"
+                className="w-full btn text-xl text-orange font-bold px-0 py-4 md:px-7 md:w-auto md:text-lg lg:px-6 lg:py-2"
+              >
                 Оформить доставку за {sum} сом
-              </button>
+              </Link>
             )}
           </div>
         </div>

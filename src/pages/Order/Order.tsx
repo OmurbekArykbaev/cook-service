@@ -1,22 +1,38 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
+import { useAppSelector } from "../../hooks/rtkHooks"
+import { IAddressData } from "../../types/userProfile"
 
 const Order = () => {
+  const { addresses } = useAppSelector((state) => state.userPofile)
+  const [filter, setFilter] = useState<string>(addresses[0].street)
+  const [dataAddress, setDataAddress] = useState<IAddressData[] | undefined>()
+
+  useEffect(() => {
+    setDataAddress(addresses.filter((item) => item.street === filter))
+  }, [addresses, filter])
+
   return (
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          {/* <!-- title --> */}
-
           <Title toPath="/" titleName="Оформление заказа" />
-
-          {/* <!-- category --> */}
-
           <div className="flex justify-center items-center flex-wrap px-6 sm:justify-start sm:flex-nowrap sm:px-12">
-            <button className="btn shadow-btn-active mb-4 sm:mb-0">Дом</button>
-            <button className="btn mb-4 sm:mb-0">Работа</button>
-            <button className="btn mb-4 sm:mb-0">Новый адрес</button>
+            {addresses &&
+              addresses.map((item) => (
+                <button
+                  onClick={() => setFilter(item.street)}
+                  className={`btn ${
+                    item.street === filter ? `shadow-btn-active` : ``
+                  } mb-4 sm:mb-0`}
+                >
+                  {item.street}
+                </button>
+              ))}
+
+            {/* <button className="btn mb-4 sm:mb-0">Работа</button> */}
+            {/* <button className="btn mb-4 sm:mb-0">Новый адрес</button> */}
           </div>
 
           {/* //   <!-- panel & comment wrapper --> */}
@@ -27,12 +43,18 @@ const Order = () => {
             <div className="w-full  mb-5  lg:mb-0   lg:w-[30%]">
               {/* <!-- home --> */}
 
-              <div className="w-full p-5 mb-4 rounded-xl shadow-toorder-panel-block">
-                <h1 className="font-bold text-xl mb-5">Дом</h1>
-                <p className="text-sm">
-                  Меркурий Сити Тауэр, кв./офис 62, этаж 25, Для охраны 62
-                </p>
-              </div>
+              {dataAddress && (
+                <div className="w-full p-5 mb-4 rounded-xl shadow-toorder-panel-block">
+                  <h1 className="font-bold text-xl mb-5">
+                    {dataAddress[0].street}
+                  </h1>
+                  <p className="text-sm">
+                    {`Улица: ${dataAddress[0].street}. Дом: ${dataAddress[0].houseNumber}.`}
+                    <br />
+                    {` Квартира: ${dataAddress[0].flatOffice}. Подъезд: ${dataAddress[0].entrance}. Этаж: ${dataAddress[0].floor}. Домофон/охрана: ${dataAddress[0].callDoor}`}
+                  </p>
+                </div>
+              )}
 
               {/* <!-- pay --> */}
 
