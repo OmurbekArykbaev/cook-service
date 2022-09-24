@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
 import { useAppSelector } from "../../hooks/rtkHooks"
@@ -8,6 +9,7 @@ const Order = () => {
   const { addresses } = useAppSelector((state) => state.userPofile)
   const [filter, setFilter] = useState<string>(addresses[0].street)
   const [dataAddress, setDataAddress] = useState<IAddressData[] | undefined>()
+  const navigate = useNavigate()
 
   useEffect(() => {
     setDataAddress(addresses.filter((item) => item.street === filter))
@@ -97,7 +99,10 @@ const Order = () => {
 
           {/* <!-- button to order --> */}
           <div className="w-full px-6 sm:px-12">
-            <button className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]">
+            <button
+              onClick={() => navigate("/shipping")}
+              className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]"
+            >
               Заказать
             </button>
           </div>
