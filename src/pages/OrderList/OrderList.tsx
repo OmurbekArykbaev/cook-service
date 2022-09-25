@@ -32,15 +32,17 @@ const OrderList = () => {
 
           <ul className="flex flex-col p-6 md:p-12 w-full">
             {orders &&
-              orders.map((item) => (
-                <OrderItem
-                  key={item.id}
-                  id={item.id}
-                  date={item.date}
-                  totalSum={item.totalSum}
-                  status={item.status}
-                />
-              ))}
+              orders
+                .map((item) => (
+                  <OrderItem
+                    key={item.id}
+                    id={item.id}
+                    date={item.date}
+                    totalSum={item.totalSum}
+                    status={item.status}
+                  />
+                ))
+                .reverse()}
           </ul>
         </div>
       </section>

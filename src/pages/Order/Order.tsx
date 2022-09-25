@@ -1,3 +1,4 @@
+import moment from "moment"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Title from "../../components/Title/Title"
@@ -21,12 +22,13 @@ const Order = () => {
   )
 
   const createOrderHandler = () => {
+    const dateFormat = moment().format("DD-MM-YYYY HH:mm")
     navigate("/shipping")
 
     dispatch(
       addOrder({
         id: Date.now(),
-        date: "13.09.2022",
+        date: String(dateFormat),
         totalSum: totalSum > 500 ? totalSum : totalSum + 200,
         status: "current",
         address: dataAddress ? { ...dataAddress[0] } : {},
