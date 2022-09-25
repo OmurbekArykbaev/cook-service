@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import DFItem from "../../components/DeliveryFoodItem/DFItem"
 import Progress from "../../components/ProgressBar/Progress"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
-import { useAppSelector } from "../../hooks/rtkHooks"
+import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks"
+import { addOrder } from "../../redux/userSlice"
 
 const Shipping = () => {
+  const dispatch = useAppDispatch()
+  const [shipPrice, setShipPrice] = useState<number>(0)
   const { cartProducts, addresses } = useAppSelector(
     (state) => state.userPofile
   )
@@ -13,6 +16,11 @@ const Shipping = () => {
     (acc, item) => acc + item.quantityProduct * item.price,
     0
   )
+
+  useEffect(() => {
+    if (totalSum >= 500) setShipPrice(0)
+    else setShipPrice(200)
+  }, [totalSum])
 
   return (
     <Wrapper>
@@ -51,7 +59,9 @@ const Shipping = () => {
                 </div>
                 <div className="w-full flex justify-between pt-4">
                   <h3 className="font-bold text-lg">Итого</h3>
-                  <h3 className="font-bold text-lg">{totalSum} сом</h3>
+                  <h3 className="font-bold text-lg">
+                    {totalSum + shipPrice} сом
+                  </h3>
                 </div>
               </div>
             </div>

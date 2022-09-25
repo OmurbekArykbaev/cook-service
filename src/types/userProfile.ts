@@ -22,9 +22,10 @@ export interface IProductInCart extends IFood {
 }
 
 export interface IOrders {
-  id: string
+  id: number
   date: string
-  totalSum: string
+  totalSum: number
   status: "current" | "delivered" | "rejected"
-  foods: IFood[]
+  address: IAddressData | {}
+  foods: IProductInCart[]
 }

@@ -42,11 +42,14 @@ export const userSlice = createSlice({
       state.wishlist.push(action.payload)
     },
 
-    addOrder: (state, action: PayloadAction<IOrders>) => {},
+    addOrder: (state, action: PayloadAction<IOrders>) => {
+      state.orders.push(action.payload)
+    },
 
     addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
       state.cartProducts.push({ ...action.payload, quantityProduct: 1 })
     },
+
     removeFoodInCart: (state, action: PayloadAction<{ id: string }>) => {
       state.cartProducts = state.cartProducts.filter(
         (item) => item.id !== action.payload.id

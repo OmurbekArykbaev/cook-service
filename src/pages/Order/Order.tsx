@@ -2,14 +2,38 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
-import { useAppSelector } from "../../hooks/rtkHooks"
+import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks"
+import { addOrder } from "../../redux/userSlice"
 import { IAddressData } from "../../types/userProfile"
 
 const Order = () => {
-  const { addresses } = useAppSelector((state) => state.userPofile)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const { addresses, cartProducts } = useAppSelector(
+    (state) => state.userPofile
+  )
   const [filter, setFilter] = useState<string>(addresses[0].street)
   const [dataAddress, setDataAddress] = useState<IAddressData[] | undefined>()
-  const navigate = useNavigate()
+
+  const totalSum = cartProducts.reduce(
+    (acc, item) => acc + item.quantityProduct * item.price,
+    0
+  )
+
+  const createOrderHandler = () => {
+    navigate("/shipping")
+
+    dispatch(
+      addOrder({
+        id: Date.now(),
+        date: "13.09.2022",
+        totalSum: totalSum > 500 ? totalSum : totalSum + 200,
+        status: "current",
+        address: dataAddress ? { ...dataAddress[0] } : {},
+        foods: cartProducts,
+      })
+    )
+  }
 
   useEffect(() => {
     setDataAddress(addresses.filter((item) => item.street === filter))
@@ -100,7 +124,7 @@ const Order = () => {
           {/* <!-- button to order --> */}
           <div className="w-full px-6 sm:px-12">
             <button
-              onClick={() => navigate("/shipping")}
+              onClick={createOrderHandler}
               className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]"
             >
               Заказать
