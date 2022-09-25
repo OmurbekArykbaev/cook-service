@@ -1,17 +1,31 @@
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import Count from "../ui/Count/Count"
 import IFood from "../../types/FoodData"
-import { useAppDispatch } from "../../hooks/rtkHooks"
+import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks"
 import { addFoodInCart, addWishFood } from "../../redux/userSlice"
+import { Link } from "react-router-dom"
 
 const FoodCard: FC<IFood> = (props) => {
+  const [isInCart, setIsInCart] = useState<boolean>(false)
+  const { id, name, image, description, price, cal } = props
+
   const dispatch = useAppDispatch()
+  const { cartProducts } = useAppSelector((state) => state.userPofile)
 
   const addCartHandler = () =>
     dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
+
   const addWishListHandler = () => dispatch(addWishFood(props))
 
-  const { id, name, image, description, price, cal } = props
+  useEffect(() => {
+    const product = cartProducts.filter((item) => item.id === id)
+    if (product.length > 0) {
+      setIsInCart(true)
+    } else {
+      setIsInCart(false)
+    }
+    // cartProducts.filter((item) => item.id === id)
+  }, [cartProducts, id])
 
   return (
     <div className="card-food">
@@ -53,16 +67,27 @@ const FoodCard: FC<IFood> = (props) => {
           {description}
         </p>
 
-        <div className="w-full flex items-center py-3">
-          <Count id={id} />
+        {!isInCart ? (
+          <div className="w-full flex items-center py-3">
+            <Count id={id} />
 
-          <button
-            onClick={addCartHandler}
-            className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black"
-          >
-            Добавить
-          </button>
-        </div>
+            <button
+              onClick={addCartHandler}
+              className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black"
+            >
+              Добавить
+            </button>
+          </div>
+        ) : (
+          <div className="w-full flex items-center py-3">
+            <Link
+              to="/cart"
+              className="btn mr-0 shadow-btn-active flex justify-center py-2 w-[100%] text-orange font-bold  group-hover:bg-[#212629]"
+            >
+              В корзине
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
