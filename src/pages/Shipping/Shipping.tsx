@@ -13,6 +13,7 @@ const Shipping = () => {
     (acc, item) => acc + item.quantityProduct * item.price,
     0
   )
+
   return (
     <Wrapper>
       <section>

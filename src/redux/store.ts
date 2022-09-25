@@ -1,26 +1,32 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import allFoodSlice from "../pages/Home/allFoodSlice"
 import { foodsApi } from "../services/food"
 import getCategorySlice from "../components/Category/categorySlice"
 import userSlice from "./userSlice"
-// const persistConfig = {
-// key: "root",
-// storage,
-// }
+import { persistReducer, persistStore } from "redux-persist"
 
-// const persistedReducer = persistReducer(persistConfig, {})
+import storage from "redux-persist/lib/storage"
+import thunk from "redux-thunk"
 
-export const store = configureStore({
-  reducer: {
-    allFoodData: allFoodSlice,
-    getAllCategories: getCategorySlice,
-    userPofile: userSlice,
+const persistConfig = {
+  key: "root",
+  storage,
+}
 
-    [foodsApi.reducerPath]: foodsApi.reducer,
-  },
+const rootReducer = combineReducers({
+  allFoodData: allFoodSlice,
+  getAllCategories: getCategorySlice,
+  userPofile: userSlice,
 })
 
-// export const persistor = persistStore(store)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk],
+})
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export const persistor = persistStore(store)

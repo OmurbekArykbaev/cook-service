@@ -1,6 +1,12 @@
-import React from "react"
+import { setFips } from "crypto"
+import React, { useEffect, useState } from "react"
+import ProgressCount from "../../services/progress"
 
 const Progress = () => {
+  const [steps, setSteps] = useState<number>(1)
+  // const steps = ProgressCount(1, 1000, 3)
+  // console.log(steps)
+
   return (
     <div className="relative w-full mx-auto mb-7  flex justify-between">
       {/* <!-- line --> */}
@@ -8,7 +14,7 @@ const Progress = () => {
 
       {/* <!-- item 1 --> */}
       <div className="flex flex-col items-start lg:items-center lg:justify-center">
-        <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+        <div className="flex justify-center items-center mb-3 w-[40px] h-[40px]  bg-white rounded-full">
           <img src="./img/progress/item1.svg" alt="" />
         </div>
         <p className="text-sm ">Оформлен</p>
@@ -16,7 +22,11 @@ const Progress = () => {
 
       {/* <!-- item 2 --> */}
       <div className="flex flex-col items-center justify-center">
-        <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-black rounded-full">
+        <div
+          className={`flex justify-center items-center mb-3 w-[40px] h-[40px] ${
+            steps === 1 ? `bg-red-300` : `bg-white`
+          } rounded-full`}
+        >
           <img src="./img/progress/item2.svg" alt="" />
         </div>
         <p className="text-sm ">Готовиться</p>
@@ -24,7 +34,11 @@ const Progress = () => {
 
       {/* <!-- item 3 --> */}
       <div className="flex flex-col items-center justify-center">
-        <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+        <div
+          className={`flex justify-center items-center mb-3 w-[40px] h-[40px] ${
+            steps === 2 ? `bg-red-300` : `bg-white`
+          } rounded-full`}
+        >
           <img src="./img/progress/item3.svg" alt="" />
         </div>
         <p className="text-sm ">В доставке</p>
@@ -32,7 +46,11 @@ const Progress = () => {
 
       {/* <!-- item 4 --> */}
       <div className="flex flex-col items-center justify-center">
-        <div className="flex justify-center items-center mb-3 w-[40px] h-[40px] bg-white rounded-full">
+        <div
+          className={`flex justify-center items-center mb-3 w-[40px] h-[40px] ${
+            steps === 3 ? `bg-red-300` : `bg-white`
+          } rounded-full`}
+        >
           <img src="./img/progress/item4.svg" alt="" />
         </div>
         <p className="text-sm ">Готово</p>
