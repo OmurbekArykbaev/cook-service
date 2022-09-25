@@ -47,6 +47,11 @@ export const userSlice = createSlice({
     addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
       state.cartProducts.push({ ...action.payload, quantityProduct: 1 })
     },
+    removeFoodInCart: (state, action: PayloadAction<{ id: string }>) => {
+      state.cartProducts = state.cartProducts.filter(
+        (item) => item.id !== action.payload.id
+      )
+    },
 
     changeCountProductInCart: (
       state,
@@ -65,6 +70,7 @@ export const {
   getAuthorization,
   addAddress,
   addFoodInCart,
+  removeFoodInCart,
   addOrder,
   addWishFood,
   changeCountProductInCart,

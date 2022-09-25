@@ -34,7 +34,9 @@ const Cart = () => {
 
           <ul className="flex flex-col p-3 md:p-12 w-full">
             {cartProducts &&
-              cartProducts.map((item) => <CartItem product={item} />)}
+              cartProducts.map((item) => (
+                <CartItem key={item.id} product={item} />
+              ))}
           </ul>
 
           <div className="flex justify-center w-full md:px-12 py-3 mb-12  md:justify-start">
