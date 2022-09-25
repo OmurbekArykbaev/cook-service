@@ -15,7 +15,10 @@ const Shipping = () => {
 
   const [currentOrder] = orders.filter((item) => item.status === "current")
 
-  const totalSum = currentOrder.totalSum
+  const totalSum = currentOrder.foods.reduce(
+    (acc, item) => acc + item.quantityProduct * item.price,
+    0
+  )
 
   const rejectOrderHandler = () => {
     dispatch(changeStatusOrder({ id: currentOrder.id, status: "rejected" }))
@@ -61,7 +64,9 @@ const Shipping = () => {
                 </div>
                 <div className="w-full flex justify-between pt-4">
                   <h3 className="font-bold text-lg">Итого</h3>
-                  <h3 className="font-bold text-lg">{totalSum} сом</h3>
+                  <h3 className="font-bold text-lg">
+                    {totalSum + shipPrice} сом
+                  </h3>
                 </div>
               </div>
             </div>
