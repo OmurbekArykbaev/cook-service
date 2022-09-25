@@ -21,11 +21,14 @@ export interface IProductInCart extends IFood {
   quantityProduct: number
 }
 
-export interface IOrders {
+export interface StatusOrder {
+  status: "current" | "delivered" | "rejected"
+}
+
+export interface IOrders extends StatusOrder {
   id: number
   date: string
   totalSum: number
-  status: "current" | "delivered" | "rejected"
   address: IAddressData | {}
   foods: IProductInCart[]
 }

@@ -2,8 +2,10 @@ import React from "react"
 import OrderItem from "../../components/OrderItem/OrderItem"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
+import { useAppSelector } from "../../hooks/rtkHooks"
 
 const OrderList = () => {
+  const { orders } = useAppSelector((state) => state.userPofile)
   return (
     <Wrapper>
       <section>
@@ -29,14 +31,16 @@ const OrderList = () => {
           {/* <!-- item wrapper --> */}
 
           <ul className="flex flex-col p-6 md:p-12 w-full">
-            {/* <!-- item 1 --> */}
-            <OrderItem />
-            <OrderItem />
-            <OrderItem />
-            <OrderItem />
-            <OrderItem />
-            <OrderItem />
-            <OrderItem />
+            {orders &&
+              orders.map((item) => (
+                <OrderItem
+                  key={item.id}
+                  id={item.id}
+                  date={item.date}
+                  totalSum={item.totalSum}
+                  status={item.status}
+                />
+              ))}
           </ul>
         </div>
       </section>

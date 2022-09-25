@@ -5,6 +5,7 @@ import {
   IOrders,
   IProductInCart,
   IUserData,
+  StatusOrder,
 } from "../types/userProfile"
 
 interface InitState {
@@ -46,6 +47,20 @@ export const userSlice = createSlice({
       state.orders.push(action.payload)
     },
 
+    changeStatusOrder: (
+      state,
+      action: PayloadAction<{
+        status: "current" | "delivered" | "rejected"
+        id: number
+      }>
+    ) => {
+      state.orders.forEach((item) => {
+        if (item.id === action.payload.id) {
+          item.status = action.payload.status
+        }
+      })
+    },
+
     addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
       state.cartProducts.push({ ...action.payload, quantityProduct: 1 })
     },
@@ -75,6 +90,7 @@ export const {
   addFoodInCart,
   removeFoodInCart,
   addOrder,
+  changeStatusOrder,
   addWishFood,
   changeCountProductInCart,
 } = userSlice.actions

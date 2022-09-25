@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Title from "../../components/Title/Title"
 import Wrapper from "../../components/Wrapper/Wrapper"
 import { useAppDispatch, useAppSelector } from "../../hooks/rtkHooks"
-import { addOrder } from "../../redux/userSlice"
+import { addOrder, removeFoodInCart } from "../../redux/userSlice"
 import { IAddressData } from "../../types/userProfile"
 
 const Order = () => {
@@ -33,6 +33,8 @@ const Order = () => {
         foods: cartProducts,
       })
     )
+
+    cartProducts.forEach((item) => dispatch(removeFoodInCart({ id: item.id })))
   }
 
   useEffect(() => {
