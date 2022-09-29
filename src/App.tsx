@@ -1,16 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Payment from "./pages/Form/Payment/Payment"
-import SelfData from "./pages/Form/SelfData/SelfData"
-import AddAddress from "./pages/Form/Address/AddAddress"
-import Address from "./pages/Address/Address"
-import Cart from "./pages/Cart/Cart"
-import Home from "./pages/Home/Home"
-import Layout from "./pages/Layout"
-import LinkedCards from "./pages/LinkedCards/LinkedCards"
-import Order from "./pages/Order/Order"
-import OrderList from "./pages/OrderList/OrderList"
-import Shipping from "./pages/Shipping/Shipping"
-import LoginForm from "./pages/Form/Login/LoginForm"
+import {
+  Payment,
+  SelfData,
+  AddAddress,
+  Address,
+  Cart,
+  Home,
+  Layout,
+  LinkedCards,
+  Order,
+  OrderList,
+  Shipping,
+  LoginForm,
+} from "./app/pages"
 
 function App() {
   return (

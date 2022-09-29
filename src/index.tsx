@@ -4,7 +4,7 @@ import App from "./App"
 import "./index.css"
 import { Provider } from "react-redux"
 import { QueryClientProvider, QueryClient } from "react-query"
-import { persistor, store } from "./redux/store"
+import { persistor, store } from "./app/redux/store"
 import { PersistGate } from "redux-persist/integration/react"
 
 const queryClient = new QueryClient()
