@@ -2,16 +2,20 @@ import { FC, useEffect, useState } from "react"
 import Count from "../ui/Count/Count"
 import IFood from "../../types/foodData"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { addFoodInCart, addWishFood } from "../../redux/userSlice"
+import {
+  addFoodInCart,
+  addWishFood,
+  removeWishFood,
+} from "../../redux/userSlice"
 import { Link } from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify"
 
 const FoodCard: FC<IFood> = (props) => {
+  const dispatch = useAppDispatch()
   const [isInCart, setIsInCart] = useState<boolean>(false)
   const { id, name, image, description, price, cal } = props
 
-  const dispatch = useAppDispatch()
-  const { cartProducts } = useAppSelector((state) => state.userPofile)
+  const { cartProducts, wishlist } = useAppSelector((state) => state.userPofile)
 
   const addCartHandler = () => {
     dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
@@ -19,8 +23,16 @@ const FoodCard: FC<IFood> = (props) => {
       position: toast.POSITION.BOTTOM_LEFT,
     })
   }
+  const isWish = wishlist.filter((item) => item.id === id).length > 0
 
-  const addWishListHandler = () => dispatch(addWishFood(props))
+  const addWishListHandler = () => {
+    // const items = wishlist.filter((item) => item.id === id)
+    if (isWish) {
+      dispatch(removeWishFood(id))
+    } else {
+      dispatch(addWishFood(props))
+    }
+  }
 
   useEffect(() => {
     const product = cartProducts.filter((item) => item.id === id)
@@ -29,7 +41,6 @@ const FoodCard: FC<IFood> = (props) => {
     } else {
       setIsInCart(false)
     }
-    // cartProducts.filter((item) => item.id === id)
   }, [cartProducts, id])
 
   return (
@@ -38,7 +49,11 @@ const FoodCard: FC<IFood> = (props) => {
       <div className="card-food-img">
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
-            <img src="./img/Vector.svg" alt="Save" />
+            {isWish ? (
+              <img src="./img/Liked.svg" />
+            ) : (
+              <img src="./img/Like.svg" />
+            )}
           </button>
         </div>
 

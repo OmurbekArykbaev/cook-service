@@ -4,19 +4,21 @@ import { useAppSelector } from "../../hooks"
 
 const Header = () => {
   const [toggle, isToggle] = useState<string>("hidden")
-  const { isAuthorization } = useAppSelector((state) => state.userPofile)
+  const { isAuthorization, cartProducts } = useAppSelector(
+    (state) => state.userPofile
+  )
+  const totalItemInProducts = cartProducts.reduce(
+    (acc, item) => acc + item.quantityProduct,
+    0
+  )
 
   return (
     <header>
       <div className="container wrapper py-12">
-        {/* <!-- Navbar --> */}
         <nav className="flex justify-between relative">
-          {/* <!-- Logo --> */}
           <Link to="/">
             <img src="./img/logo.svg" alt="Logo" />
           </Link>
-
-          {/* <!-- Panel --> */}
           <div className="flex items-center space-x-3 sm:space-x-12">
             <a
               className="flex items-center space-x-2 text-white bg-[#25D366] rounded-full py-2 px-2 sm:py-2 sm:px-4"
@@ -26,12 +28,18 @@ const Header = () => {
               <span className="hidden sm:block">WhatsApp</span>
             </a>
 
-            <Link
-              to="/cart"
-              className="hidden text-lg text-black py-2 px-7 font-bold shadow md:block"
-            >
-              Заказать 1 блюда за 430Р
-            </Link>
+            {totalItemInProducts > 0 ? (
+              <Link
+                to="/cart"
+                className="hidden text-lg text-black py-2 px-7 font-bold shadow md:block"
+              >
+                Заказать
+                <span className="text-orange"> {totalItemInProducts} </span>
+                {totalItemInProducts === 1 ? "блюдо" : "блюд"}
+              </Link>
+            ) : (
+              <></>
+            )}
 
             <div className="relative">
               <button
@@ -43,8 +51,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* <!-- menu profile --> */}
-          {/* Miss fix!!!!! */}
           <div
             className={`${toggle} blur-none bg-[#E9E9E9] rounded-2xl p-3 max-w-[300px] absolute top-14 -right-5 shadow-mobile-menu z-30 sm:right-0`}
           >

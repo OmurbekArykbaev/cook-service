@@ -40,7 +40,13 @@ export const userSlice = createSlice({
     },
 
     addWishFood: (state, action: PayloadAction<IFood>) => {
+      const items = state.wishlist
       state.wishlist.push(action.payload)
+    },
+    removeWishFood: (state, action: PayloadAction<string>) => {
+      state.wishlist = state.wishlist.filter(
+        (item) => item.id !== action.payload
+      )
     },
 
     addOrder: (state, action: PayloadAction<IOrders>) => {
@@ -92,6 +98,7 @@ export const {
   addOrder,
   changeStatusOrder,
   addWishFood,
+  removeWishFood,
   changeCountProductInCart,
 } = userSlice.actions
 
