@@ -18,9 +18,9 @@ const DropdownButton: FC<Props> = ({ title, isActive, category, isOpen }) => {
   return (
     <li
       onClick={categoryClickHandler}
-      className={`py-2 px-4 cursor-pointer  ${
-        isActive ? "bg-red-300" : ""
-      } hover:bg-slate-400`}
+      className={`py-2 px-4 cursor-pointer font-bold  ${
+        isActive ? "text-orange" : ""
+      } hover:opacity-[0.3]`}
     >
       {title}
     </li>

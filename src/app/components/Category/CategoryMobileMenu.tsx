@@ -26,7 +26,7 @@ const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
       <button
         id="dropdownDefault"
         data-dropdown-toggle="dropdown"
-        className="w-[100%]  justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center sm:w-[50%] dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="category-btn"
         type="button"
         onClick={() => isOpen((state) => !state)}
       >
@@ -40,7 +40,7 @@ const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
       <div
         className={`${
           open ? `flex` : `hidden`
-        } w-[100%] mt-4  border border-orange sm:w-[50%]`}
+        } shadow-toggle-menu w-[100%] mt-4  rounded-md  sm:w-[50%]`}
       >
         <ul className="flex flex-col w-full">
           {data &&

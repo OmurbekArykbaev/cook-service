@@ -93,6 +93,22 @@ body {
   border-radius: 30px;
 }
 
+.shadow-toggle-menu {
+  background: #e9e9e9;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08),
+    -1px -1px 6px rgba(255, 255, 255, 0.5), -5px -5px 20px #ffffff,
+    5px 5px 20px #d3d3d3;
+}
+
+.category-btn {
+  background: #e9e9e9;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08),
+    -1px -1px 6px rgba(255, 255, 255, 0.5), -5px -5px 20px #ffffff,
+    5px 5px 20px #d3d3d3;
+
+  @apply w-[100%] font-bold  justify-center text-black focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center sm:w-[50%] dark:bg-[#cbcbcb]  dark:focus:bg-[#cbcbcb];
+}
+
 .shadow-food-card-btn-hover {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5),
     -1px -1px 6px rgba(255, 255, 255, 0.05),
