@@ -40,7 +40,6 @@ export const userSlice = createSlice({
     },
 
     addWishFood: (state, action: PayloadAction<IFood>) => {
-      const items = state.wishlist
       state.wishlist.push(action.payload)
     },
     removeWishFood: (state, action: PayloadAction<string>) => {

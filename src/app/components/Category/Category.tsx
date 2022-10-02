@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { useQuery } from "react-query"
+// import { useAppDispatch, useAppSelector } from "@base/app/hooks"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { fetchCategories } from "../../services/server"
 import Button from "./Button"
+import CategoryMobileMenu from "./CategoryMobileMenu"
 import { getCategories } from "./categorySlice"
 
 const Category = () => {
   const dispatch = useAppDispatch()
-  const [open, isOpen] = useState<boolean>(false)
   const { getAllCategories, allFoodData } = useAppSelector((state) => state)
   const { filterState } = allFoodData
   const { categoriesData } = getAllCategories
@@ -34,25 +35,12 @@ const Category = () => {
         </div>
 
         {/* Dropdown menu */}
-
-        <button
-          onClick={() => isOpen(!open)}
-          className="w-[70%] mx-auto py-3 px-7 bg-slate-400 md:hidden"
-        >
-          Категорий
-        </button>
-
-        <div
-          className={`${
-            open ? `block` : `hidden`
-          } w-[70%] mx-auto bg-slate-500 md:hidden`}
-        >
-          <ul>
-            <li>Любимое</li>
-            <li>Салаты</li>
-            <li>Закуски</li>
-          </ul>
-        </div>
+        <CategoryMobileMenu
+          isLoading={isLoading}
+          error={error}
+          data={categoriesData}
+          filter={filterState}
+        />
       </div>
     </section>
   )
