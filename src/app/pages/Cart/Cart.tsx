@@ -47,6 +47,10 @@ const Cart = () => {
               ))}
           </ul>
 
+          {cartProducts.length < 1 && (
+            <h1 className="text-center">Корзина пуста </h1>
+          )}
+
           <div className="flex justify-center w-full md:px-12 py-3 mb-12  md:justify-start">
             {sum !== 0 && (
               <button

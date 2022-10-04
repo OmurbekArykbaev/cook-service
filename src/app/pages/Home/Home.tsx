@@ -45,6 +45,10 @@ const Home = () => {
             allFoods
               .filter((item) => item.category === filterState)
               .map((item) => <FoodCard key={item.id} {...item} />)}
+
+          {!(filterState === "liked") &&
+            allFoods.filter((item) => item.category === filterState).length <
+              1 && <h1>Товары в данной категории отсутствуют</h1>}
           {filterState === "liked" &&
             wishlist.map((item) => <FoodCard key={item.id} {...item} />)}
         </div>

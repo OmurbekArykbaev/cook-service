@@ -22,7 +22,7 @@ const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
     )
   )
   return (
-    <div className="flex flex-col items-end md:hidden">
+    <div className="relative flex flex-col items-end md:hidden">
       <button
         id="dropdownDefault"
         data-dropdown-toggle="dropdown"
@@ -40,9 +40,9 @@ const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
       <div
         className={`${
           open ? `flex` : `hidden`
-        } shadow-toggle-menu w-[100%] mt-4  rounded-md  sm:w-[50%]`}
+        } absolute top-10 z-[80] w-[100%] mt-4 rounded-md  sm:w-[50%] transition-all duration-300 shadow-2xl bg-[#e9e9e9]`}
       >
-        <ul className="flex flex-col w-full">
+        <ul className={` flex  flex-col w-full`}>
           {data &&
             data.map((item) => (
               <DropdownButton
