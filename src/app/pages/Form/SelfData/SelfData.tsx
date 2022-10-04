@@ -1,16 +1,15 @@
+import { useAppSelector } from "../../../hooks"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 import { Title, Wrapper } from "../../../components"
 
 const SelfData = () => {
+  const { name, phone } = useAppSelector((state) => state.userPofile.userData)
   return (
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          {/* <!-- title --> */}
-
           <Title toPath="/" titleName="Мои данные" />
 
-          {/* Form wrapper */}
           <div className="flex flex-wrap flex-col items-center">
             <form className="w-full flex flex-col space-y-5 md:space-y-9">
               {/* 2 input wrapper */}
@@ -21,6 +20,7 @@ const SelfData = () => {
                     Как вас зовут
                   </label>
                   <input
+                    value={name}
                     className="input-items-address"
                     type="text"
                     name="address"
@@ -32,6 +32,7 @@ const SelfData = () => {
                     Телефон
                   </label>
                   <input
+                    value={phone}
                     className="input-items-address"
                     type="text"
                     name="address"
