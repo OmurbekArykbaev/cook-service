@@ -21,7 +21,7 @@ const Carousel = () => {
           </button>
         </div>
         {/* <!-- img --> */}
-        <div className="absolute w-[50%] -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:left-auto  lg:top-[-50px] lg:auto lg:right-0 lg:block ">
+        <div className="absolute hidden lg:block w-[50%] -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:left-auto  lg:top-[-50px] lg:auto lg:right-0 lg:block ">
           <img src="./img/dish-header.png" alt="Meat" />
         </div>
       </div>

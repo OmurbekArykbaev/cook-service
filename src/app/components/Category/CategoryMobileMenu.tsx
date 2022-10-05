@@ -32,7 +32,8 @@ const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
       >
         {isLoading && <>Loading</>}
         {(error as Error) && <p>Error </p>}
-        {currentFilter.title}
+        {currentFilter && currentFilter.title}
+
         {open && <MdOutlineKeyboardArrowDown size={18} />}
         {!open && <MdOutlineKeyboardArrowUp size={18} />}
       </button>

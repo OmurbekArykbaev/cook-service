@@ -11,7 +11,7 @@ import Order from "./Order/Order"
 import OrderList from "./OrderList/OrderList"
 import Shipping from "./Shipping/Shipping"
 import Layout from "./Layout"
-
+import OrderDetail from "./OrderDetail"
 export {
   AddAddress,
   LoginForm,
@@ -25,4 +25,5 @@ export {
   OrderList,
   Shipping,
   Layout,
+  OrderDetail,
 }

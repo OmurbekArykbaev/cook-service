@@ -10,7 +10,7 @@ import { getCategories } from "./categorySlice"
 const Category = () => {
   const dispatch = useAppDispatch()
   const { getAllCategories, allFoodData } = useAppSelector((state) => state)
-  const { filterState } = allFoodData
+  const { filterState, allFoods } = allFoodData
   const { categoriesData } = getAllCategories
 
   const { isLoading, error } = useQuery("categories", () => fetchCategories(), {

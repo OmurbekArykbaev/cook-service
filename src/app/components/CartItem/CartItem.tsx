@@ -30,7 +30,6 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
 
   const incrementHandler = () => {
     setCountQuantity((countQuantity) => countQuantity + 1)
-    // dispatch(changeCountProductInCart({ id, quan: countQuantity }))
   }
 
   const deleteProductHandler = () => {
@@ -40,7 +39,6 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
   const decrementHandler = () => {
     setCountQuantity((countQuantity) => countQuantity - 1)
     if (countQuantity < 2) setCountQuantity(1)
-    // dispatch(changeCountProductInCart({ id, quan: countQuantity }))
   }
 
   return (
@@ -78,7 +76,9 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
             </button>
           </div>
 
-          <h3 className="text-lg font-bold">{price * countQuantity} сом</h3>
+          <h3 className="text-lg pr-8 leading-4 font-bold">
+            {price * countQuantity} сом
+          </h3>
 
           <button
             onClick={deleteProductHandler}

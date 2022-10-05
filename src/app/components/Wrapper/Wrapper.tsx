@@ -1,3 +1,4 @@
+import Toast from "../../components/Toast"
 import React, { FC, ReactNode } from "react"
 
 interface IWrapperProps {
@@ -6,7 +7,12 @@ interface IWrapperProps {
 }
 
 const Wrapper: FC<IWrapperProps> = ({ children, nameClass }) => {
-  return <main className={`container wrapper ${nameClass}`}>{children}</main>
+  return (
+    <main className={`container wrapper ${nameClass}`}>
+      {children}
+      <Toast />
+    </main>
+  )
 }
 
 export default Wrapper

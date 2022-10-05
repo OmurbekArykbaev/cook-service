@@ -8,7 +8,7 @@ import {
   removeWishFood,
 } from "../../redux/userSlice"
 import { Link } from "react-router-dom"
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 
 const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
@@ -19,8 +19,14 @@ const FoodCard: FC<IFood> = (props) => {
 
   const addCartHandler = () => {
     dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
-    toast.warn("Warning Notification !", {
-      position: toast.POSITION.BOTTOM_LEFT,
+    toast(`Блюдо "${name}" добавлено в корзину!`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     })
   }
   const isWish = wishlist.filter((item) => item.id === id).length > 0

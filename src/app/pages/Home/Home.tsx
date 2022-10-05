@@ -1,7 +1,8 @@
+import Toast from "../../components/Toast"
 import { useQuery } from "react-query"
-import { toast, ToastContainer } from "react-toastify"
 import { Carousel, Category, FoodCard, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
+
 import { fetchFoods } from "../../services/server"
 import { fetchAllFoods } from "./allFoodSlice"
 

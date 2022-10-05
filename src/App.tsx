@@ -12,6 +12,7 @@ import {
   OrderList,
   Shipping,
   LoginForm,
+  OrderDetail,
 } from "./app/pages"
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path="/profile" element={<SelfData />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/order/detail/:id" element={<OrderDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>

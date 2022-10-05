@@ -55,7 +55,7 @@ const Cart = () => {
             {sum !== 0 && (
               <button
                 onClick={checkIsAuthorization}
-                className="w-full btn text-xl text-orange font-bold px-0 py-4 md:px-7 md:w-auto md:text-lg lg:px-6 lg:py-2"
+                className="w-full btn text-lg text-orange font-bold px-0 py-4  md:px-7 md:w-auto md:text-xl lg:px-6 lg:py-2"
               >
                 Оформить доставку за {sum} сом
               </button>

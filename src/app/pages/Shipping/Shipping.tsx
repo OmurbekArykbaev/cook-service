@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { DFItem, Progress, Title, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { addOrder, changeStatusOrder } from "../../redux/userSlice"
+import { changeStatusOrder } from "../../redux/userSlice"
 
 const Shipping = () => {
   const dispatch = useAppDispatch()
@@ -19,7 +19,7 @@ const Shipping = () => {
 
   const rejectOrderHandler = () => {
     dispatch(changeStatusOrder({ id: currentOrder.id, status: "rejected" }))
-    navigate("/orders")
+    navigate("/orders#orderlist")
   }
 
   useEffect(() => {
