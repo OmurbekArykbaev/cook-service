@@ -29,6 +29,7 @@ export interface IOrders extends StatusOrder {
   id: number
   date: string
   totalSum: number
+  deliveryPrice: number
   address?: IAddressData | {}
   foods: IProductInCart[]
 }

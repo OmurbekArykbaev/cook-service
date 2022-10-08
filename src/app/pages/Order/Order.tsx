@@ -1,3 +1,4 @@
+import { PushToast } from "../../components/Toast"
 import moment from "moment"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -24,16 +25,21 @@ const Order = () => {
     const dateFormat = moment().format("DD-MM-YYYY HH:mm")
     navigate("/shipping")
 
+    const id = Date.now()
+
     dispatch(
       addOrder({
-        id: Date.now(),
+        id,
         date: String(dateFormat),
         totalSum: totalSum > 500 ? totalSum : totalSum + 200,
+        deliveryPrice: totalSum > 500 ? 0 : 200,
         status: "current",
         address: dataAddress ? { ...dataAddress[0] } : {},
         foods: cartProducts,
       })
     )
+
+    PushToast(`Заказ под номером ${id} в обработке.`, 5000)
 
     cartProducts.forEach((item) => dispatch(removeFoodInCart({ id: item.id })))
   }
@@ -59,19 +65,12 @@ const Order = () => {
                   {item.street}
                 </button>
               ))}
-
-            {/* <button className="btn mb-4 sm:mb-0">Работа</button> */}
-            {/* <button className="btn mb-4 sm:mb-0">Новый адрес</button> */}
           </div>
 
           {/* //   <!-- panel & comment wrapper --> */}
 
           <div className=" flex flex-col p-6 lg:flex-row lg:justify-between sm:p-12 w-full">
-            {/* //   <!-- panel block--> */}
-
             <div className="w-full  mb-5  lg:mb-0   lg:w-[30%]">
-              {/* <!-- home --> */}
-
               {dataAddress && (
                 <div className="w-full p-5 mb-4 rounded-xl shadow-toorder-panel-block">
                   <h1 className="font-bold text-xl mb-5">

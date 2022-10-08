@@ -95,7 +95,6 @@ body {
 
 .shadow-toggle-menu {
   background: #e9e9e9;
-
   @apply shadow-2xl;
 }
 
@@ -159,4 +158,9 @@ body {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5),
     -1px -1px 6px rgba(255, 255, 255, 0.05),
     -5px -5px 20px rgba(255, 255, 255, 0.1), 5px 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+.Toastify__toast--success {
+  border: 3px solid #fe9102 !important;
+  border-radius: 1rem !important;
 }

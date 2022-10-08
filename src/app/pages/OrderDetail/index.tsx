@@ -10,7 +10,15 @@ const OrderDetail = () => {
     state.userPofile.orders.filter((item) => item.id.toString() === params.id)
   )
   const { id, date, totalSum, address, foods } = order
-  const { street } = address ? (address as IAddressData) : (address as any)
+  const {
+    street,
+    houseNumber,
+    entrance,
+    floor,
+    flatOffice,
+    callDoor,
+    comment,
+  } = address ? (address as IAddressData) : (address as any)
 
   return (
     <Wrapper>
@@ -29,11 +37,31 @@ const OrderDetail = () => {
               Итого: <strong>{totalSum}</strong>
             </p>
             <p>
-              По адресу: <strong>{street}</strong>
+              По адресу:{" "}
+              <strong>
+                {street} д {houseNumber}, кв {flatOffice && flatOffice + ","}
+                {entrance && <> подъезд: {entrance} </>}
+                {floor && <> этаж: {floor} </>}
+                {callDoor && <>домофон:{callDoor}</>}
+                <br />
+                {comment && comment}
+              </strong>
+            </p>
+            <p>
+              Доставка: <strong>0</strong>
+            </p>
+            <p>
+              Коментарий к доставке: <strong>Быстрее </strong>
+            </p>
+            <p>
+              Оплата: <strong>Наличными</strong>
             </p>
             <ul>
-              {foods.map((item) => (
-                <li key={item.id}>Блюдо: {item.name}</li>
+              Блюда
+              {foods.map((item, idx) => (
+                <li key={item.id}>
+                  #{idx + 1}: {item.name}
+                </li>
               ))}
             </ul>
           </div>

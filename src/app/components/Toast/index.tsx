@@ -1,12 +1,11 @@
-import React from "react"
-import { ToastContainer } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 
 const Toast = () => {
   return (
     <ToastContainer
-      position="bottom-right"
-      autoClose={1000}
-      hideProgressBar={false}
+      position="top-right"
+      autoClose={2000}
+      hideProgressBar={true}
       newestOnTop={false}
       closeOnClick
       rtl={false}
@@ -15,6 +14,18 @@ const Toast = () => {
       pauseOnHover
     />
   )
+}
+
+export const PushToast = (message: string, duration: number) => {
+  toast.success(message, {
+    position: "top-right",
+    autoClose: duration,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
 }
 
 export default Toast

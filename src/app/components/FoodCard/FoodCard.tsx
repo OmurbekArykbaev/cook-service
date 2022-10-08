@@ -8,7 +8,7 @@ import {
   removeWishFood,
 } from "../../redux/userSlice"
 import { Link } from "react-router-dom"
-import { toast } from "react-toastify"
+import { PushToast } from "../Toast"
 
 const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
@@ -19,15 +19,7 @@ const FoodCard: FC<IFood> = (props) => {
 
   const addCartHandler = () => {
     dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
-    toast(`Блюдо "${name}" добавлено в корзину!`, {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    })
+    PushToast(`Блюдо "${name}" добавлено в корзину`, 2000)
   }
   const isWish = wishlist.filter((item) => item.id === id).length > 0
 
@@ -56,9 +48,9 @@ const FoodCard: FC<IFood> = (props) => {
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
             {isWish ? (
-              <img src="./img/Liked.svg" />
+              <img src="./img/Liked.svg" alt="Liked" />
             ) : (
-              <img src="./img/Like.svg" />
+              <img src="./img/Like.svg" alt="Like" />
             )}
           </button>
         </div>

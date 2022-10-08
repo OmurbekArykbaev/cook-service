@@ -8,6 +8,7 @@ import {
 import { IProductInCart } from "../../types/userProfile"
 
 import { BsTrash } from "react-icons/bs"
+import { PushToast } from "./../../components/Toast"
 
 interface ICartItemProps {
   product: IProductInCart
@@ -34,6 +35,7 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
 
   const deleteProductHandler = () => {
     dispatch(removeFoodInCart({ id }))
+    PushToast(`Продукт ${name} был удален из корзины!`, 5000)
   }
 
   const decrementHandler = () => {
