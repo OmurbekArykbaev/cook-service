@@ -59,7 +59,6 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
 
         {/* <!-- quan and price --> */}
         <div className="relative w-auto flex justify-between  items-center pt-6 md:w-[30%] md:pt-0 md:justify-start">
-          {/* <Count id={id} /> */}
           <div className="flex items-center border border-white rounded-full text-xl mr-5">
             <button
               className="px-2 py-1 group-hover:text-white"

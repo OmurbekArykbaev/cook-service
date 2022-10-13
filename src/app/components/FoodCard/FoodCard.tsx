@@ -9,6 +9,7 @@ import {
 } from "../../redux/userSlice"
 import { Link } from "react-router-dom"
 import { PushToast } from "../Toast"
+import { setIsOpen } from "../../redux/changes"
 
 const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
@@ -20,6 +21,7 @@ const FoodCard: FC<IFood> = (props) => {
   const addCartHandler = () => {
     dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
     PushToast(`Блюдо "${name}" добавлено в корзину`, 2000)
+    dispatch(setIsOpen(true))
   }
   const isWish = wishlist.filter((item) => item.id === id).length > 0
 
@@ -87,11 +89,11 @@ const FoodCard: FC<IFood> = (props) => {
 
         {!isInCart ? (
           <div className="w-full flex items-center py-3">
-            <Count id={id} />
+            {/* <Count id={id} /> */}
 
             <button
               onClick={addCartHandler}
-              className="btn py-2 w-[70%] text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black"
+              className="btn py-2 w-full mx-auto text-orange font-bold  group-hover:bg-[#212629] group-hover:shadow-black"
             >
               Добавить
             </button>
