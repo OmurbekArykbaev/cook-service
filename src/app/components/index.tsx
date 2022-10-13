@@ -11,6 +11,7 @@ import Title from "./Title/Title"
 import Wrapper from "./Wrapper/Wrapper"
 import Count from "./ui/Count/Count"
 import Footer from "./Footer"
+import PushUpOrder from "./OrderPushUp"
 import Toast from "./Toast"
 
 export {
@@ -28,4 +29,5 @@ export {
   Wrapper,
   Count,
   Toast,
+  PushUpOrder,
 }

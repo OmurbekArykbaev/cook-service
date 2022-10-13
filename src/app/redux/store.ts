@@ -6,6 +6,7 @@ import { persistReducer, persistStore } from "redux-persist"
 
 import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
+import pushUpOrder from "./changes"
 
 const persistConfig = {
   key: "root",
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   allFoodData: allFoodSlice,
   getAllCategories: getCategorySlice,
   userPofile: userSlice,
+  globalChanges: pushUpOrder,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
