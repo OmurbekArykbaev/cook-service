@@ -1,15 +1,18 @@
 import { Title, Wrapper } from "../../components"
-import React from "react"
 import { useParams } from "react-router-dom"
 import { useAppSelector } from "../../hooks"
 import { IAddressData } from "@base/app/types/userProfile"
+import Row from "./Row"
+import FoodsList from "./FoodsList"
 
 const OrderDetail = () => {
   const params = useParams<string>()
   const [order] = useAppSelector((state) =>
-    state.userPofile.orders.filter((item) => item.id.toString() === params.id)
+    state.userPofile.orders.orderList.filter(
+      (item) => item.id.toString() === params.id
+    )
   )
-  const { id, date, totalSum, address, foods } = order
+  const { id, date, totalSum, address, foods, deliveryPrice } = order
   const {
     street,
     houseNumber,
@@ -22,49 +25,33 @@ const OrderDetail = () => {
 
   return (
     <Wrapper>
-      <section>
-        <div className="flex flex-col py-8">
-          <Title titleName="Деталь заказа" toPath="/" />
+      <section className="flex flex-col py-8">
+        <Title titleName="Деталь заказа" toPath="/orders" />
 
-          <div>
-            <p>
-              Номер заказа: <strong>{id}</strong>
-            </p>
-            <p>
-              Время: <strong>{date}</strong>
-            </p>
-            <p>
-              Итого: <strong>{totalSum}</strong>
-            </p>
-            <p>
-              По адресу:{" "}
-              <strong>
-                {street} д {houseNumber}, кв {flatOffice && flatOffice + ","}
-                {entrance && <> подъезд: {entrance} </>}
-                {floor && <> этаж: {floor} </>}
-                {callDoor && <>домофон:{callDoor}</>}
+        <div>
+          <Row title="Номер заказа" data={id} />
+          <Row title="Время оформления заказа" data={date} />
+          <Row title="Способ оплаты" data={"Наличными"} />
+          <Row
+            title="Адрес доставки"
+            node={
+              <>
+                {" "}
+                {street} д {houseNumber} кв {flatOffice ? flatOffice : "*"}{" "}
                 <br />
-                {comment && comment}
-              </strong>
-            </p>
-            <p>
-              Доставка: <strong>0</strong>
-            </p>
-            <p>
-              Коментарий к доставке: <strong>Быстрее </strong>
-            </p>
-            <p>
-              Оплата: <strong>Наличными</strong>
-            </p>
-            <ul>
-              Блюда
-              {foods.map((item, idx) => (
-                <li key={item.id}>
-                  #{idx + 1}: {item.name}
-                </li>
-              ))}
-            </ul>
-          </div>
+                Этаж: {floor ? floor : "*"} Домофон: {callDoor ? callDoor : "*"}{" "}
+                Подъезд: {entrance ? entrance : "*"}
+                <br />
+                Коментарий: {comment ? comment : "*"}
+              </>
+            }
+          />
+          <FoodsList foods={foods} />
+          <Row
+            title="Доставка"
+            data={deliveryPrice ? deliveryPrice : "Бесплатно"}
+          />
+          <Row title="Итого" data={`${totalSum} сом`} />
         </div>
       </section>
     </Wrapper>

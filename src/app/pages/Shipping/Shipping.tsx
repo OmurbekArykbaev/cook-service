@@ -10,15 +10,16 @@ const Shipping = () => {
   const [shipPrice, setShipPrice] = useState<number>(0)
   const { addresses, orders } = useAppSelector((state) => state.userPofile)
 
-  const [currentOrder] = orders.filter((item) => item.status === "current")
+  const { currentOrder } = orders
 
-  const totalSum = currentOrder.foods.reduce(
+  const totalSum = currentOrder[0].foods.reduce(
     (acc, item) => acc + item.quantityProduct * item.price,
     0
   )
 
   const rejectOrderHandler = () => {
-    dispatch(changeStatusOrder({ id: currentOrder.id, status: "rejected" }))
+    const idOrder = currentOrder[0].id
+    dispatch(changeStatusOrder({ id: idOrder, status: "rejected" }))
     navigate("/orders#orderlist")
   }
 
@@ -32,14 +33,14 @@ const Shipping = () => {
       <section>
         <div className="flex flex-col py-8">
           {/* <!-- title --> */}
-          <Title toPath="/" titleName={`${currentOrder.id}`} />
+          <Title toPath="/" titleName={`${currentOrder[0].id}`} />
           {/* <!-- progress bar --> */}
           <Progress />
           {/* <!-- items wrapper --> */}
           <div className="flex flex-col">
             <div className="bg-[#FFFFFF66] p-3 rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px] mb-3">
               {currentOrder &&
-                currentOrder.foods.map((item) => (
+                currentOrder[0].foods.map((item) => (
                   <DFItem
                     key={item.id}
                     img={item.image}

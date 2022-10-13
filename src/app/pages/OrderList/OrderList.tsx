@@ -29,7 +29,7 @@ const OrderList = () => {
 
           <ul className="flex flex-col p-6 md:p-12 w-full">
             {orders &&
-              orders
+              orders.orderList
                 .map((item) => (
                   <OrderItem
                     key={item.id}

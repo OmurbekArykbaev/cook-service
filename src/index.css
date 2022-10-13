@@ -164,3 +164,12 @@ body {
   border: 3px solid #fe9102 !important;
   border-radius: 1rem !important;
 }
+
+th {
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+td {
+  padding: 5px;
+}

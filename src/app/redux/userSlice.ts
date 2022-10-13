@@ -8,12 +8,16 @@ import {
   IUserData,
   StatusOrder,
 } from "../types/userProfile"
+import { object } from "yup"
 
 interface InitState {
   userData: IUserData
   addresses: IAddressData[]
   wishlist: IFood[]
-  orders: IOrders[]
+  orders: {
+    orderList: IOrders[]
+    currentOrder: IOrders[]
+  }
   cartProducts: IProductInCart[]
   isAuthorization: boolean
 }
@@ -22,7 +26,10 @@ const initialState: InitState = {
   userData: { name: "", phone: "" },
   addresses: [],
   wishlist: [],
-  orders: [],
+  orders: {
+    orderList: [],
+    currentOrder: [],
+  },
   cartProducts: [],
   isAuthorization: false,
 }
@@ -50,7 +57,8 @@ export const userSlice = createSlice({
     },
 
     addOrder: (state, action: PayloadAction<IOrders>) => {
-      state.orders.push(action.payload)
+      state.orders.orderList.push(action.payload)
+      state.orders.currentOrder.push(action.payload)
     },
 
     changeStatusOrder: (
@@ -60,11 +68,13 @@ export const userSlice = createSlice({
         id: number
       }>
     ) => {
-      state.orders.forEach((item) => {
+      state.orders.orderList.forEach((item) => {
         if (item.id === action.payload.id) {
           item.status = action.payload.status
         }
       })
+
+      state.orders.currentOrder = []
     },
 
     addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
