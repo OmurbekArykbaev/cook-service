@@ -3,9 +3,11 @@
     "target": "es5",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["app/components/*"],
-      "@pages/*": ["./pages/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@redux/*": ["redux/*"],
+      "@pages/*": ["./app/pages/*"],
       "@api/*": ["./api/*"],
+      "@hooks/*": ["./app/hooks/*"],
       "@base/*": ["./*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],

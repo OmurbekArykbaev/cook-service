@@ -10,7 +10,11 @@ const Wrapper: FC<IWrapperProps> = ({ children, nameClass }) => {
   const data = useAppSelector((state) => state.globalChanges.isOpen)
 
   return (
-    <main className={`container wrapper ${data ? "blur-lg" : ""} ${nameClass}`}>
+    <main
+      className={`container wrapper ${
+        data ? "blur-lg overflow-y-hidden" : ""
+      } ${nameClass}`}
+    >
       {children}
     </main>
   )

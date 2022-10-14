@@ -5,18 +5,18 @@ import Count from "./Count"
 import { PushToast } from "../Toast"
 import { FC } from "react"
 import { IProductInCart } from "@base/app/types/userProfile"
+
 import { addFoodInCart } from "../../redux/userSlice"
 
 const PanelPart: FC<IProductInCart> = (props) => {
-  const state = useAppSelector((state) => state.globalChanges.product)
   const { id, name, cal, description, price, quantityProduct, extra } = props
   const dispatch = useAppDispatch()
 
   const addInCartHandler = () => {
     dispatch(setIsOpen(false))
-    dispatch(addFoodInCart(state[0]))
+    dispatch(addFoodInCart(props))
     dispatch(removeProductInModal())
-    PushToast(`Блюдо "eда" добавлено в корзину`, 2000)
+    PushToast(`Блюдо "${name}" добавлено в корзину`, 2000)
   }
 
   return (

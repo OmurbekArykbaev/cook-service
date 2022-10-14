@@ -20,7 +20,6 @@ const FoodCard: FC<IFood> = (props) => {
   const isWish = wishlist.filter((item) => item.id === id).length > 0
 
   const addWishListHandler = () => {
-    // const items = wishlist.filter((item) => item.id === id)
     if (isWish) {
       dispatch(removeWishFood(id))
     } else {

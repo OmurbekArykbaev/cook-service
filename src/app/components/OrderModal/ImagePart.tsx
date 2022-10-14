@@ -1,18 +1,28 @@
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import React, { FC } from "react"
+import { FC } from "react"
 import { AiOutlineClose } from "react-icons/ai"
-import { removeProductInModal, setIsOpen } from "../../redux"
+import {
+  changeHotInProductInModal,
+  removeProductInModal,
+  setIsOpen,
+} from "../../redux"
 
 type Props = {
+  id: string
   image: string
+  isHot?: boolean
 }
 
-const ImagePart: FC<Props> = ({ image }) => {
+const ImagePart: FC<Props> = ({ image, id, isHot = false }) => {
   const dispatch = useAppDispatch()
 
   const closeModalHandler = () => {
     dispatch(setIsOpen(false))
     dispatch(removeProductInModal())
+  }
+
+  const addHotHandler = () => {
+    dispatch(changeHotInProductInModal({ id, isHot: !isHot }))
   }
 
   return (
@@ -29,10 +39,14 @@ const ImagePart: FC<Props> = ({ image }) => {
         </button>
       </div>
 
-      <img className="max-h-[360px]" src={image} alt="Food" />
+      <img className="h-[200px] md:h-[360px]" src={image} alt="Food" />
 
-      <div className="absolute flex justify-center items-center bottom-[-10px] left-10 rounded-full p-1 bg-white shadow-chilli">
-        <button>
+      <div
+        className={`absolute flex justify-center items-center bottom-[-10px] left-10 rounded-full p-1 ${
+          isHot && "border-2 border-red-900 animate-pulse"
+        } bg-white shadow-chilli`}
+      >
+        <button onClick={addHotHandler}>
           <img src="./img/chilli.png" alt="Chilli" />
         </button>
       </div>

@@ -8,7 +8,6 @@ import {
   IUserData,
   StatusOrder,
 } from "../types/userProfile"
-import { object } from "yup"
 
 interface InitState {
   userData: IUserData
