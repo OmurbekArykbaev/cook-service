@@ -2,14 +2,9 @@ import { FC, useEffect, useState } from "react"
 import Count from "../ui/Count/Count"
 import IFood from "../../types/foodData"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import {
-  addFoodInCart,
-  addWishFood,
-  removeWishFood,
-} from "../../redux/userSlice"
+import { addWishFood, removeWishFood } from "../../redux/userSlice"
 import { Link } from "react-router-dom"
-import { PushToast } from "../Toast"
-import { setIsOpen } from "../../redux/changes"
+import { addProductInModal, setIsOpen } from "../../redux"
 
 const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
@@ -19,9 +14,8 @@ const FoodCard: FC<IFood> = (props) => {
   const { cartProducts, wishlist } = useAppSelector((state) => state.userPofile)
 
   const addCartHandler = () => {
-    dispatch(addFoodInCart({ ...props, quantityProduct: 0 }))
-    PushToast(`Блюдо "${name}" добавлено в корзину`, 2000)
     dispatch(setIsOpen(true))
+    dispatch(addProductInModal({ ...props, quantityProduct: 1 }))
   }
   const isWish = wishlist.filter((item) => item.id === id).length > 0
 

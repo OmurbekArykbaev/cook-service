@@ -19,6 +19,7 @@ export interface IUserData {
 
 export interface IProductInCart extends IFood {
   quantityProduct: number
+  isHot?: boolean
 }
 
 export interface StatusOrder {

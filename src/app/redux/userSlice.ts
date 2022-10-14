@@ -78,7 +78,7 @@ export const userSlice = createSlice({
     },
 
     addFoodInCart: (state, action: PayloadAction<IProductInCart>) => {
-      state.cartProducts.push({ ...action.payload, quantityProduct: 1 })
+      state.cartProducts.push(action.payload)
     },
 
     removeFoodInCart: (state, action: PayloadAction<{ id: string }>) => {

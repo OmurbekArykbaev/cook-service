@@ -1,20 +1,28 @@
 import { useAppDispatch } from "../../hooks"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import React, { useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
+import { changeCountProductInModal } from "../../redux"
 
-const Count = () => {
+type Props = {
+  id: string
+  quanFromStore: number
+}
+
+const Count: FC<Props> = ({ id, quanFromStore }) => {
+  const [countQuantity, setCountQuantity] = useState<number>(quanFromStore)
   const dispatch = useAppDispatch()
-  //   useEffect(() => {
-  // dispatch(changeCountProductInCart({ id, quan: countQuantity }))
-  //   }, [countQuantity, dispatch, id])
+
+  useEffect(() => {
+    dispatch(changeCountProductInModal({ id, quan: countQuantity }))
+  }, [countQuantity, dispatch, id])
 
   const incrementHandler = () => {
-    // setCountQuantity((countQuantity) => countQuantity + 1)
+    setCountQuantity((countQuantity) => countQuantity + 1)
   }
 
   const decrementHandler = () => {
-    // setCountQuantity((countQuantity) => countQuantity - 1)
-    // if (countQuantity < 2) setCountQuantity(1)
+    setCountQuantity((countQuantity) => countQuantity - 1)
+    if (countQuantity < 2) setCountQuantity(1)
   }
 
   return (
@@ -25,9 +33,7 @@ const Count = () => {
       >
         <AiOutlinePlus size={16} />
       </button>
-      <span className="px-2 py-1 text-sm">
-        {/* {productFromStore.quantityProduct} */} 3
-      </span>
+      <span className="px-2 py-1 text-sm">{quanFromStore}</span>
       <button
         onClick={decrementHandler}
         className="px-2 sm:px-5 py-2 font-bold"

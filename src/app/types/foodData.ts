@@ -15,6 +15,7 @@ interface IFood {
   privatePerson: boolean
   corporatePerson: boolean
   image: string
+  extra?: string[]
 }
 
 export default IFood
