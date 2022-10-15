@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { filterByCategory } from "../../pages/Home/allFoodSlice"
+import { filterByCategory } from "../../pages/Home/getFoodSlice"
 
 interface IButtonProps {
   title: string

@@ -1,12 +1,13 @@
 import { FC } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { IAddressData } from "../../types/userProfile"
 
 const Item: FC<IAddressData> = (props) => {
+  const navigate = useNavigate()
   return (
-    <Link
-      to={`/`}
-      className="w-full h-[170px] rounded-xl shadow-toorder-panel-block sm:w-[360px]"
+    <div
+      onClick={() => navigate(`${props.id}`)}
+      className="w-full h-[170px] rounded-xl shadow-toorder-panel-block cursor-pointer sm:w-[360px]"
     >
       <div className="h-full flex flex-col justify-between p-6 items-start text-2xl">
         <h1 className="font-bold">{props.street}</h1>
@@ -16,7 +17,7 @@ const Item: FC<IAddressData> = (props) => {
           {` Квартира: ${props.flatOffice}. Подъезд: ${props.entrance}. Этаж: ${props.floor}. Домофон/охрана: ${props.callDoor}`}
         </p>
       </div>
-    </Link>
+    </div>
   )
 }
 

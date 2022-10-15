@@ -1,7 +1,6 @@
-// import Address from "./app/Address/Address"
+import { AddAddress, EditAddress } from "./Form/Address"
 import Address from "./Address/Address"
 import Cart from "./Cart/Cart"
-import AddAddress from "./Form/Address/AddAddress"
 import LoginForm from "./Form/Login/LoginForm"
 import SelfData from "./Form/SelfData/SelfData"
 import Payment from "./Form/Payment/Payment"
@@ -14,6 +13,7 @@ import Layout from "./Layout"
 import OrderDetail from "./OrderDetail"
 export {
   AddAddress,
+  EditAddress,
   LoginForm,
   SelfData,
   Payment,

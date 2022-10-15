@@ -1,10 +1,9 @@
-import Toast from "../../components/Toast"
 import { useQuery } from "react-query"
+
 import { Carousel, Category, FoodCard, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-
 import { fetchFoods } from "../../services/server"
-import { fetchAllFoods } from "./allFoodSlice"
+import { fetchAllFoods } from "./getFoodSlice"
 
 const Home = () => {
   const dispatch = useAppDispatch()

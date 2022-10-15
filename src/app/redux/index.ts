@@ -5,7 +5,7 @@ import {
   changeExtraInProductInModal,
   changeHotInProductInModal,
   removeProductInModal,
-} from "./PushupOrder"
+} from "./modalOrderSlice"
 
 export {
   setIsOpen,

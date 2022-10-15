@@ -3,6 +3,7 @@ import {
   Payment,
   SelfData,
   AddAddress,
+  EditAddress,
   Address,
   Cart,
   Home,
@@ -29,6 +30,7 @@ function App() {
             <Route path="/cards" element={<LinkedCards />} />
             <Route path="/address" element={<Address />} />
             <Route path="/addresses" element={<AddAddress />} />
+            <Route path="/address/:id" element={<EditAddress />} />
             <Route path="/profile" element={<SelfData />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/login" element={<LoginForm />} />

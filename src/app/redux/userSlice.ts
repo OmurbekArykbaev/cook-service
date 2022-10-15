@@ -45,6 +45,31 @@ export const userSlice = createSlice({
     addAddress: (state, action: PayloadAction<IAddressData>) => {
       state.addresses.push(action.payload)
     },
+    editAddress: (
+      state,
+      action: PayloadAction<{ data: IAddressData; id: number }>
+    ) => {
+      const {
+        street,
+        houseNumber,
+        entrance,
+        callDoor,
+        comment,
+        flatOffice,
+        floor,
+      } = action.payload.data
+      state.addresses.forEach((item) => {
+        if (item.id === action.payload.id) {
+          item.street = street
+          item.callDoor = callDoor
+          item.comment = comment
+          item.entrance = entrance
+          item.houseNumber = houseNumber
+          item.flatOffice = flatOffice
+          item.floor = floor
+        }
+      })
+    },
 
     addWishFood: (state, action: PayloadAction<IFood>) => {
       state.wishlist.push(action.payload)
@@ -102,6 +127,7 @@ export const userSlice = createSlice({
 export const {
   getAuthorization,
   addAddress,
+  editAddress,
   addFoodInCart,
   removeFoodInCart,
   addOrder,

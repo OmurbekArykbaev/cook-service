@@ -1,12 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import allFoodSlice from "../pages/Home/allFoodSlice"
+import allFoodSlice from "../pages/Home/getFoodSlice"
 import getCategorySlice from "../components/Category/categorySlice"
 import userSlice from "./userSlice"
 import { persistReducer, persistStore } from "redux-persist"
 
 import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
-import pushUpOrder from "./PushupOrder"
+import pushUpOrder from "./modalOrderSlice"
 
 const persistConfig = {
   key: "root",

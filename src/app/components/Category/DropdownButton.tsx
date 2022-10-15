@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { filterByCategory } from "../../pages/Home/allFoodSlice"
+import { filterByCategory } from "../../pages/Home/getFoodSlice"
 import { FC } from "react"
 
 type Props = {

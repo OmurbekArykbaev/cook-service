@@ -16,7 +16,7 @@ const Address = () => {
               addresses.map((item) => <Item key={item.id} {...item} />)}
           </div>
 
-          <div className="px-6   sm:px-12">
+          <div className="px-6 sm:px-12">
             <Link
               to="/addresses"
               className="w-full btn font-bold py-4 px-6 md:py-2 md:w-[30%]"
