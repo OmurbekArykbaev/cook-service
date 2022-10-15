@@ -42,6 +42,10 @@ export const userSlice = createSlice({
       state.isAuthorization = true
     },
 
+    editUserData: (state, action: PayloadAction<IUserData>) => {
+      state.userData = action.payload
+    },
+
     addAddress: (state, action: PayloadAction<IAddressData>) => {
       state.addresses.push(action.payload)
     },
@@ -126,6 +130,7 @@ export const userSlice = createSlice({
 
 export const {
   getAuthorization,
+  editUserData,
   addAddress,
   editAddress,
   addFoodInCart,
