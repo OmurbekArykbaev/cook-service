@@ -4,10 +4,11 @@ import { useFormik } from "formik"
 
 import { Title, Wrapper } from "../../../components"
 import { IAddressData } from "../../../types/userProfile"
-import { addAddress, editAddress } from "../../../redux/userSlice"
+import { editAddress } from "../../../redux/userSlice"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
+import { PushToast } from "../../../components/Toast"
 
 const EditAddress = () => {
   const navigate = useNavigate()
@@ -33,6 +34,7 @@ const EditAddress = () => {
 
   const onSubmit = (values: IAddressData, actions: any): void => {
     dispatch(editAddress({ data: values, id }))
+    PushToast(`Изминения сохранены`, 1000)
     actions.resetForm()
     navigate("/address")
   }
@@ -63,7 +65,7 @@ const EditAddress = () => {
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          <Title toPath="/" titleName="Мои Адреса" />
+          <Title toPath="/" titleName="Изменение адреса" />
           <div className="flex flex-wrap flex-col items-center">
             <form
               onSubmit={handleSubmit}

@@ -57,6 +57,7 @@ const Order = () => {
             {addresses &&
               addresses.map((item) => (
                 <button
+                  key={item.id}
                   onClick={() => setFilter(item.street)}
                   className={`btn ${
                     item.street === filter ? `shadow-btn-active` : ``
