@@ -26,7 +26,7 @@ const ImagePart: FC<Props> = ({ image, id, isHot = false }) => {
   }
 
   return (
-    <div className="relative flex justify-center lg:items-center bg-[#FE724B] h-[200px] md:h-[360px] rounded-tl-[40px] rounded-tr-[40px]">
+    <div className="relative flex justify-center lg:items-center bg-[#FE724B] max-h-[200px]  rounded-tl-[40px] rounded-tr-[40px]">
       <div className="absolute top-5 left-5">
         <button>
           <img src="./img/Like.svg" alt="Like" />
@@ -39,7 +39,7 @@ const ImagePart: FC<Props> = ({ image, id, isHot = false }) => {
         </button>
       </div>
 
-      <img className="h-[200px] md:h-[360px]" src={image} alt="Food" />
+      <img className="h-[200px]" src={image} alt="Food" />
 
       <div
         className={`absolute flex justify-center items-center bottom-[-10px] left-10 rounded-full p-1 ${
