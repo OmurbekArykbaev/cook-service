@@ -1,3 +1,5 @@
+import { PushToast } from "../../components/Toast"
+import { IAddressData } from "@base/app/types/userProfile"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { DFItem, Progress, Title, Wrapper } from "../../components"
@@ -8,9 +10,11 @@ const Shipping = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [shipPrice, setShipPrice] = useState<number>(0)
-  const { addresses, orders } = useAppSelector((state) => state.userPofile)
+  const { orders } = useAppSelector((state) => state.userPofile)
 
   const { currentOrder } = orders
+  const currentAddress = currentOrder[0].address as IAddressData
+  const idOrder = currentOrder[0].id
 
   const totalSum = currentOrder[0].foods.reduce(
     (acc, item) => acc + item.quantityProduct * item.price,
@@ -18,9 +22,9 @@ const Shipping = () => {
   )
 
   const rejectOrderHandler = () => {
-    const idOrder = currentOrder[0].id
     dispatch(changeStatusOrder({ id: idOrder, status: "rejected" }))
     navigate("/orders#orderlist")
+    PushToast(`Ваш заказ был отменен.`, 3000)
   }
 
   useEffect(() => {
@@ -78,7 +82,12 @@ const Shipping = () => {
 
               <li className="bg-[#FFFFFF66] py-4 px-8 mb-3 flex flex-col rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px]">
                 <p className="text-sm text-[#b1b2b3]">Куда</p>
-                <h3 className="text-lg">{addresses && addresses[0].street}</h3>
+                {currentAddress && (
+                  <h3 className="text-lg">
+                    {currentAddress.street}, д {currentAddress.houseNumber}, кв{" "}
+                    {currentAddress.flatOffice}
+                  </h3>
+                )}
               </li>
 
               <li className="bg-[#FFFFFF66] py-4 px-8 mb-3 flex flex-col rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[5px] rounded-br-[20px]">
