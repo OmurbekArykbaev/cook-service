@@ -34,7 +34,7 @@ const CartItem: FC<Props> = ({ product }) => {
 
   const deleteProductHandler = () => {
     dispatch(removeFoodInCart({ id }))
-    PushToast(`Продукт ${name} был удален из корзины!`, 5000)
+    PushToast(`Продукт ${name} был удален из корзины!`, 1000)
   }
 
   const decrementHandler = () => {

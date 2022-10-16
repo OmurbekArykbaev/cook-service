@@ -15,7 +15,7 @@ const PanelPart: FC<IProductInCart> = (props) => {
     dispatch(setIsOpen(false))
     dispatch(addFoodInCart(props))
     dispatch(removeProductInModal())
-    PushToast(`Блюдо "${name}" добавлено в корзину`, 2000)
+    PushToast(`Блюдо "${name}" добавлено в корзину`, 1000)
   }
 
   return (

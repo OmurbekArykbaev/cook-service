@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useAppSelector } from "../../hooks"
+import { BsCart2 } from "react-icons/bs"
 import ToggleMenu from "./ToggleMenu"
 
 const Header = () => {
@@ -14,8 +15,8 @@ const Header = () => {
     0
   )
   return (
-    <header>
-      <div className="container wrapper py-12">
+    <header className="sticky top-0 z-50 bg-gray shadow-lg">
+      <div className="container wrapper py-4">
         <nav className="flex justify-between relative">
           <Link to="/">
             <img src="./img/logo.svg" alt="Logo" />
@@ -33,11 +34,12 @@ const Header = () => {
             {totalItemInProducts > 0 ? (
               <Link
                 to="/cart"
-                className="hidden text-lg text-black py-2 px-7 font-bold shadow md:block"
+                className="relative flex text-lg text-black py-2 px-4 mr-2 font-bold shadow"
               >
-                Заказать
-                <span className="text-orange"> {totalItemInProducts} </span>
-                {totalItemInProducts === 1 ? "блюдо" : "блюд"}
+                <BsCart2 size={24} />
+                <span className="text-orange text-md">
+                  {totalItemInProducts}{" "}
+                </span>
               </Link>
             ) : (
               <></>

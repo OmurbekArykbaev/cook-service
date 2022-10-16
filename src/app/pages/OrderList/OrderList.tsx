@@ -1,35 +1,73 @@
 import { useAppSelector } from "../../hooks"
 import { OrderItem, Title, Wrapper } from "../../components"
+import { useEffect, useState } from "react"
+import { IOrders } from "../../types/userProfile"
+import ButtonCategory from "./ButtonCategory"
+
+type TCategory = {
+  id: number
+  name: string
+  category: "all" | "delivered" | "rejected"
+}
+
+const dataCategory: TCategory[] = [
+  {
+    id: 1,
+    name: "Все",
+    category: "all",
+  },
+  {
+    id: 2,
+    name: "Доставлено",
+    category: "delivered",
+  },
+  {
+    id: 3,
+    name: "Отменен",
+    category: "rejected",
+  },
+]
 
 const OrderList = () => {
+  const [data, setData] = useState<IOrders[]>([])
+  const [filter, setFilter] = useState<"all" | "delivered" | "rejected">("all")
+
   const { orders } = useAppSelector((state) => state.userPofile)
+  // const changeFilterHandler = (filter) => {
+
+  // }
+
+  useEffect(() => {
+    if (filter === "all") {
+      setData(orders.orderList)
+    } else if (filter === "delivered") {
+      setData(orders.orderList.filter((i) => i.status === "delivered"))
+    } else if (filter === "rejected") {
+      setData(orders.orderList.filter((i) => i.status === "rejected"))
+    }
+  }, [filter, orders])
+
   return (
     <Wrapper>
       <section id="orderlist">
         <div className="flex flex-col py-4 sm:py-8">
-          {/* <!-- title --> */}
-
           <Title toPath="/" titleName="Мои заказы" />
 
-          {/* <!-- category --> */}
-
           <div className=" flex  items-center flex-wrap  sm:flex-nowrap px-6 sm:px-12">
-            <button className="w-full btn shadow-btn-active mb-3 sm:mb-0 sm:w-auto">
-              Все
-            </button>
-            <button className="w-full btn mb-3 sm:mb-0 sm:w-auto">
-              Доставлены
-            </button>
-            <button className=" w-full btn mb-3 sm:mb-0 sm:w-auto">
-              Отменены
-            </button>
+            {dataCategory.map((item) => (
+              <ButtonCategory
+                setFilter={setFilter}
+                name={item.name}
+                category={item.category}
+              />
+            ))}
           </div>
 
           {/* <!-- item wrapper --> */}
 
           <ul className="flex flex-col p-6 md:p-12 w-full">
-            {orders &&
-              orders.orderList
+            {data &&
+              data
                 .map((item) => (
                   <OrderItem
                     key={item.id}
