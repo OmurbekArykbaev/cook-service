@@ -18,7 +18,7 @@ const SelfData = () => {
     dispatch(editUserData(values))
     actions.resetForm()
     navigate("/")
-    PushToast("Изминения сохранены", 1000)
+    PushToast("Изменения сохранены", 1000)
   }
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
