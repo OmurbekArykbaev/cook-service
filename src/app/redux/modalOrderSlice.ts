@@ -53,12 +53,6 @@ export const pushUpOrder = createSlice({
         }
       })
     },
-
-    changeExtraInProductInModal: (state, action: PayloadAction<string>) => {
-      state.product.forEach((item) => {
-        if (item.id === action.payload) item.extra?.push(action.payload)
-      })
-    },
   },
 })
 
@@ -67,7 +61,6 @@ export const {
   addProductInModal,
   removeProductInModal,
   changeCountProductInModal,
-  changeExtraInProductInModal,
   changeHotInProductInModal,
 } = pushUpOrder.actions
 

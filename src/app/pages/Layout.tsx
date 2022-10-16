@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { Header, Footer, Toast, PushUpOrder } from "../components"
+import { Footer, Toast, PushUpOrder, Header } from "../components"
 
 const Layout = () => {
   return (

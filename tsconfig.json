@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["./src/app/components/*"],
-      "@redux/*": ["redux/*"],
-      "@pages/*": ["./app/pages/*"],
-      "@api/*": ["./api/*"],
-      "@hooks/*": ["./app/hooks/*"],
-      "@base/*": ["./*"]
+      "@base/*": ["*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -27,3 +22,10 @@
   },
   "include": ["src"]
 }
+
+// "@app/*": ["app/*"],
+// "@components/*": ["app/components/*"],
+// "@redux/*": ["app/redux/*"],
+// "@pages/*": ["app/pages/*"],
+// "@services/*": ["app/services"],
+// "@hooks/*": ["app/hooks/*"],

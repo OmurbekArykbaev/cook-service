@@ -1,6 +1,5 @@
 import { setFips } from "crypto"
 import React, { useEffect, useState } from "react"
-import ProgressCount from "../../services/progress"
 
 const Progress = () => {
   const [steps, setSteps] = useState<number>(1)

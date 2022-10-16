@@ -46,7 +46,7 @@ const Header = () => {
             <div className="relative">
               <button
                 className="shadow py-3 px-4"
-                onClick={() => isToggle(true)}
+                onClick={() => isToggle((i) => !i)}
               >
                 <img src="./img/profile.svg" alt="Profile" />
               </button>

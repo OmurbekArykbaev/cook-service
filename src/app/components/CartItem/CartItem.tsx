@@ -10,12 +10,11 @@ import { IProductInCart } from "../../types/userProfile"
 import { BsTrash } from "react-icons/bs"
 import { PushToast } from "./../../components/Toast"
 
-interface ICartItemProps {
+interface Props {
   product: IProductInCart
-  typeCook?: string
 }
 
-const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
+const CartItem: FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch()
   const { image, name, id, price } = product
   const [productFromStore] = useAppSelector((state) =>
@@ -53,7 +52,9 @@ const CartItem: FC<ICartItemProps> = ({ product, typeCook }) => {
           </div>
           <div className="flex flex-col items-start">
             <h3 className="text-xl md:text-3xl">{name}</h3>
-            {typeCook && <p className="text-sm text-zinc-400">{typeCook}</p>}
+            {/* {product.extra && (
+              <p className="text-sm text-zinc-400">{product.extra.join(" ")}</p>
+            )} */}
           </div>
         </div>
 

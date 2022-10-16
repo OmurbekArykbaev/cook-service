@@ -1,6 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../hooks"
+import { useAppDispatch } from "../../hooks"
 import { removeProductInModal, setIsOpen } from "../../redux"
-import Extra from "./Extra"
 import Count from "./Count"
 import { PushToast } from "../Toast"
 import { FC } from "react"
@@ -9,7 +8,7 @@ import { IProductInCart } from "@base/app/types/userProfile"
 import { addFoodInCart } from "../../redux/userSlice"
 
 const PanelPart: FC<IProductInCart> = (props) => {
-  const { id, name, cal, description, price, quantityProduct, extra } = props
+  const { id, name, cal, description, price, quantityProduct } = props
   const dispatch = useAppDispatch()
 
   const addInCartHandler = () => {
@@ -37,12 +36,7 @@ const PanelPart: FC<IProductInCart> = (props) => {
         {description}
       </p>
 
-      <div className="flex flex-col py-3 w-[100%] ">
-        <h1 className="text-white text-sm md:text-xl font-bold mb-5">
-          Дополнительно:
-        </h1>
-        {/* <Extra /> */}
-      </div>
+      {/* <div className="flex flex-col py-3 w-[100%] "></div> */}
 
       <div className="w-full flex  items-center py-3">
         <Count id={id} quanFromStore={quantityProduct} />
