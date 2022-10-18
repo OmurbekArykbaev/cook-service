@@ -6,13 +6,16 @@ type Props = {
   >
   name: string
   category: "all" | "delivered" | "rejected"
+  isActive: boolean
 }
 
-const ButtonCategory: FC<Props> = ({ setFilter, name, category }) => {
+const ButtonCategory: FC<Props> = ({ setFilter, name, category, isActive }) => {
   return (
     <button
       onClick={() => setFilter(category)}
-      className="w-full btn shadow-btn-active mb-3 sm:mb-0 sm:w-auto"
+      className={`w-full btn mb-3 sm:mb-0 sm:w-auto ${
+        isActive ? "shadow-btn-active" : ""
+      }`}
     >
       {name}
     </button>

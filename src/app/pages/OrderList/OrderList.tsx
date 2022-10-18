@@ -33,9 +33,6 @@ const OrderList = () => {
   const [filter, setFilter] = useState<"all" | "delivered" | "rejected">("all")
 
   const { orders } = useAppSelector((state) => state.userPofile)
-  // const changeFilterHandler = (filter) => {
-
-  // }
 
   useEffect(() => {
     if (filter === "all") {
@@ -59,6 +56,7 @@ const OrderList = () => {
                 setFilter={setFilter}
                 name={item.name}
                 category={item.category}
+                isActive={filter === item.category}
               />
             ))}
           </div>
