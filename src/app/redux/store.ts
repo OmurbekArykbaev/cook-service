@@ -8,9 +8,10 @@ import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
 import pushUpOrder from "./modalOrderSlice"
 
-const persistConfig = {
+const rootPersistConfig = {
   key: "root",
   storage,
+  blacklist: ["allFoodData", "getAllCategories"],
 }
 
 const rootReducer = combineReducers({
@@ -20,7 +21,7 @@ const rootReducer = combineReducers({
   globalChanges: pushUpOrder,
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
