@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import IDataCategories from "../../types/categories"
+import IDataCategories from "../../types/Categories"
 
 interface InitState {
   categoriesData: IDataCategories[]

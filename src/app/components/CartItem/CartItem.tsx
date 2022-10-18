@@ -5,7 +5,7 @@ import {
   changeCountProductInCart,
   removeFoodInCart,
 } from "../../redux/userSlice"
-import { IProductInCart } from "../../types/userProfile"
+import { IProductInCart } from "@base/app/types"
 
 import { BsTrash } from "react-icons/bs"
 import { PushToast } from "./../../components/Toast"

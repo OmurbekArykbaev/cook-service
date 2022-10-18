@@ -1,5 +1,5 @@
-import { IProductInCart } from "@base/app/types/userProfile"
-import React, { FC } from "react"
+import { IProductInCart } from "@base/app/types"
+import { FC } from "react"
 
 type Props = {
   foods: IProductInCart[]

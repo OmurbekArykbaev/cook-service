@@ -3,7 +3,7 @@ import { MdOutlineRemoveCircle } from "react-icons/md"
 import { useFormik } from "formik"
 
 import { Title, Wrapper } from "../../../components"
-import { IAddressData } from "../../../types/userProfile"
+import { IAddressData } from "@base/app/types"
 import { editAddress } from "../../../redux/userSlice"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
 import CustomInput from "./CustomInput"

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { Title, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { addOrder, removeFoodInCart } from "../../redux/userSlice"
-import { IAddressData } from "../../types/userProfile"
+import { IAddressData } from '@base/app/types' 
 
 const Order = () => {
   const dispatch = useAppDispatch()

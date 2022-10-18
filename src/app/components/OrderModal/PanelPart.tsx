@@ -1,10 +1,10 @@
+import { FC } from "react"
+
 import { useAppDispatch } from "../../hooks"
 import { removeProductInModal, setIsOpen } from "../../redux"
 import Count from "./Count"
 import { PushToast } from "../Toast"
-import { FC } from "react"
-import { IProductInCart } from "@base/app/types/userProfile"
-
+import { IProductInCart } from "@base/app/types"
 import { addFoodInCart } from "../../redux/userSlice"
 
 const PanelPart: FC<IProductInCart> = (props) => {

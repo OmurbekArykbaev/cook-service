@@ -1,13 +1,12 @@
-import { PushToast } from "../components/Toast"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import IFood from "../types/foodData"
+
 import {
-  IAddressData,
   IOrders,
   IProductInCart,
   IUserData,
-  StatusOrder,
-} from "../types/userProfile"
+  IFood,
+  IAddressData,
+} from "../types"
 
 interface InitState {
   userData: IUserData

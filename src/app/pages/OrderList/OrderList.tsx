@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react"
+
 import { useAppSelector } from "../../hooks"
 import { OrderItem, Title, Wrapper } from "../../components"
-import { useEffect, useState } from "react"
-import { IOrders } from "../../types/userProfile"
+import { IOrders } from "../../types"
 import ButtonCategory from "./ButtonCategory"
 
 type TCategory = {

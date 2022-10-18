@@ -1,8 +1,8 @@
-import { PushToast } from "../../components/Toast"
-import { IAddressData } from "@base/app/types/userProfile"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { DFItem, Progress, Title, Wrapper } from "../../components"
+
+import { IAddressData } from "@base/app/types"
+import { DFItem, Progress, Title, Wrapper, PushToast } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { changeStatusOrder } from "../../redux/userSlice"
 

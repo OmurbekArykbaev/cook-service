@@ -1,6 +1,6 @@
 import { FC } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { IAddressData } from "../../types/userProfile"
+import { useNavigate } from "react-router-dom"
+import { IAddressData } from "@base/app/types"
 
 const Item: FC<IAddressData> = (props) => {
   const navigate = useNavigate()

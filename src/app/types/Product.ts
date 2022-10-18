@@ -1,4 +1,4 @@
-import { Category } from "./categories"
+import { Category } from "./Categories"
 
 interface ICalories {
   gram: number

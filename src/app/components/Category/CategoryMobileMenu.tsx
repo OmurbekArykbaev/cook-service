@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks"
-import IDataCategories from "@base/app/types/categories"
+import IDataCategories from "@base/app/types/Categories"
 import React, { FC, useState } from "react"
 import DropdownButton from "./DropdownButton"
 import {

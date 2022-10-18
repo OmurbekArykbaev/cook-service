@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../../../hooks"
 import { MdOutlineRemoveCircle } from "react-icons/md"
-import { Title, Wrapper } from "../../../components"
 import { useFormik } from "formik"
-import { IUserData } from "@base/app/types/userProfile"
+import { useNavigate } from "react-router-dom"
+
+import { IUserData } from "@base/app/types"
+import { useAppDispatch, useAppSelector } from "../../../hooks"
+import { Title, Wrapper, PushToast } from "../../../components"
 import { userDataSchema } from "./schema"
 import { editUserData } from "../../../redux/userSlice"
-import { useNavigate } from "react-router-dom"
-import { PushToast } from "../../../components/Toast"
 
 const SelfData = () => {
   const dispatch = useAppDispatch()

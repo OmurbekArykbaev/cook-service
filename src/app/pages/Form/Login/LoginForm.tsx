@@ -1,13 +1,13 @@
-import React from "react"
 import { useFormik } from "formik"
 import { MdOutlineRemoveCircle } from "react-icons/md"
-import Title from "../../../components/Title/Title"
-import Wrapper from "../../../components/Wrapper/Wrapper"
+import { useNavigate } from "react-router-dom"
+
+import { IUserData } from "@base/app/types"
+import { Title, Wrapper } from "../../../components"
+
 import { basicSchema } from "../../../services/schemas"
 import { useAppDispatch } from "../../../hooks/rtkHooks"
 import { getAuthorization } from "../../../redux/userSlice"
-import { useNavigate } from "react-router-dom"
-import { IUserData } from "../../../types/userProfile"
 
 const LoginForm = () => {
   const navigate = useNavigate()

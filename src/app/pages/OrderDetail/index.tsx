@@ -1,10 +1,10 @@
 import { Title, Wrapper } from "../../components"
 import { useParams } from "react-router-dom"
 import { useAppSelector } from "../../hooks"
-import { IAddressData } from "@base/app/types/userProfile"
+import { IAddressData } from "@base/app/types"
 import Row from "./Row"
 import FoodsList from "./FoodsList"
-import { FC, ReactNode } from "react"
+import { FC } from "react"
 
 const OrderDetail = () => {
   const params = useParams<string>()

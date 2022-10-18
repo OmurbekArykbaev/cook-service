@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IProductInCart } from "../types/userProfile"
+import { IProductInCart } from "../types"
 
 interface InitState {
   isOpen: boolean

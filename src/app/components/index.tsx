@@ -13,6 +13,7 @@ import Count from "./ui/Count/Count"
 import Footer from "./Footer"
 import PushUpOrder from "./OrderModal"
 import Toast from "./Toast"
+import { PushToast } from "./Toast"
 
 export {
   Carousel,
@@ -29,5 +30,6 @@ export {
   Wrapper,
   Count,
   Toast,
+  PushToast,
   PushUpOrder,
 }

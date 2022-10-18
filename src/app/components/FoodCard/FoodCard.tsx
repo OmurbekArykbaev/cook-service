@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom"
 import { FC, useEffect, useState } from "react"
-import Count from "../ui/Count/Count"
-import IFood from "../../types/foodData"
+import { IFood } from "@base/app/types"
+
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { addWishFood, removeWishFood } from "../../redux/userSlice"
-import { Link } from "react-router-dom"
 import { addProductInModal, setIsOpen } from "../../redux"
 
 const FoodCard: FC<IFood> = (props) => {

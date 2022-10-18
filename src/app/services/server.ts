@@ -1,5 +1,5 @@
 import axios from "axios"
-import IFood from "../types/foodData"
+import { IFood } from "../types"
 
 const API_URL = "http://localhost:3004"
 

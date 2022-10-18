@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import IFood from "../../types/foodData"
+import { IFood } from "../../types"
 
 interface InitState {
   allFoods: IFood[]
