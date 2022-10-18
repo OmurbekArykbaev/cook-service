@@ -1,13 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { IFood } from "../types"
 
-const initialState = {}
+interface InitState {
+  wishlist: IFood[]
+}
 
-export const userSlice = createSlice({
-  name: "userProfile",
+const initialState: InitState = {
+  wishlist: [],
+}
+
+export const wishProductsSlice = createSlice({
+  name: "WishProducts",
   initialState,
-  reducers: {},
+  reducers: {
+    addWishFood: (state, action: PayloadAction<IFood>) => {
+      state.wishlist.push(action.payload)
+    },
+    removeWishFood: (state, action: PayloadAction<string>) => {
+      state.wishlist = state.wishlist.filter(
+        (item) => item.id !== action.payload
+      )
+    },
+  },
 })
 
-export const {} = userSlice.actions
+export const { addWishFood, removeWishFood } = wishProductsSlice.actions
 
-export default userSlice.reducer
+export default wishProductsSlice.reducer

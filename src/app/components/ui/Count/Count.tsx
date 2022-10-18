@@ -1,28 +1,26 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useState } from "react"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
-import { useAppDispatch, useAppSelector } from "../../../hooks"
-import { changeCountProductInCart } from "../../../redux/userSlice"
+
+import { useAppDispatch } from "../../../hooks"
+import { changeCountProduct } from "../../../redux"
 
 interface ICountProps {
   id: string
 }
 
 const Count: FC<ICountProps> = ({ id }) => {
-  // const [state] = useAppSelector((state) =>
-  //   state.userPofile.cartProducts.filter((item) => item.id === id)
-  // )
   const [count, setCount] = useState<number>(1)
   const dispatch = useAppDispatch()
 
   const incrementHandler = () => {
     setCount((count) => count + 1)
-    dispatch(changeCountProductInCart({ id, quan: count + 1 }))
+    dispatch(changeCountProduct({ id, quan: count + 1 }))
   }
 
   const decrementHandler = () => {
     setCount((count) => count - 1)
     if (count < 2) setCount(1)
-    dispatch(changeCountProductInCart({ id, quan: count }))
+    dispatch(changeCountProduct({ id, quan: count }))
   }
   return (
     <div className="flex items-center border border-white rounded-full text-xl mr-5">

@@ -1,11 +1,10 @@
 import { FC } from "react"
 
+import { removeProductInModal, setIsOpen, addProduct } from "../../redux"
 import { useAppDispatch } from "../../hooks"
-import { removeProductInModal, setIsOpen } from "../../redux"
+import { PushToast } from "../"
 import Count from "./Count"
-import { PushToast } from "../Toast"
 import { IProductInCart } from "@base/app/types"
-import { addFoodInCart } from "../../redux/userSlice"
 
 const PanelPart: FC<IProductInCart> = (props) => {
   const { id, name, cal, description, price, quantityProduct } = props
@@ -13,7 +12,7 @@ const PanelPart: FC<IProductInCart> = (props) => {
 
   const addInCartHandler = () => {
     dispatch(setIsOpen(false))
-    dispatch(addFoodInCart(props))
+    dispatch(addProduct(props))
     dispatch(removeProductInModal())
     PushToast(`Блюдо "${name}" добавлено в корзину`, 1000)
   }
@@ -35,8 +34,6 @@ const PanelPart: FC<IProductInCart> = (props) => {
       <p className="text-sm sm:text-lg text-white leading-5 py-3">
         {description}
       </p>
-
-      {/* <div className="flex flex-col py-3 w-[100%] "></div> */}
 
       <div className="w-full flex  items-center py-3">
         <Count id={id} quanFromStore={quantityProduct} />

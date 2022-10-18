@@ -4,18 +4,20 @@ import { useNavigate } from "react-router-dom"
 
 import { Title, Wrapper, PushToast } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { addOrder, removeFoodInCart } from "../../redux/userSlice"
+import { addOrder } from "../../redux/userSlice"
+import { removeProduct } from "../../redux"
 import { IAddressData } from "@base/app/types"
 
 const Order = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const { cartProducts } = useAppSelector((state) => state.userPofile)
+  const { cartProducts } = useAppSelector((state) => state.cart)
 
   const { addresses } = useAppSelector((state) => state.address)
 
   const [filter, setFilter] = useState<string>(addresses[0].street)
+
   const [dataAddress, setDataAddress] = useState<IAddressData[] | undefined>()
 
   const totalSum = cartProducts.reduce(
@@ -43,7 +45,7 @@ const Order = () => {
 
     PushToast(`Заказ под номером ${id} в обработке.`, 5000)
 
-    cartProducts.forEach((item) => dispatch(removeFoodInCart({ id: item.id })))
+    cartProducts.forEach((item) => dispatch(removeProduct({ id: item.id })))
   }
 
   useEffect(() => {

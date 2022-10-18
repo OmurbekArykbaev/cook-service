@@ -5,9 +5,9 @@ import { useAppSelector } from "../../hooks"
 
 const Cart = () => {
   const navigate = useNavigate()
-  const { cartProducts, isAuthorization } = useAppSelector(
-    (state) => state.userPofile
-  )
+  const { isAuthorization } = useAppSelector((state) => state.userPofile)
+
+  const { cartProducts } = useAppSelector((state) => state.cart)
 
   const { addresses } = useAppSelector((state) => state.address)
 

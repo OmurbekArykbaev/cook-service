@@ -1,14 +1,11 @@
-import React, { FC, useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-import { useAppDispatch, useAppSelector } from "../../hooks"
-import {
-  changeCountProductInCart,
-  removeFoodInCart,
-} from "../../redux/userSlice"
-import { IProductInCart } from "@base/app/types"
-
 import { BsTrash } from "react-icons/bs"
-import { PushToast } from "./../../components/Toast"
+
+import { useAppDispatch, useAppSelector } from "../../hooks"
+import { changeCountProduct, removeProduct } from "../../redux"
+import { IProductInCart } from "@base/app/types"
+import { PushToast } from "./../../components"
 
 interface Props {
   product: IProductInCart
@@ -18,14 +15,14 @@ const CartItem: FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch()
   const { image, name, id, price } = product
   const [productFromStore] = useAppSelector((state) =>
-    state.userPofile.cartProducts.filter((item) => item.id === id)
+    state.cart.cartProducts.filter((item) => item.id === id)
   )
   const [countQuantity, setCountQuantity] = useState<number>(
     productFromStore.quantityProduct
   )
 
   useEffect(() => {
-    dispatch(changeCountProductInCart({ id, quan: countQuantity }))
+    dispatch(changeCountProduct({ id, quan: countQuantity }))
   }, [countQuantity, dispatch, id])
 
   const incrementHandler = () => {
@@ -33,7 +30,7 @@ const CartItem: FC<Props> = ({ product }) => {
   }
 
   const deleteProductHandler = () => {
-    dispatch(removeFoodInCart({ id }))
+    dispatch(removeProduct({ id }))
     PushToast(`Продукт ${name} был удален из корзины!`, 1000)
   }
 

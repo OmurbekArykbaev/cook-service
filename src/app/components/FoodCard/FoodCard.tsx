@@ -1,17 +1,23 @@
 import { Link } from "react-router-dom"
 import { FC, useEffect, useState } from "react"
-import { IFood } from "@base/app/types"
 
+import { IFood } from "@base/app/types"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { addWishFood, removeWishFood } from "../../redux/userSlice"
-import { addProductInModal, setIsOpen } from "../../redux"
+import {
+  addWishFood,
+  removeWishFood,
+  addProductInModal,
+  setIsOpen,
+} from "../../redux"
 
 const FoodCard: FC<IFood> = (props) => {
   const dispatch = useAppDispatch()
   const [isInCart, setIsInCart] = useState<boolean>(false)
   const { id, name, image, description, price, cal } = props
 
-  const { cartProducts, wishlist } = useAppSelector((state) => state.userPofile)
+  const { cartProducts } = useAppSelector((state) => state.cart)
+
+  const { wishlist } = useAppSelector((state) => state.wishList)
 
   const addCartHandler = () => {
     dispatch(setIsOpen(true))

@@ -1,14 +1,15 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useAppSelector } from "../../hooks"
 import { BsCart2 } from "react-icons/bs"
+
+import { useAppSelector } from "../../hooks"
 import ToggleMenu from "./ToggleMenu"
 
 const Header = () => {
   const [toggle, isToggle] = useState<boolean>(false)
-  const { isAuthorization, cartProducts } = useAppSelector(
-    (state) => state.userPofile
-  )
+  const { isAuthorization } = useAppSelector((state) => state.userPofile)
+
+  const { cartProducts } = useAppSelector((state) => state.cart)
 
   const totalItemInProducts = cartProducts.reduce(
     (acc, item) => acc + item.quantityProduct,

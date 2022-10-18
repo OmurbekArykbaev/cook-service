@@ -8,7 +8,7 @@ import { fetchAllFoods } from "./getFoodSlice"
 const Home = () => {
   const dispatch = useAppDispatch()
   const { allFoods, filterState } = useAppSelector((state) => state.allFoodData)
-  const { wishlist } = useAppSelector((state) => state.userPofile)
+  const { wishlist } = useAppSelector((state) => state.wishList)
   const [getCategory] = useAppSelector((state) =>
     state.getAllCategories.categoriesData.filter(
       (i) => i.category === filterState
