@@ -10,6 +10,7 @@ import pushUpOrder from "./modalOrderSlice"
 import addressSlice from "./addressSlice"
 import wishProductsSlice from "./wishProductSlice"
 import cartSlice from "./cartSlice"
+import orderSlice from "./orderSlice"
 
 const rootPersistConfig = {
   key: "root",
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   address: addressSlice,
   wishList: wishProductsSlice,
   cart: cartSlice,
+  orders: orderSlice,
   allFoodData: allFoodSlice,
   getAllCategories: getCategorySlice,
   userPofile: userSlice,

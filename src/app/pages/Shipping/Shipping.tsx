@@ -4,16 +4,20 @@ import { useNavigate } from "react-router-dom"
 import { IAddressData } from "@base/app/types"
 import { DFItem, Progress, Title, Wrapper, PushToast } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { changeStatusOrder } from "../../redux/userSlice"
+import { changeStatusOrder } from "../../redux"
 
 const Shipping = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
   const [shipPrice, setShipPrice] = useState<number>(0)
-  const { orders } = useAppSelector((state) => state.userPofile)
+
+  const { orders } = useAppSelector((state) => state.orders)
 
   const { currentOrder } = orders
+
   const currentAddress = currentOrder[0].address as IAddressData
+
   const idOrder = currentOrder[0].id
 
   const totalSum = currentOrder[0].foods.reduce(

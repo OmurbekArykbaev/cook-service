@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { Title, Wrapper, PushToast } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { addOrder } from "../../redux/userSlice"
-import { removeProduct } from "../../redux"
+import { removeProduct, addOrder } from "../../redux"
 import { IAddressData } from "@base/app/types"
 
 const Order = () => {

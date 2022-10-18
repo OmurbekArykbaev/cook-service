@@ -9,6 +9,7 @@ import {
 import { addAddress, editAddress } from "./addressSlice"
 import { addWishFood, removeWishFood } from "./wishProductSlice"
 import { addProduct, removeProduct, changeCountProduct } from "./cartSlice"
+import { addOrder, changeStatusOrder } from "./orderSlice"
 
 export {
   addAddress,
@@ -18,6 +19,8 @@ export {
   addProduct,
   removeProduct,
   changeCountProduct,
+  addOrder,
+  changeStatusOrder,
   setIsOpen,
   addProductInModal,
   changeCountProductInModal,

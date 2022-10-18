@@ -1,15 +1,16 @@
-import { Title, Wrapper } from "../../components"
+import { FC } from "react"
 import { useParams } from "react-router-dom"
+
+import { Title, Wrapper } from "../../components"
 import { useAppSelector } from "../../hooks"
 import { IAddressData } from "@base/app/types"
-import Row from "./Row"
 import FoodsList from "./FoodsList"
-import { FC } from "react"
+import Row from "./Row"
 
 const OrderDetail = () => {
   const params = useParams<string>()
   const [order] = useAppSelector((state) =>
-    state.userPofile.orders.orderList.filter(
+    state.orders.orders.orderList.filter(
       (item) => item.id.toString() === params.id
     )
   )

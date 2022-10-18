@@ -33,7 +33,7 @@ const OrderList = () => {
   const [data, setData] = useState<IOrders[]>([])
   const [filter, setFilter] = useState<"all" | "delivered" | "rejected">("all")
 
-  const { orders } = useAppSelector((state) => state.userPofile)
+  const { orders } = useAppSelector((state) => state.orders)
 
   useEffect(() => {
     if (filter === "all") {

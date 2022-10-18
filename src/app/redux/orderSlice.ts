@@ -1,13 +1,47 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { IOrders } from "../types"
 
-const initialState = {}
+interface InitState {
+  orders: {
+    orderList: IOrders[]
+    currentOrder: IOrders[]
+  }
+}
 
-export const userSlice = createSlice({
-  name: "userProfile",
+const initialState: InitState = {
+  orders: {
+    orderList: [],
+    currentOrder: [],
+  },
+}
+
+export const orderSlice = createSlice({
+  name: "Order",
   initialState,
-  reducers: {},
+  reducers: {
+    addOrder: (state, action: PayloadAction<IOrders>) => {
+      state.orders.orderList.push(action.payload)
+      state.orders.currentOrder.push(action.payload)
+    },
+
+    changeStatusOrder: (
+      state,
+      action: PayloadAction<{
+        status: "current" | "delivered" | "rejected"
+        id: number
+      }>
+    ) => {
+      state.orders.orderList.forEach((item) => {
+        if (item.id === action.payload.id) {
+          item.status = action.payload.status
+        }
+      })
+
+      state.orders.currentOrder = []
+    },
+  },
 })
 
-export const {} = userSlice.actions
+export const { addOrder, changeStatusOrder } = orderSlice.actions
 
-export default userSlice.reducer
+export default orderSlice.reducer
