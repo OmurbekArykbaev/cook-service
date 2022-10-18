@@ -7,7 +7,7 @@ interface IWrapperProps {
 }
 
 const Wrapper: FC<IWrapperProps> = ({ children, nameClass }) => {
-  const data = useAppSelector((state) => state.globalChanges.isOpen)
+  const data = useAppSelector((state) => state.modalOrder.isOpen)
 
   return (
     <main

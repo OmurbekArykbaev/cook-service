@@ -1,6 +1,7 @@
 import { FC } from "react"
+
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { filterByCategory } from "../../pages/Home/getFoodSlice"
+import { filterByCategory } from "../../redux"
 
 interface IButtonProps {
   title: string
@@ -10,7 +11,7 @@ interface IButtonProps {
 
 const Button: FC<IButtonProps> = ({ title, category, activeFocus }) => {
   const dispatch = useAppDispatch()
-  const foods = useAppSelector((state) => state.allFoodData.allFoods)
+  const foods = useAppSelector((state) => state.fetchProducts.allFoods)
   const isHaveFoods =
     foods.filter((item) => item.category === category).length > 0
 

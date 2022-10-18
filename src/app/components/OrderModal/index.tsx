@@ -1,10 +1,10 @@
-import { useAppDispatch, useAppSelector } from "../../hooks"
+import { useAppSelector } from "../../hooks"
 import ImagePart from "./ImagePart"
 import PanelPart from "./PanelPart"
 
 const PushUpOrder = () => {
-  const isOpen = useAppSelector((state) => state.globalChanges.isOpen)
-  const food = useAppSelector((state) => state.globalChanges.product)
+  const isOpen = useAppSelector((state) => state.modalOrder.isOpen)
+  const food = useAppSelector((state) => state.modalOrder.product)
 
   if (!isOpen) {
     return null

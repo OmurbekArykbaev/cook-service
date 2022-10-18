@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IFood } from "../../types"
+import { IFood } from "../types"
 
 interface InitState {
   allFoods: IFood[]
@@ -10,8 +10,8 @@ const initialState: InitState = {
   filterState: "zak",
 }
 
-export const allFoodSlice = createSlice({
-  name: "AllFoodInHomePage",
+export const getProductsSlice = createSlice({
+  name: "GetFetchProducts",
   initialState,
 
   reducers: {
@@ -24,6 +24,6 @@ export const allFoodSlice = createSlice({
   },
 })
 
-export const { fetchAllFoods, filterByCategory } = allFoodSlice.actions
+export const { fetchAllFoods, filterByCategory } = getProductsSlice.actions
 
-export default allFoodSlice.reducer
+export default getProductsSlice.reducer

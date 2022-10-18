@@ -3,7 +3,7 @@ import storage from "redux-persist/lib/storage"
 import { persistReducer, persistStore } from "redux-persist"
 import thunk from "redux-thunk"
 
-import allFoodSlice from "../pages/Home/getFoodSlice"
+import getProductsSlice from "../redux/getProductsSlice"
 import getCategorySlice from "../components/Category/categorySlice"
 import userSlice from "./userSlice"
 import pushUpOrder from "./modalOrderSlice"
@@ -23,10 +23,10 @@ const rootReducer = combineReducers({
   wishList: wishProductsSlice,
   cart: cartSlice,
   orders: orderSlice,
-  allFoodData: allFoodSlice,
+  fetchProducts: getProductsSlice,
   getAllCategories: getCategorySlice,
   userPofile: userSlice,
-  globalChanges: pushUpOrder,
+  modalOrder: pushUpOrder,
 })
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer)

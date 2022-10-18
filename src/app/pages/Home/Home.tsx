@@ -3,11 +3,13 @@ import { useQuery } from "react-query"
 import { Carousel, Category, FoodCard, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { fetchFoods } from "../../services/server"
-import { fetchAllFoods } from "./getFoodSlice"
+import { fetchAllFoods } from "../../redux"
 
 const Home = () => {
   const dispatch = useAppDispatch()
-  const { allFoods, filterState } = useAppSelector((state) => state.allFoodData)
+  const { allFoods, filterState } = useAppSelector(
+    (state) => state.fetchProducts
+  )
   const { wishlist } = useAppSelector((state) => state.wishList)
   const [getCategory] = useAppSelector((state) =>
     state.getAllCategories.categoriesData.filter(
