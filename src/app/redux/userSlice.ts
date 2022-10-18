@@ -10,7 +10,7 @@ import {
 
 interface InitState {
   userData: IUserData
-  addresses: IAddressData[]
+
   wishlist: IFood[]
   orders: {
     orderList: IOrders[]
@@ -22,7 +22,7 @@ interface InitState {
 
 const initialState: InitState = {
   userData: { name: "", phone: "" },
-  addresses: [],
+
   wishlist: [],
   orders: {
     orderList: [],
@@ -43,35 +43,6 @@ export const userSlice = createSlice({
 
     editUserData: (state, action: PayloadAction<IUserData>) => {
       state.userData = action.payload
-    },
-
-    addAddress: (state, action: PayloadAction<IAddressData>) => {
-      state.addresses.push(action.payload)
-    },
-    editAddress: (
-      state,
-      action: PayloadAction<{ data: IAddressData; id: number }>
-    ) => {
-      const {
-        street,
-        houseNumber,
-        entrance,
-        callDoor,
-        comment,
-        flatOffice,
-        floor,
-      } = action.payload.data
-      state.addresses.forEach((item) => {
-        if (item.id === action.payload.id) {
-          item.street = street
-          item.callDoor = callDoor
-          item.comment = comment
-          item.entrance = entrance
-          item.houseNumber = houseNumber
-          item.flatOffice = flatOffice
-          item.floor = floor
-        }
-      })
     },
 
     addWishFood: (state, action: PayloadAction<IFood>) => {
@@ -130,8 +101,6 @@ export const userSlice = createSlice({
 export const {
   getAuthorization,
   editUserData,
-  addAddress,
-  editAddress,
   addFoodInCart,
   removeFoodInCart,
   addOrder,

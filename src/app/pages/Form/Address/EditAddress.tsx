@@ -2,13 +2,12 @@ import { useNavigate, useParams } from "react-router-dom"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 import { useFormik } from "formik"
 
-import { Title, Wrapper } from "../../../components"
+import { Title, Wrapper, PushToast } from "../../../components"
 import { IAddressData } from "@base/app/types"
-import { editAddress } from "../../../redux/userSlice"
+import { editAddress } from "../../../redux"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
-import { PushToast } from "../../../components/Toast"
 
 const EditAddress = () => {
   const navigate = useNavigate()
@@ -16,9 +15,7 @@ const EditAddress = () => {
   const params = useParams<string>()
 
   const [address] = useAppSelector((state) =>
-    state.userPofile.addresses.filter(
-      (item) => item.id.toString() === params.id
-    )
+    state.address.addresses.filter((item) => item.id.toString() === params.id)
   )
 
   const {

@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router-dom"
+
 import { CartItem, Title, Wrapper } from "../../components"
 import { useAppSelector } from "../../hooks"
 
 const Cart = () => {
   const navigate = useNavigate()
-  const { cartProducts, addresses, isAuthorization } = useAppSelector(
+  const { cartProducts, isAuthorization } = useAppSelector(
     (state) => state.userPofile
   )
+
+  const { addresses } = useAppSelector((state) => state.address)
+
   const sum = cartProducts.reduce(
     (acc, item) => acc + item.price * item.quantityProduct,
     0

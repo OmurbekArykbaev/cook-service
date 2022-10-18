@@ -1,12 +1,13 @@
+import { useNavigate } from "react-router-dom"
 import { useFormik } from "formik"
 import { MdOutlineRemoveCircle } from "react-icons/md"
+
 import { Title, Wrapper } from "../../../components"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
 import { IAddressData } from "@base/app/types"
 import { useAppDispatch } from "../../../hooks"
-import { useNavigate } from "react-router-dom"
-import { addAddress } from "../../../redux/userSlice"
+import { addAddress } from "../../../redux"
 
 const AddAddress = () => {
   const navigate = useNavigate()

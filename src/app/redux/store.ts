@@ -7,6 +7,7 @@ import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
 import pushUpOrder from "./modalOrderSlice"
+import addressSlice from "./addressSlice"
 
 const rootPersistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const rootPersistConfig = {
 }
 
 const rootReducer = combineReducers({
+  address: addressSlice,
   allFoodData: allFoodSlice,
   getAllCategories: getCategorySlice,
   userPofile: userSlice,

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
+
 import { Title, Wrapper } from "../../components"
 import { useAppSelector } from "../../hooks"
 import Item from "./Item"
 
 const Address = () => {
-  const { addresses } = useAppSelector((state) => state.userPofile)
+  const { addresses } = useAppSelector((state) => state.address)
 
   return (
     <Wrapper>
