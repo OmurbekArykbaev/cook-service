@@ -18,7 +18,7 @@ const Status: FC<StatusOrder> = ({ status }) => {
         <div className="flex justify-center items-center pt-5 md:justify-end md:pt-0">
           <p className="text-sm mr-6">Доставлен</p>
           <div className="bg-green-500 p-2 rounded-full shadow-order-current-icon">
-            <img src="./img/succes" alt="" />
+            <img src="./img/succes.svg" alt="" />
           </div>
         </div>
       )

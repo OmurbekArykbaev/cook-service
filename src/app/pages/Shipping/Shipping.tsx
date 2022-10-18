@@ -23,8 +23,14 @@ const Shipping = () => {
 
   const rejectOrderHandler = () => {
     dispatch(changeStatusOrder({ id: idOrder, status: "rejected" }))
-    navigate("/orders#orderlist")
-    PushToast(`Ваш заказ был отменен.`, 3000)
+    navigate("/orders")
+    PushToast(`Ваш заказ был отменен.`, 1000)
+  }
+
+  const finishOrderHandler = () => {
+    dispatch(changeStatusOrder({ id: idOrder, status: "delivered" }))
+    navigate("/orders")
+    PushToast(`Ваш заказ был завершен.`, 1000)
   }
 
   useEffect(() => {
@@ -99,6 +105,12 @@ const Shipping = () => {
 
           {/* <!-- button to order --> */}
           <div className="flex justify-center w-full md:px-12 py-3 mb-5  md:justify-end">
+            <button
+              onClick={finishOrderHandler}
+              className="w-full btn text-xl font-bold md:px-7 py-4 md:w-auto md:text-lg lg:px-6 lg:py-2"
+            >
+              Завершить заказ
+            </button>
             <button
               onClick={rejectOrderHandler}
               className="w-full btn text-xl font-bold md:px-7 py-4 md:w-auto md:text-lg lg:px-6 lg:py-2"
