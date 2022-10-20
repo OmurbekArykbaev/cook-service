@@ -7,14 +7,14 @@ import { fetchAllFoods } from "../../redux"
 
 const Home = () => {
   const dispatch = useAppDispatch()
+
   const { allFoods, filterState } = useAppSelector(
     (state) => state.fetchProducts
   )
   const { wishlist } = useAppSelector((state) => state.wishList)
+
   const [getCategory] = useAppSelector((state) =>
-    state.getAllCategories.categoriesData.filter(
-      (i) => i.category === filterState
-    )
+    state.fetchCategory.categoriesData.filter((i) => i.category === filterState)
   )
 
   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {

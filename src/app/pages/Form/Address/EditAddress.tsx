@@ -4,7 +4,7 @@ import { useFormik } from "formik"
 
 import { Title, Wrapper, PushToast } from "../../../components"
 import { IAddressData } from "@base/app/types"
-import { editAddress } from "../../../redux"
+import { editAddress, removeAddress } from "../../../redux"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
@@ -36,6 +36,12 @@ const EditAddress = () => {
     navigate("/address")
   }
 
+  const removeAddressHandler = () => {
+    dispatch(removeAddress(id))
+    PushToast(`Адрес успешно удален.`, 1000)
+    navigate("/address")
+  }
+
   const {
     values,
     errors,
@@ -62,7 +68,7 @@ const EditAddress = () => {
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          <Title toPath="/" titleName="Изменение адреса" />
+          <Title toPath="/address" titleName="Изменение адреса" />
           <div className="flex flex-wrap flex-col items-center">
             <form
               onSubmit={handleSubmit}
@@ -166,7 +172,10 @@ const EditAddress = () => {
                 >
                   Сохранить
                 </button>
-                <button className="text-black text-lg">
+                <button
+                  onClick={removeAddressHandler}
+                  className="text-black text-lg"
+                >
                   <p className="hidden md:block">Удалить адрес</p>{" "}
                   <MdOutlineRemoveCircle className="md:hidden" size={35} />
                 </button>

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useFormik } from "formik"
 import { MdOutlineRemoveCircle } from "react-icons/md"
 
-import { Title, Wrapper } from "../../../components"
+import { PushToast, Title, Wrapper } from "../../../components"
 import CustomInput from "./CustomInput"
 import { addressSchema } from "./schema"
 import { IAddressData } from "@base/app/types"
@@ -16,7 +16,8 @@ const AddAddress = () => {
   const onSubmit = (values: IAddressData, actions: any): void => {
     dispatch(addAddress(values))
     actions.resetForm()
-    navigate("/cart")
+    navigate("/address")
+    PushToast(`Адрес добавлен`, 1000)
   }
 
   const {
@@ -45,7 +46,7 @@ const AddAddress = () => {
     <Wrapper>
       <section>
         <div className="flex flex-col py-8">
-          <Title toPath="/" titleName="Мои Адреса" />
+          <Title toPath="/address" titleName="Мои Адреса" />
           <div className="flex flex-wrap flex-col items-center">
             <form
               onSubmit={handleSubmit}

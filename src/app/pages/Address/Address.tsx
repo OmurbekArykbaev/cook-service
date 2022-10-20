@@ -12,7 +12,7 @@ const Address = () => {
       <section>
         <div className="flex flex-col py-8">
           <Title toPath="/" titleName="Мои адреса" />
-          <div className="flex flex-wrap flex-col items-center md:items-start space-y-6 space-x-0 md:space-y-0 md:space-x-6 md:flex-nowrap mb-8 md:flex-row p-2 sm:p-8">
+          <div className="grid grid-cols-1 gap-6 justify-items-center py-4 mb-8 md:grid-cols-2 xl:grid-cols-3">
             {addresses &&
               addresses.map((item) => <Item key={item.id} {...item} />)}
           </div>

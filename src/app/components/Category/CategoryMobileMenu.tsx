@@ -1,11 +1,12 @@
-import { useAppSelector } from "../../hooks"
-import IDataCategories from "@base/app/types/Categories"
-import React, { FC, useState } from "react"
-import DropdownButton from "./DropdownButton"
+import { FC, useState } from "react"
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md"
+
+import { useAppSelector } from "../../hooks"
+import IDataCategories from "@base/app/types/Categories"
+import DropdownButton from "./DropdownButton"
 
 type Props = {
   isLoading: boolean
@@ -17,7 +18,7 @@ type Props = {
 const CategoryMobileMenu: FC<Props> = ({ isLoading, error, data, filter }) => {
   const [open, isOpen] = useState<boolean>(false)
   const [currentFilter] = useAppSelector((state) =>
-    state.getAllCategories.categoriesData.filter(
+    state.fetchCategory.categoriesData.filter(
       (item) => item.category === filter
     )
   )

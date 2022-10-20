@@ -4,7 +4,7 @@ import { persistReducer, persistStore } from "redux-persist"
 import thunk from "redux-thunk"
 
 import getProductsSlice from "../redux/getProductsSlice"
-import getCategorySlice from "../components/Category/categorySlice"
+import getCategorySlice from "./getCategorySlice"
 import userSlice from "./userSlice"
 import pushUpOrder from "./modalOrderSlice"
 import addressSlice from "./addressSlice"
@@ -15,7 +15,7 @@ import orderSlice from "./orderSlice"
 const rootPersistConfig = {
   key: "root",
   storage,
-  blacklist: ["allFoodData", "getAllCategories"],
+  blacklist: ["fetchProducts", "fetchCategory"],
 }
 
 const rootReducer = combineReducers({
@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
   cart: cartSlice,
   orders: orderSlice,
   fetchProducts: getProductsSlice,
-  getAllCategories: getCategorySlice,
+  fetchCategory: getCategorySlice,
   userPofile: userSlice,
   modalOrder: pushUpOrder,
 })

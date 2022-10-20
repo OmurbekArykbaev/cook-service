@@ -6,15 +6,17 @@ import {
   removeProductInModal,
 } from "./modalOrderSlice"
 
-import { addAddress, editAddress } from "./addressSlice"
+import { addAddress, editAddress, removeAddress } from "./addressSlice"
 import { addWishFood, removeWishFood } from "./wishProductSlice"
 import { addProduct, removeProduct, changeCountProduct } from "./cartSlice"
 import { addOrder, changeStatusOrder } from "./orderSlice"
 import { fetchAllFoods, filterByCategory } from "./getProductsSlice"
+import { getCategories } from "../redux/getCategorySlice"
 
 export {
   addAddress,
   editAddress,
+  removeAddress,
   addWishFood,
   removeWishFood,
   addProduct,
@@ -25,6 +27,7 @@ export {
   setIsOpen,
   addProductInModal,
   fetchAllFoods,
+  getCategories,
   filterByCategory,
   changeCountProductInModal,
   changeHotInProductInModal,

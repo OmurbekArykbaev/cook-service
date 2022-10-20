@@ -1,17 +1,16 @@
-import { useState } from "react"
 import { useQuery } from "react-query"
-// import { useAppDispatch, useAppSelector } from "@base/app/hooks"
+
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { fetchCategories } from "../../services/server"
 import Button from "./Button"
 import CategoryMobileMenu from "./CategoryMobileMenu"
-import { getCategories } from "./categorySlice"
+import { getCategories } from "../../redux/getCategorySlice"
 
 const Category = () => {
   const dispatch = useAppDispatch()
-  const { getAllCategories, fetchProducts } = useAppSelector((state) => state)
+  const { fetchCategory, fetchProducts } = useAppSelector((state) => state)
   const { filterState } = fetchProducts
-  const { categoriesData } = getAllCategories
+  const { categoriesData } = fetchCategory
 
   const { isLoading, error } = useQuery("categories", () => fetchCategories(), {
     onSuccess: (data) => dispatch(getCategories(data)),

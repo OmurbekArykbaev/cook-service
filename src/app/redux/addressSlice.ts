@@ -41,9 +41,13 @@ export const addressSlice = createSlice({
         }
       })
     },
+    removeAddress: (state, action: PayloadAction<number>) => {
+      const DataId = action.payload
+      state.addresses = state.addresses.filter((item) => item.id !== DataId)
+    },
   },
 })
 
-export const { addAddress, editAddress } = addressSlice.actions
+export const { addAddress, editAddress, removeAddress } = addressSlice.actions
 
 export default addressSlice.reducer
