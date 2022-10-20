@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { FC, useEffect, useState } from "react"
 
 import { IFood } from "@base/app/types"
@@ -49,9 +50,9 @@ const FoodCard: FC<IFood> = (props) => {
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
             {isWish ? (
-              <img src="./img/Liked.svg" alt="Liked" />
+              <AiFillHeart size={24} color="white" />
             ) : (
-              <img src="./img/Like.svg" alt="Like" />
+              <AiOutlineHeart color="white" size={24} />
             )}
           </button>
         </div>

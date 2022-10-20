@@ -1,10 +1,7 @@
-import { setFips } from "crypto"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 const Progress = () => {
   const [steps, setSteps] = useState<number>(1)
-  // const steps = ProgressCount(1, 1000, 3)
-  // console.log(steps)
 
   return (
     <div className="relative w-full mx-auto mb-7  flex justify-between">

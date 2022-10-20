@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom"
 import { IUserData } from "@base/app/types"
 import { Title, Wrapper } from "../../../components"
 
-import { basicSchema } from "../../../services/schemas"
+import { basicSchema } from "./LoginSchemas"
 import { useAppDispatch } from "../../../hooks/rtkHooks"
-import { getAuthorization } from "../../../redux/userSlice"
+import { getAuthorization } from "../../../redux"
 
 const LoginForm = () => {
   const navigate = useNavigate()

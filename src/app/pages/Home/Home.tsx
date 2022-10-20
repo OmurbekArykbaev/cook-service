@@ -2,7 +2,7 @@ import { useQuery } from "react-query"
 
 import { Carousel, Category, FoodCard, Wrapper } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { fetchFoods } from "../../services/server"
+import { fetchFoods } from "../../services/fetchData"
 import { fetchAllFoods } from "../../redux"
 
 const Home = () => {

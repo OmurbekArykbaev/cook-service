@@ -15,6 +15,9 @@ const Address = () => {
           <div className="grid grid-cols-1 gap-6 justify-items-center py-4 mb-8 md:grid-cols-2 xl:grid-cols-3">
             {addresses &&
               addresses.map((item) => <Item key={item.id} {...item} />)}
+
+            {/* If addresses dont have items */}
+            {addresses.length === 0 && <h1>Нет адрессов</h1>}
           </div>
 
           <div className="px-6 sm:px-12">

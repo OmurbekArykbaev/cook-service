@@ -53,7 +53,7 @@ const OrderDetail = () => {
           <FoodsList foods={foods} />
           <Row
             title="Доставка"
-            data={deliveryPrice ? deliveryPrice : "Бесплатно"}
+            data={deliveryPrice ? `${deliveryPrice} сом` : "Бесплатно"}
           />
           <Row title="Итого" data={`${totalSum} сом`} />
         </div>

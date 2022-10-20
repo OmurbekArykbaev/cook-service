@@ -1,7 +1,7 @@
 import { useQuery } from "react-query"
 
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { fetchCategories } from "../../services/server"
+import { fetchCategories } from "../../services/fetchData"
 import Button from "./Button"
 import CategoryMobileMenu from "./CategoryMobileMenu"
 import { getCategories } from "../../redux/getCategorySlice"
