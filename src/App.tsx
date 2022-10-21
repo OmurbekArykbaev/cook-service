@@ -1,4 +1,3 @@
-import { useAppDispatch } from "./app/hooks"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {
   Payment,

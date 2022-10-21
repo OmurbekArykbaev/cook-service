@@ -1,11 +1,10 @@
-import { useAppDispatch, useAppSelector } from "../../hooks"
 import { FC } from "react"
 import { AiOutlineClose } from "react-icons/ai"
+
+import { useAppDispatch } from "../../hooks"
 import {
-  addWishFood,
   changeHotInProductInModal,
   removeProductInModal,
-  removeWishFood,
   setIsOpen,
 } from "../../redux"
 

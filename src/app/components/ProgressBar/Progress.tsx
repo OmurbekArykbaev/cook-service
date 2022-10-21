@@ -1,7 +1,5 @@
-import React, { useState } from "react"
-
 const Progress = () => {
-  const [steps, setSteps] = useState<number>(1)
+  const steps: number = 1
 
   return (
     <div className="relative w-full mx-auto mb-7  flex justify-between">
