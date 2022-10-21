@@ -2,8 +2,10 @@ import { useAppDispatch, useAppSelector } from "../../hooks"
 import { FC } from "react"
 import { AiOutlineClose } from "react-icons/ai"
 import {
+  addWishFood,
   changeHotInProductInModal,
   removeProductInModal,
+  removeWishFood,
   setIsOpen,
 } from "../../redux"
 
@@ -27,12 +29,6 @@ const ImagePart: FC<Props> = ({ image, id, isHot = false }) => {
 
   return (
     <div className="relative flex justify-center lg:items-center bg-[#FE724B] max-h-[200px]  rounded-tl-[40px] rounded-tr-[40px]">
-      <div className="absolute top-5 left-5">
-        <button>
-          <img src="./img/Like.svg" alt="Like" />
-        </button>
-      </div>
-
       <div className="absolute top-5 right-5">
         <button onClick={closeModalHandler}>
           <AiOutlineClose size={22} color="white" />

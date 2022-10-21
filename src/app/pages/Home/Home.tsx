@@ -1,6 +1,13 @@
 import { useQuery } from "react-query"
 
-import { Carousel, Category, FoodCard, Wrapper } from "../../components"
+import {
+  Carousel,
+  Category,
+  Error,
+  FoodCard,
+  PushToast,
+  Wrapper,
+} from "../../components"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { fetchFoods } from "../../services/fetchData"
 import { fetchAllFoods } from "../../redux"
@@ -19,6 +26,7 @@ const Home = () => {
 
   const { isLoading, error } = useQuery("foods", () => fetchFoods(), {
     onSuccess: (data) => dispatch(fetchAllFoods(data)),
+    onError: () => PushToast(`Не удается получить данные`, 3000),
   })
 
   return (
@@ -40,20 +48,20 @@ const Home = () => {
           </h1>
         </div>
 
-        <div className="w-full flex flex-col mx-auto justify-center sm:py-6 items-center lg:flex-wrap lg:flex-row lg:mx-auto">
-          {isLoading && <h1>Loading...</h1>}
-          {(error as Error) && <p>Error </p>}
-          {allFoods &&
-            allFoods
-              .filter((item) => item.category === filterState)
-              .map((item) => <FoodCard key={item.id} {...item} />)}
+        {(error as Error) ? (
+          <Error typeError={"Server"} />
+        ) : (
+          <div className="w-full flex flex-col mx-auto justify-center sm:py-6 items-center lg:flex-wrap lg:flex-row lg:mx-auto">
+            {isLoading && <h1>Загрузка...</h1>}
+            {allFoods &&
+              allFoods
+                .filter((item) => item.category === filterState)
+                .map((item) => <FoodCard key={item.id} {...item} />)}
 
-          {!(filterState === "liked") &&
-            allFoods.filter((item) => item.category === filterState).length <
-              1 && <h1>Товары в данной категории отсутствуют</h1>}
-          {filterState === "liked" &&
-            wishlist.map((item) => <FoodCard key={item.id} {...item} />)}
-        </div>
+            {filterState === "liked" &&
+              wishlist.map((item) => <FoodCard key={item.id} {...item} />)}
+          </div>
+        )}
       </section>
     </Wrapper>
   )

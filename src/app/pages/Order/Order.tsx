@@ -35,7 +35,7 @@ const Order = () => {
         id,
         date: String(dateFormat),
         totalSum: totalSum > 500 ? totalSum : totalSum + 200,
-        deliveryPrice: totalSum > 500 ? 0 : 200,
+        deliveryPrice: totalSum >= 500 ? 0 : 200,
         status: "current",
         address: dataAddress ? { ...dataAddress[0] } : {},
         foods: cartProducts,

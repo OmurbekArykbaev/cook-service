@@ -14,6 +14,7 @@ import Footer from "./Footer"
 import PushUpOrder from "./OrderModal"
 import Toast from "./Toast"
 import { PushToast } from "./Toast"
+import Error from "./Error"
 
 export {
   Carousel,
@@ -32,4 +33,5 @@ export {
   Toast,
   PushToast,
   PushUpOrder,
+  Error,
 }

@@ -62,11 +62,9 @@ const Shipping = () => {
                     homeMade={false}
                     quantity={item.quantityProduct}
                     price={item.price}
+                    isHot={item.isHot}
                   />
                 ))}
-
-              {/*  */}
-              {/* <DFItem /> */}
 
               {/* <!-- shipping and quantity --> */}
               <div className="w-full flex flex-col py-2 px-6">

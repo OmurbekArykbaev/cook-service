@@ -6,9 +6,17 @@ type Props = {
   homeMade?: boolean
   quantity: number
   price: number
+  isHot?: boolean
 }
 
-const DFItem: FC<Props> = ({ img, title, homeMade, quantity, price }) => {
+const DFItem: FC<Props> = ({
+  img,
+  title,
+  homeMade,
+  quantity,
+  price,
+  isHot,
+}) => {
   return (
     <div className="py-3 px-6 mb-3 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[5px]">
       <div className="flex flex-col  md:flex-row md:items-center md:justify-between">
@@ -20,7 +28,7 @@ const DFItem: FC<Props> = ({ img, title, homeMade, quantity, price }) => {
           <div className="flex flex-col items-start">
             <h3 className="text-xl md:text-3xl">{title}</h3>
             <p className="text-sm text-zinc-400">
-              {homeMade && "По домашнему"}
+              {homeMade && "По домашнему"} {isHot && "Острый"}
             </p>
           </div>
         </div>
