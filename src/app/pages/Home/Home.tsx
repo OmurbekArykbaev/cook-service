@@ -60,6 +60,10 @@ const Home = () => {
 
             {filterState === "liked" &&
               wishlist.map((item) => <FoodCard key={item.id} {...item} />)}
+
+            {wishlist.length === 0 && filterState === "liked" && (
+              <>Нет любимых продуктов.</>
+            )}
           </div>
         )}
       </section>

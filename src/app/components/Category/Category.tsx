@@ -24,7 +24,7 @@ const Category = () => {
           <Error typeError="Server" message="Ошибка соединения!" />
         ) : (
           <div className="hidden  flex-col items-center md:flex md:flex-row lg:mb-0 lg:items-center py-2 z-[5]">
-            {isLoading && <h1>Loading...</h1>}
+            {isLoading && <h1>Загрузка...</h1>}
             {categoriesData &&
               categoriesData.map((item) => (
                 <Button
