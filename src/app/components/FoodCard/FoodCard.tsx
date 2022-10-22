@@ -89,7 +89,7 @@ const FoodCard: FC<IFood> = (props) => {
             {cal.calories} ккал
           </li>
           <li className="text-sm text-[#212629100] list-disc list-inside  mr-4 group-hover:text-white">
-            {price} Р
+            {price} сом
           </li>
         </ul>
 
