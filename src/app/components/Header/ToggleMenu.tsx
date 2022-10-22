@@ -40,12 +40,12 @@ const ToggleMenu: FC<Props> = ({ isAuthorization, isOpen, isToggle }) => {
                   <h4>Мои заказы</h4>
                 </Link>
               </li>
-              <li className="p-3 border-t-2 border-white">
+              {/* <li className="p-3 border-t-2 border-white">
                 <Link to="/cards" className="flex items-center">
                   <img className="mr-3" src="./img/item3.svg" alt="" />
                   <h4>Привязанные карты</h4>
                 </Link>
-              </li>
+              </li> */}
               <li className="p-3 border-t-2 border-white">
                 <Link to="/address" className="flex items-center">
                   <img className="mr-3" src="./img/item4.svg" alt="" />
