@@ -59,11 +59,11 @@ const FoodCard: FC<IFood> = (props) => {
 
         <img src={image} alt="Dish" />
 
-        <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
+        {/* <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
           <button>
             <img src="./img/chilli.png" alt="Hot" />
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* <!-- Text content part --> */}
@@ -84,7 +84,7 @@ const FoodCard: FC<IFood> = (props) => {
         </ul>
 
         <p className="text-lg text-[#21262999] leading-5 py-3 group-hover:text-white">
-          {description}
+          {description.slice(0, 90)} {description.length > 89 && <>...</>}
         </p>
 
         {!isInCart ? (
