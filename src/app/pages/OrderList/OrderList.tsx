@@ -54,6 +54,7 @@ const OrderList = () => {
           <div className=" flex  items-center flex-wrap  sm:flex-nowrap px-6 sm:px-12">
             {dataCategory.map((item) => (
               <ButtonCategory
+                key={item.id}
                 setFilter={setFilter}
                 name={item.name}
                 category={item.category}
@@ -61,8 +62,6 @@ const OrderList = () => {
               />
             ))}
           </div>
-
-          {/* <!-- item wrapper --> */}
 
           <ul className="flex flex-col p-6 md:p-12 w-full">
             {data &&

@@ -81,7 +81,7 @@ body {
   }
 
   .card-food-img {
-    @apply relative flex justify-center items-center bg-[#FE724B] w-full h-[360px] rounded-tl-[40px] rounded-tr-[40px];
+    @apply relative flex justify-center items-center  w-full h-[360px] rounded-tl-[40px] rounded-tr-[40px];
   }
 }
 

@@ -14,6 +14,9 @@ module.exports = {
       },
       colors: {
         gray: "#E9E9E9",
+        bluebg: "#B3E0EB",
+        pinkbg: "#FCBEC8",
+        orangebg: "#FE724B",
         black: "#212629",
         orange: "#FE9102",
         textGray: "rgba(33, 38, 41, 0.5)",

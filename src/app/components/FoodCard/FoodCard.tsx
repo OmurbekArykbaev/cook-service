@@ -24,6 +24,7 @@ const FoodCard: FC<IFood> = (props) => {
     dispatch(setIsOpen(true))
     dispatch(addProductInModal({ ...props, quantityProduct: 1 }))
   }
+
   const isWish = wishlist.filter((item) => item.id === id).length > 0
 
   const addWishListHandler = () => {
@@ -46,25 +47,48 @@ const FoodCard: FC<IFood> = (props) => {
   return (
     <div className="card-food">
       {/* <!-- Image part --> */}
-      <div className="card-food-img">
-        <div className="absolute top-5 left-5">
-          <button onClick={addWishListHandler}>
-            {isWish ? (
-              <AiFillHeart size={24} color="white" />
-            ) : (
-              <AiOutlineHeart color="white" size={24} />
-            )}
-          </button>
-        </div>
 
-        <img src={image} alt="Dish" />
+      {Number(id) % 2 === 0 ? (
+        <div className="card-food-img bg-bluebg">
+          <div className="absolute top-5 left-5">
+            <button onClick={addWishListHandler}>
+              {isWish ? (
+                <AiFillHeart size={24} color="white" />
+              ) : (
+                <AiOutlineHeart color="white" size={24} />
+              )}
+            </button>
+          </div>
 
-        <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
-          <button>
-            <img src="./img/chilli.png" alt="Hot" />
-          </button>
+          <img src={image} alt="Dish" />
+
+          <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
+            <button>
+              <img src="./img/chilli.png" alt="Hot" />
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="card-food-img bg-pinkbg">
+          <div className="absolute top-5 left-5">
+            <button onClick={addWishListHandler}>
+              {isWish ? (
+                <AiFillHeart size={24} color="white" />
+              ) : (
+                <AiOutlineHeart color="white" size={24} />
+              )}
+            </button>
+          </div>
+
+          <img src={image} alt="Dish" />
+
+          <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
+            <button>
+              <img src="./img/chilli.png" alt="Hot" />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* <!-- Text content part --> */}
       <div className="min-h-[280px] flex flex-col justify-around items-start p-4 border border-white/50 rounded-br-[40px] rounded-bl-[40px] group-hover:bg-black transition-all duration-150">
