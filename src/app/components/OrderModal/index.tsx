@@ -11,8 +11,8 @@ const PushUpOrder = () => {
   }
 
   return (
-    <div className="fixed top-7 left-5 lg:left-[50%] lg:-translate-x-2/4 z-50">
-      <div className="flex flex-col max-w-[770px] mr-6 mb-6">
+    <div className="fixed w-full p-5 top-[50%] -translate-y-2/4 md:-translate-y-0  md:top-7 left-0  lg:left-[50%] md:w-[500px] lg:-translate-x-2/4  z-50">
+      <div className="flex flex-col h-full w-full mr-6 mb-6">
         <ImagePart
           image={food[0].image}
           id={food[0].id}
