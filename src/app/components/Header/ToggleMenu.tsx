@@ -1,5 +1,8 @@
+import { useAppDispatch } from "../../hooks"
 import React, { FC } from "react"
 import { Link } from "react-router-dom"
+
+import { logOut } from "../../redux"
 
 type Props = {
   isAuthorization: boolean
@@ -8,6 +11,11 @@ type Props = {
 }
 
 const ToggleMenu: FC<Props> = ({ isAuthorization, isOpen, isToggle }) => {
+  const dispatch = useAppDispatch()
+  const userLogOutHandler = () => {
+    dispatch(logOut())
+  }
+
   if (isOpen) {
     return (
       <div
@@ -59,10 +67,13 @@ const ToggleMenu: FC<Props> = ({ isAuthorization, isOpen, isToggle }) => {
                 </Link>
               </li>
               <li className="p-3  border-t-2 border-white">
-                <Link to="/" className="flex items-center">
+                <button
+                  onClick={userLogOutHandler}
+                  className="flex items-center"
+                >
                   <img className="mr-3" src="./img/item6.svg" alt="" />
                   <h4>Выйти</h4>
-                </Link>
+                </button>
               </li>
             </>
           )}
