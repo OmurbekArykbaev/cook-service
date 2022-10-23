@@ -12,6 +12,7 @@ type Props = {
 
 const ToggleMenu: FC<Props> = ({ isAuthorization, isOpen, isToggle }) => {
   const dispatch = useAppDispatch()
+
   const userLogOutHandler = () => {
     dispatch(logOut())
   }
