@@ -24,9 +24,13 @@ export const userSlice = createSlice({
     editUserData: (state, action: PayloadAction<IUserData>) => {
       state.userData = action.payload
     },
+    logOut: (state) => {
+      state.isAuthorization = false
+      state.userData = { name: "", phone: "" }
+    },
   },
 })
 
-export const { getAuthorization, editUserData } = userSlice.actions
+export const { getAuthorization, editUserData, logOut } = userSlice.actions
 
 export default userSlice.reducer

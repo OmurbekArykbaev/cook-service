@@ -77,6 +77,8 @@ const FoodCard: FC<IFood> = (props) => {
           <img src={image} alt="Dish" />
         </div>
       )}
+
+      {/* <!-- Text content part --> */}
       <div className="min-h-[280px] flex flex-col justify-around items-start p-4 border border-white/50 rounded-br-[40px] rounded-bl-[40px] group-hover:bg-black transition-all duration-150">
         <h4 className="font-bold text-xl group-hover:text-white">{name}</h4>
 
@@ -94,7 +96,7 @@ const FoodCard: FC<IFood> = (props) => {
         </ul>
 
         <p className="text-lg text-[#21262999] leading-5 py-3 group-hover:text-white">
-          {description.slice(0, 90)} {description.length > 89 && <>...</>}
+          {description}
         </p>
 
         {!isInCart ? (

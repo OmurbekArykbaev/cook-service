@@ -12,11 +12,12 @@ import { addProduct, removeProduct, changeCountProduct } from "./cartSlice"
 import { addOrder, changeStatusOrder } from "./orderSlice"
 import { fetchAllFoods, filterByCategory } from "./getProductsSlice"
 import { getCategories } from "../redux/getCategorySlice"
-import { getAuthorization, editUserData } from "./userSlice"
+import { getAuthorization, editUserData, logOut } from "./userSlice"
 
 export {
   getAuthorization,
   editUserData,
+  logOut,
   addAddress,
   editAddress,
   removeAddress,
