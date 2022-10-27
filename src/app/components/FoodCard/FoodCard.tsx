@@ -50,14 +50,14 @@ const FoodCard: FC<IFood> = (props) => {
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
             {isWish ? (
-              <AiFillHeart size={24} color="white" />
+              <AiFillHeart size={24} color="red" />
             ) : (
-              <AiOutlineHeart color="white" size={24} />
+              <AiOutlineHeart color="red" size={24} />
             )}
           </button>
         </div>
 
-        <img src={image} alt="Dish" />
+        <img src={image} alt="Dish" className="w-full h-[360px]" />
       </div>
 
       {/* <!-- Text content part --> */}
@@ -78,7 +78,7 @@ const FoodCard: FC<IFood> = (props) => {
         </ul>
 
         <p className="text-lg text-[#21262999] leading-5 py-3 group-hover:text-white">
-          {description}
+          {description.slice(0, 90)} {description.length > 89 && <>...</>}
         </p>
 
         {!isInCart ? (
