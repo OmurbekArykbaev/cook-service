@@ -50,20 +50,14 @@ const FoodCard: FC<IFood> = (props) => {
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
             {isWish ? (
-              <AiFillHeart size={24} color="white" />
+              <AiFillHeart size={24} color="red" />
             ) : (
-              <AiOutlineHeart color="white" size={24} />
+              <AiOutlineHeart color="red" size={24} />
             )}
           </button>
         </div>
 
-        <img src={image} alt="Dish" />
-
-        {/* <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
-          <button>
-            <img src="./img/chilli.png" alt="Hot" />
-          </button>
-        </div> */}
+        <img src={image} alt="Dish" className="w-full h-[360px]" />
       </div>
 
       {/* <!-- Text content part --> */}
