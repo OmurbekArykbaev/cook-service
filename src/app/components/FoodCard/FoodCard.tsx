@@ -58,12 +58,6 @@ const FoodCard: FC<IFood> = (props) => {
         </div>
 
         <img src={image} alt="Dish" />
-
-        {/* <div className="absolute flex justify-center items-center bottom-[-10px] left-5 rounded-full p-1 bg-white shadow-chilli">
-          <button>
-            <img src="./img/chilli.png" alt="Hot" />
-          </button>
-        </div> */}
       </div>
 
       {/* <!-- Text content part --> */}
