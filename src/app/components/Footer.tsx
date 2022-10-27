@@ -15,7 +15,7 @@ const Footer = () => {
             <li className="item">
               <a className="item-link" href="/#">
                 <img className="mr-3" src="./img/phone.svg" alt="" />
-                <span>+7 (945) 450-46-60</span>
+                <span>+996 707-360-640</span>
               </a>
             </li>
             <li className="item">
