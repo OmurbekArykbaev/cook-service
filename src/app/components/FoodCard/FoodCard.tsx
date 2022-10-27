@@ -46,7 +46,6 @@ const FoodCard: FC<IFood> = (props) => {
 
   return (
     <div className="card-food">
-      {/* <!-- Image part --> */}
       <div className="card-food-img">
         <div className="absolute top-5 left-5">
           <button onClick={addWishListHandler}>
