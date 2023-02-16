@@ -1,0 +1,171 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Картофель с луком и белыми грибами",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 430,
+      "description": "Это вкусное и сытное блюдо является любимым блюдом во многих семьях, полюбите его и вы.",
+      "category": "zak",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "./img/dish.png"
+    },
+    {
+      "id": "2",
+      "name": "Картофель с луком и белыми грибами",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 530,
+      "description": "Это вкусное и сытное блюдо является любимым блюдом во многих семьях, полюбите его и вы.",
+      "category": "zak",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "./img/dish.png"
+    },
+    {
+      "id": "3",
+      "name": "Картофель с луком и белыми грибами",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 630,
+      "description": "Это вкусное и сытное блюдо является любимым блюдом во многих семьях, полюбите его и вы.",
+      "category": "zak",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "./img/dish.png"
+    },
+    {
+      "id": "4",
+      "name": "Картофель с луком и белыми грибами",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 730,
+      "description": "Это вкусное и сытное блюдо является любимым блюдом во многих семьях, полюбите его и вы.",
+      "category": "zak",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "./img/dish.png"
+    },
+    {
+      "id": "5",
+      "name": "Салат Английский",
+      "cal": { "calories": 173, "gram": 100 },
+      "price": 815,
+      "description": "филе грудки цыплят-бройлеров, грибы шампиньоны свежие, лук репчатый свежий, яйца куриные пищевые, огурцы консервированные, масло подсолнечное, майонез, приправа бульон Грибной, соль поваренная пищевая, паприка молотая, перец красный молотый",
+      "category": "sal",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://www.salatov.net/goods_new/2300245000000.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Салат Винегрет овощной",
+      "cal": { "calories": 155, "gram": 100 },
+      "price": 570,
+      "description": "свекла столовая свежая,морковь свежая, горошек консервированный, капуста квашеная (капуста белокочанная свежая, морковь свежая, соль поваренная пищевая), огурцы консервированные, масло подсолнечное, лук репчатый свежий,соль поваренная пищевая",
+      "category": "sal",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://www.salatov.net/goods_new/2300318000000.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Салат Закуска Русская",
+      "cal": { "calories": 370, "gram": 100 },
+      "price": 1200,
+      "description": "филе сельди в масле, лук репчатый свежий, масло подсолнечное, уксусная кислота 9%, укроп свежий",
+      "category": "sal",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://www.salatov.net/goods_new/2300157000000.jpg"
+    },
+    {
+      "id": "8",
+      "name": "По-гречески",
+      "cal": { "calories": 200, "gram": 120 },
+      "price": 230,
+      "description": "томаты свежие, перец сладкий свежий, комбинированный рассольный продукт смешанного состава Сиртаки для греческого салата, огурцы свежие, лук репчатый свежий, маслины, масло подсолнечное, петрушка свежая",
+      "category": "sal",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://www.salatov.net/goods_new/2300026000000.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Форель на углях",
+      "cal": { "calories": 709, "gram": 160 },
+      "price": 930,
+      "description": "",
+      "category": "gor",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://api.uryuk.me/v2/images?url=627582e1588fb.jpg&w=950&q=75"
+    },
+
+    {
+      "id": "11",
+      "name": "Жареный тавук в кокосовом карри",
+      "cal": { "calories": 1074, "gram": 300 },
+      "price": 1070,
+      "description": "Нежный цыплёнок обжаривается на мангале до золотистой корочки, а потом доводится до полной готовности томлением в соусе кокосовый карри.",
+      "category": "gor",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://api.uryuk.me/v2/images?url=6334cdfcc935e.jpg&w=950&q=75"
+    },
+    {
+      "id": "12",
+      "name": "Бакинский кебаб с сыром",
+      "cal": { "calories": 1300, "gram": 260 },
+      "price": 990,
+      "description": "С сыром Чеддер. Украшается зернами граната. Подается с Аджикой по-восточному и маринованным луком с зеленью",
+      "category": "gor",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://api.uryuk.me/v2/images?url=6275863ac1da7.jpg&w=950&q=75"
+    },
+
+    {
+      "id": "25",
+      "name": "Кока кола 1л",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 80,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quibusdam optio perferendis impedit necessitatibus error veniam illo quisquam.",
+      "category": "nap",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://wasabi.kg/wp-content/uploads/2022/03/full_cola_big.png"
+    },
+    {
+      "id": "26",
+      "name": "Пепси 1л",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 90,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quibusdam optio perferendis impedit necessitatibus error veniam illo quisquam.",
+      "category": "nap",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://images.satu.kz/129543787_w640_h640_napitok-pepsi-1l.jpg"
+    },
+    {
+      "id": "27",
+      "name": "Фанта 1л",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 80,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quibusdam optio perferendis impedit necessitatibus error veniam illo quisquam.",
+      "category": "nap",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://neman.kg/images/detailed/34/959454_1560513891.1225_original.png"
+    },
+    {
+      "id": "28",
+      "name": "Домашний компот 1л",
+      "cal": { "calories": 1040, "gram": 320 },
+      "price": 110,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quibusdam optio perferendis impedit necessitatibus error veniam illo quisquam.",
+      "category": "nap",
+      "privatePerson": false,
+      "corporatePerson": false,
+      "image": "https://apexfood.ru/image/cache/edit/fH0LXLUVAftuMKq8ZV6y-400x400.jpg"
+    }
+  ]
+}

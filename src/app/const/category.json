@@ -1,0 +1,12 @@
+{
+  "dataCategory": [
+    { "id": 1, "title": "Любимое", "category": "liked" },
+    { "id": 2, "title": "Закуски", "category": "zak" },
+    { "id": 3, "title": "Салаты", "category": "sal" },
+    { "id": 4, "title": "Горячее", "category": "gor" },
+    { "id": 5, "title": "Супы", "category": "soup" },
+    { "id": 6, "title": "Десткое", "category": "det" },
+    { "id": 7, "title": "Десерты", "category": "des" },
+    { "id": 8, "title": "Напитки", "category": "nap" }
+  ]
+}
